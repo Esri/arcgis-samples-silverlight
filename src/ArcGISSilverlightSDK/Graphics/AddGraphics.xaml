@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.AddGraphics"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="RedMarkerSymbol" Color="Red" Size="12" Style="Circle" />
+            <esri:SimpleMarkerSymbol x:Key="BlackMarkerSymbol" Color="Black" Size="14" Style="Diamond" />
+            <esri:PictureMarkerSymbol x:Key="GlobePictureSymbol" OffsetX="8" OffsetY="8" 
+                Source="/Assets/images/globe-16x16.png" />
+            <esri:SimpleLineSymbol x:Key="DefaultLineSymbol" Color="Green" Style="DashDot" Width="4" />
+            <esri:SimpleFillSymbol x:Key="DefaultFillSymbol" Fill="Green" BorderBrush="Blue" 
+                BorderThickness="3" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Background="White">     
+                <esri:ArcGISTiledMapServiceLayer ID="PhysicalTiledLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>				
+                <esri:GraphicsLayer ID="MyGraphicsLayer" />
+        </esri:Map>
+        
+    </Grid>
+</UserControl>

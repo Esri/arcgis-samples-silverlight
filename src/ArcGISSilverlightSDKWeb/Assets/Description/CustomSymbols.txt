@@ -1,0 +1,1 @@
+﻿This sample demonstrates adding graphics to the map using XAML. Various symbols (Marker, Fill, and Line) are used to create advanced graphics that use core Silverlight classes such as  VisualStateManager, RadialGradient, LinearGradient, FillGradient, ScaleTransform, Storyboard animations, etc. Move the mouse cursor over the various point symbols to see different effects.

@@ -1,0 +1,3 @@
+﻿This samples demonstrates how to apply an ESRI.ArcGIS.Client RenderingRule class on an ArcGISImageServiceLayer to display imagery in different display formats. The raster functions used to display images include: ShadedRelief, Hillshade and Slope.
+
+To use the sample, choose the shaded relief or slope raster function (via the radio buttons), then define input properties and click Apply to see the changes.

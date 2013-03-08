@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.AttributeQuery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:slData="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <esri:SimpleFillSymbol x:Key="DefaultFillSymbol" Fill="#500000FF" BorderBrush="Blue" BorderThickness="1" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,2000000,-7000000,8000000">
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+            <esri:GraphicsLayer ID="MyGraphicsLayer" />
+        </esri:Map>
+
+        <Border x:Name="QueryBorder" Background="#77919191" BorderThickness="1" CornerRadius="5"
+                HorizontalAlignment="Right" BorderBrush="Gray" VerticalAlignment="Top" 
+                Margin="5">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid x:Name="QueryGrid" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DataDisplayTitleBottom" Text="Query a layer (search for a state)" 
+                       Foreground="White" FontSize="10" Grid.Row="0"                      
+                       Margin="15,5,15,1" HorizontalAlignment="Center" >
+                    <TextBlock.Effect>
+                        <DropShadowEffect />                          
+                    </TextBlock.Effect>
+                </TextBlock>
+                <ComboBox x:Name="QueryComboBox" Grid.Row="1" MinWidth="150" SelectionChanged="QueryComboBox_SelectionChanged"
+                         Margin="5,1,5,5" >
+                </ComboBox>
+                <ScrollViewer x:Name="DataGridScrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto"  
+                         Width="230" MinHeight="200" Visibility="Collapsed" Grid.Row="2">
+                    <slData:DataGrid x:Name="QueryDetailsDataGrid" AutoGenerateColumns="False" HeadersVisibility="None" 
+                              Background="White">
+                        <slData:DataGrid.Columns>
+                            <slData:DataGridTextColumn Binding="{Binding Path=Key}" FontWeight="Bold"/>
+                            <slData:DataGridTextColumn Binding="{Binding Path=Value}"/>
+                        </slData:DataGrid.Columns>
+                    </slData:DataGrid>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.QueryImageService"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <Grid.Resources>
+            <esri:SimpleFillSymbol x:Key="DrawFillSymbol" BorderBrush="Red" Fill="#33FF0000" />
+            <esri:SimpleFillSymbol x:Key="FootprintFillSymbol" Fill="#01FFFFFF" BorderBrush="White" BorderThickness="2" />
+        </Grid.Resources>
+
+        <esri:Map WrapAround="True" x:Name="MyMap" MinimumResolution="0.001">
+            <esri:Map.Extent>
+                <esri:Envelope XMin="-13670997.592674" YMin="5697204.89662362" XMax="-13637149.3323152" YMax="5714270.45407472">
+                    <esri:Envelope.SpatialReference>
+                        <esri:SpatialReference WKID="102100"/>
+                    </esri:Envelope.SpatialReference>
+                </esri:Envelope>
+            </esri:Map.Extent>
+            <esri:ArcGISImageServiceLayer ID="ImageServiceLayer"  
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Portland/Aerial/ImageServer" ImageFormat="JPGPNG" />
+            <esri:ArcGISTiledMapServiceLayer Opacity="100" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer" />
+            <esri:GraphicsLayer ID="FootprintsGraphicsLayer" >
+                <esri:GraphicsLayer.MapTip>
+                    <Border CornerRadius="10" BorderBrush="#FF222957" Background="LightGray" BorderThickness="2" Margin="0,0,15,15">
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Name: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding [Name]}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Pixel Size (meters/pixel): " />
+                                <TextBlock Text="{Binding [LowPS]}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </esri:GraphicsLayer.MapTip>
+            </esri:GraphicsLayer>
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <StackPanel Orientation="Vertical" Margin="30,20,20,30" >
+                <TextBlock x:Name="ResponseTextBlock" Text="Drag a rectangle to query image tiles.  Tile footprints will be displayed and their attributes will be available in map tips." 
+                           Width="200" TextAlignment="Left"  TextWrapping="Wrap" />
+                <Button Content="Clear Results" Margin="0,5,5,0" Click="ClearButton_Click"  />
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

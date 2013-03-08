@@ -1,0 +1,3 @@
+﻿This sample displays an interval (in years) of earthquakes on the Map using an ESRI.ArcGIS.Client.Toolkit TimeSlider control. The Earthquakes are based on a FeatureLayer that has valid TimeExtents set and has a Renderer set using SimpleMarkerSymbols. Earthquake data is valid from 1970 to 2009. 
+
+To use the sample, adjust the minimum and maximum values on the TimeSlider to specify a range in years for earthquakes to display. The minimum TimeSlider interval that can be set is 2 years. Push the play button to automate the earthquakes on the map. It is also possible to use the forward and rewind buttons to manually cycle through the interval of earthquakes being displayed.

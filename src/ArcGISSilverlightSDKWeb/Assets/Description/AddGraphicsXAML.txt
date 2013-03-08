@@ -1,0 +1,1 @@
+﻿This sample demonstrates adding graphics to the map using XAML.  Simple marker symbols, picture marker symbols, simple line symbols, cartographic line symbols, simple fill symbols, and picture fill symbols are shown.

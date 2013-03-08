@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SDSMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White" >
+
+        <Grid.Resources>
+            <esri:SimpleFillSymbol x:Key="MyRedFillSymbol" Fill="#BBFF0000" BorderBrush="#BBFFFFFF" BorderThickness="1" />
+            
+            <esri:SimpleRenderer x:Key="MyYellowRenderer">
+                <esri:SimpleRenderer.Symbol>
+                    <esri:SimpleMarkerSymbol Color="Yellow" Size="10" Style="Circle">
+                        <esri:SimpleMarkerSymbol.ControlTemplate>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Ellipse Fill="{Binding Symbol.Color}" Width="{Binding Symbol.Size}" 
+                                     Height="{Binding Symbol.Size}" Stroke="Black" StrokeThickness="0.3" />
+                                </Grid>
+                            </ControlTemplate>
+                        </esri:SimpleMarkerSymbol.ControlTemplate>
+                    </esri:SimpleMarkerSymbol>
+                </esri:SimpleRenderer.Symbol>
+            </esri:SimpleRenderer>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True">
+            <esri:GraphicsLayer ID="MyPolygonGraphicsLayer" Initialized="PolygonGraphicsLayer_Initialized"  />
+
+            <esri:FeatureLayer ID="MyLineFeatureLayer"
+                               Url="http://servicesbeta5.esri.com/arcgis/rest/services/World/FeatureServer/1"
+                               Mode="OnDemand" />
+            
+            <esri:GraphicsLayer ID="MyPointGraphicsLayer" Initialized="PointGraphicsLayer_Initialized" 
+                                Renderer="{StaticResource MyYellowRenderer}" >
+                <esri:GraphicsLayer.Clusterer>
+                    <esri:FlareClusterer 
+                            FlareBackground="#BBFFFF00" 
+                            FlareForeground="Black" 
+                            MaximumFlareCount="15" />
+                </esri:GraphicsLayer.Clusterer>
+                <esri:GraphicsLayer.MapTip>
+                    <Grid Background="LightYellow">
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding [AREANAME]}" FontWeight="Bold" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Population: " />
+                                <TextBlock Text="{Binding [POP2000]}" />
+                            </StackPanel>
+                        </StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="1" />
+                    </Grid>
+                </esri:GraphicsLayer.MapTip>
+            </esri:GraphicsLayer>
+        </esri:Map>
+
+    </Grid>
+</UserControl>

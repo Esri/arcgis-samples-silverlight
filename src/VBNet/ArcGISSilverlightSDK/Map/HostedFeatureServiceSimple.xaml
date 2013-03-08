@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.HostedFeatureServiceSimple"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,2000000,-7000000,8000000">
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer"
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+            <esri:FeatureLayer ID="MyFeatureLayer"
+                    Url="http://services.arcgis.com/pmcEyn9tLWCoX7Dm/ArcGIS/rest/services/United_States_Nuclear_Missile_Silos/FeatureServer/0"
+                    OutFields="Name">
+                <esri:FeatureLayer.MapTip>
+                    <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="White">
+                        <TextBlock Text="{Binding [Name]}" Foreground="Black" Margin="5" />
+                    </Border>
+                </esri:FeatureLayer.MapTip>
+            </esri:FeatureLayer>
+        </esri:Map>
+
+    </Grid>
+</UserControl>

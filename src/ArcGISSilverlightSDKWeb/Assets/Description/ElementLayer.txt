@@ -1,0 +1,1 @@
+This sample shows how to add UI elements to locations or regions on a map.  This includes Silverlight Buttons, TextBlocks, TextBoxes, etc.  The pivotal property on a UI element is the ElementLayer.Envelope attached property.  It will define placement of the element on a map.        

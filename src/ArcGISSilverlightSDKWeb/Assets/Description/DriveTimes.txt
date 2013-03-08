@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of the Geoprocessor to call a DriveTimes geoprocessing service.  To use the sample, simply click a point in the map.  Drive times polygons of 1, 2, and 3 minutes will be calculated and shown on the map.
+
+In the code-behind, a Geoprocessor is used to pass the click point and drive time parameters of 1, 2, and 3 minutes to the geoprocessing service.  When the results are returned, they are added to a GraphicsLayer in the map.

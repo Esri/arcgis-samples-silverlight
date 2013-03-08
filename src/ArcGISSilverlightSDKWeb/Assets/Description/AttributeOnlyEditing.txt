@@ -1,0 +1,1 @@
+﻿This sample demonstrates the ability of feature services to restrict edits to attributes only (no geometry edits).  To use, click to select a parcel feature in the map.  Change the Has_Pool field value (Yes or No).  The feature symbol will change to reflect the attribute change.  

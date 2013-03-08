@@ -1,0 +1,1 @@
+﻿This sample demonstrates retrieval and display of data independent of any mapping.  Click the Do Query button to retrieve and display records.  In the code-behind, the sample uses a QueryTask to retrieve data from a map service layer.  The results are then added to a DataGrid control.

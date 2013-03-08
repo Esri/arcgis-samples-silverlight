@@ -1,0 +1,3 @@
+This sample demonstrates printing a map using a PrintTask. To use the sample, specify the print settings (Layout template and Format) using the dropdowns and click the Export Map button to generate a printout of the map. The printout will be displayed as appropriate for the format chosen.
+
+In the code-behind, a PrintTask is used to generate a printable file from the map. The layout and format will match those specified in the sample, and a URL to the printable file is returned. The sample then navigates to that URL to show the printable map.

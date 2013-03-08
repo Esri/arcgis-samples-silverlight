@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of the RouteTask to calculate routes when barriers exist.  To use the sample, select whether to add stops or add barriers from the dialog in the upper right of the application, then click points on the map.  Each time you click, a barrier or stop will be added.  When a new stop is added, the route between the new stop and the last stop will be calculated and shown on the map.
+
+In the code-behind, a RouteTask is used to calculate the route between the stops.  The barriers are maintained in a list of graphics and specified in the RouteTask's parameters when a route operation is executed. When route results are returned, the route geometry is added to the map.

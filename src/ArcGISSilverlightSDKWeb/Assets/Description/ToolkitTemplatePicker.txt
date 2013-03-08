@@ -1,0 +1,3 @@
+﻿This sample demonstrates being able to add features and their associated attributes in two FeatureLayers using the ESRI.ArcGIS.Client.Toolkit TemplatePicker.
+
+To use the sample, select a template from the picker, and draw a feature on the map.  Modify attributes and click Apply to finish.

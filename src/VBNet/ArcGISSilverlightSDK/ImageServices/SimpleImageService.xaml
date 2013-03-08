@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SimpleImageService"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+  <Grid x:Name="LayoutRoot" Background="White">
+		<esri:Map x:Name="MyMap" Extent="-13486609,5713307,-13263258,5823117" WrapAround="True">
+      <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+      <esri:ArcGISImageServiceLayer Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Portland/CascadeLandsat/ImageServer" 
+                                          ImageFormat="PNG8"
+                                          NoData="0"/>
+    </esri:Map>
+  </Grid>
+</UserControl>

@@ -1,0 +1,3 @@
+﻿This sample demonstrates geocoding addresses using a LocatorTask.  To use the sample, specify an address in the dialog in the upper right of the application and click the Find button.  You can pan to each geocode result by selecting it from the results list in the lower right of the application.
+
+In the code-behind, a LocatorTask is used to geocode the specified address.  The resulting match candidates are then used to create Graphics and added to the map.

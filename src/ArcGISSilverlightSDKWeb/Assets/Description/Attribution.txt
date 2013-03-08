@@ -1,0 +1,1 @@
+﻿This sample illustrates how to use the Attribution control to display copyright information for layers in the map.  

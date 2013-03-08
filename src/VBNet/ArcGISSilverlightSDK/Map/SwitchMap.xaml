@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SwitchMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Loaded="MyMap_Loaded">
+            <esri:ArcGISTiledMapServiceLayer ID="AGOLayer" Visible="True" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent" Margin="10">
+                <RadioButton x:Name="StreetsRadioButton" 
+                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
+                         IsChecked="true" Margin="5,0,0,0" Foreground="White"
+                         GroupName="Layers" Content="Streets" Click="RadioButton_Click"/>
+                <RadioButton x:Name="TopoRadioButton" 
+                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" 
+                         Margin="5,0,0,0" Foreground="White" 
+                         GroupName="Layers" Content="Topo" Click="RadioButton_Click"/>
+                <RadioButton x:Name="ImageryRadioButton" 
+                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" 
+                         Margin="5,0,0,0" Foreground="White" 
+                         GroupName="Layers" Content="Imagery" Click="RadioButton_Click"/>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

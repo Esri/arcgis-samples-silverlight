@@ -1,0 +1,1 @@
+This sample illustrates how to use 2.5D projection capabilities available in Silverlight with a map.  Use the slider to tilt (change the rotation of the Grid that contains the map) in the X direction.  The angle is displayed at the bottom of the page.  

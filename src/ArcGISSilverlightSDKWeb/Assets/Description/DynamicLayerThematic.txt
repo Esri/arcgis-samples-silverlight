@@ -1,0 +1,3 @@
+﻿This sample demonstrates applying thematic rendering on a ArcGIS Server 10.1 DynamicLayer using the GenerateRenderer Task. 
+
+To use the sample enter the appropriate parameters and click on Render.

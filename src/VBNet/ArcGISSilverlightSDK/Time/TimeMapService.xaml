@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.TimeMapService"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:esriToolkitPrimitives="clr-namespace:ESRI.ArcGIS.Client.Toolkit.Primitives;assembly=ESRI.ArcGIS.Client.Toolkit">
+
+    <Grid x:Name="LayoutRoot">
+
+        <esri:Map x:Name="MyMap" Extent="-15141796.142,113237.394,5976634.055,8887493.525" WrapAround="True" TimeExtent="{Binding ElementName=MyTimeSlider, Path=Value}" >
+
+            <esri:ArcGISTiledMapServiceLayer ID="BaseLayer"
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
+
+            <esri:ArcGISDynamicMapServiceLayer ID="HurricaneLayer" 
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Hurricanes/NOAA_Tracks_1851_2007/MapServer"
+                    Initialized="ArcGISDynamicMapServiceLayer_Initialized" />
+
+            <esri:FeatureLayer ID="MyFeatureLayer1" Visible="False"
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Hurricanes/NOAA_Tracks_1851_2007/MapServer/0" />
+
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50,10,50,10" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Border Background="#FFFFFFFF" BorderBrush="DarkGray" CornerRadius="5" Margin="10,10,10,15"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <StackPanel Margin="5">
+                    <TextBlock Text="Hurricanes 1851 - 2007" FontSize="14" HorizontalAlignment="Center"/>
+
+                    <Grid>
+                        <TextBlock  
+                        Text="{Binding ElementName=MyTimeSlider, Path=Value.Start, Mode=OneWay}" 
+                        HorizontalAlignment="Left" />
+
+                        <TextBlock
+                        Text="{Binding ElementName=MyTimeSlider, Path=Value.End, Mode=OneWay}" 
+                        HorizontalAlignment="Right" />
+                    </Grid>
+
+                    <esri:TimeSlider x:Name="MyTimeSlider" 
+                        Loop="True" PlaySpeed="0:0:1.5"
+                        TimeMode="TimeExtent"                 
+                        MinimumValue="{Binding ElementName=MyMap, Path=Layers[HurricaneLayer].TimeExtent.Start, Mode=OneWay}"
+                        MaximumValue="{Binding ElementName=MyMap, Path=Layers[HurricaneLayer].TimeExtent.End, Mode=OneWay}"                        
+                        Height="20" />
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Background="#99919191" BorderThickness="1" CornerRadius="5"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="20,20,20,30" Padding="10" BorderBrush="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Hurricane Categories" Foreground="White" Grid.Row="0" FontSize="16">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Border Background="White" Grid.Row="1" Padding="2" CornerRadius="5">
+                    <Image x:Name="LegendImage" Source="/Assets/images/hurricane_legend.png" Stretch="None"
+                   Margin="5" />
+                </Border>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

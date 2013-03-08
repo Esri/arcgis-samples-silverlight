@@ -1,0 +1,1 @@
+This sample demonstrates adding graphics in one spatial reference (in this case, WGS84 [WKID: 4326]) to a map which is in a different spatial reference (in this case, World Mollweide [WKID: 54009]). A simple marker symbol, simple line symbol, simple fill symbol, and a GeoRSSLayer are shown. 

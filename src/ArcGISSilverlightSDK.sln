@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcGISSilverlightSDK", "ArcGISSilverlightSDK\ArcGISSilverlightSDK.csproj", "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArcGISSilverlightSDKWeb", "ArcGISSilverlightSDKWeb\", "{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""
+		SccAuxPath = ""
+		SccLocalPath = ""
+		SccProvider = ""
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/ArcGISSilverlightSDKWeb"
+		Debug.AspNetCompiler.PhysicalPath = "ArcGISSilverlightSDKWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ArcGISSilverlightSDKWeb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ArcGISSilverlightSDKWeb"
+		Release.AspNetCompiler.PhysicalPath = "ArcGISSilverlightSDKWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ArcGISSilverlightSDKWeb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1392"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
+		DefaultWebSiteLanguage = "Visual C#"
+		ProjOutputReferences = "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}||false;"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Debug|Win32.Build.0 = Debug|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Release|Win32.ActiveCfg = Release|Any CPU
+		{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}.Release|Win32.Build.0 = Release|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Debug|Win32.Build.0 = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Release|Win32.ActiveCfg = Debug|Any CPU
+		{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}.Release|Win32.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

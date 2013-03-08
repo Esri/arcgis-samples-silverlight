@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input graphic point that was created using decimal degrees and projects the return graphic point to Web Mercator. 
+
+To use the sample, enter an X and Y coordinate value in decimal degrees (WGS84) and click Project to transform the coordinate to Web Mercator and add it to the map.

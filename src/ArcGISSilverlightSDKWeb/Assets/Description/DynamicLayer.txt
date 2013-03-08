@@ -1,0 +1,10 @@
+This sample demonstrates changing the rendering, changing the order of layers, and adding layers on the fly to an ArcGISDynamicMapServiceLayer. To use the sample, click on the buttons in the upper left corner of the application.
+
+In the code-behind, the  ArcGISDynamicMapServiceLayer.LayerDrawingOptions and ArcGISDynamicMapServiceLayer.DynamicLayerInfos properties are used to apply the changes based on the button that was clicked. 
+
+Clicking the Range Value Renderer or Unique Value Renderer button generates a renderer of the appropriate type, creates a new LayerDrawingOptions object and sets its Renderer property to the generated renderer, and then uses the LayerDrawingOptions property to apply the new renderer. 
+
+Clicking the Change Layer Order button clears the layer's LayerDrawingOptions by setting it to null uses DynamicLayerInfoCollection.RemoveAt and DynamicLayerInfoCollection.Add to move a layer. 
+
+Clicking the Add Layer button gets a layer using the TableDataSource and adds it to the map using the DynamicLayerInfos.
+

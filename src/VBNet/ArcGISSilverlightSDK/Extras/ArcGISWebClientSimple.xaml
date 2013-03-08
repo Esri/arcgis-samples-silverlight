@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ArcGISWebClientSimple"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:common="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="1" />
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="LightGray">
+            <esri:Map x:Name="MyMap"/>
+            <esri:MapProgressBar 
+			Map="{Binding ElementName=MyMap}"
+			HorizontalAlignment="Center" VerticalAlignment="Bottom"
+			Width="200" Height="24"
+			Margin="25" />
+        </Grid>
+
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" />
+
+        <Grid Grid.Column="2" x:Name="MySvrGrid">
+            <Grid.Resources>
+                <!-- Data template bound to Name property in list of map services -->
+                <common:HierarchicalDataTemplate x:Key="ServiceTemplate">
+                    <TextBlock Text="{Binding Name}" />
+                </common:HierarchicalDataTemplate>
+            </Grid.Resources>
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="3*" x:Name="MySvrTextBoxGridColumn" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Server Url:" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="0" Margin="5,5,5,0" 
+                               HorizontalAlignment="Right" />
+                    <TextBox x:Name="MySvrTextBox" HorizontalAlignment="Left"                             
+                             Text="http://services.arcgisonline.com/arcgis/rest/services" Grid.Column="1"
+                             Width="{Binding ActualWidth, ElementName=MySvrTextBoxGridColumn, Mode=TwoWay}" />
+                </Grid>
+
+                <Button Content="Get Services" Width="120" Margin="0,10,0,10" Click="Button_Click"/>
+                <Border BorderBrush="Black" BorderThickness="1" />
+                <Grid>
+                    <!-- TreeView to list map services-->
+                    <basics:TreeView BorderThickness="0" x:Name="MySvcTreeView" SelectedItemChanged="MySvcTreeView_SelectedItemChanged"
+                            ItemTemplate="{StaticResource ServiceTemplate}" Visibility="Collapsed"/>
+                    <TextBlock x:Name="NoMapServicesTextBlock" Text="No Map Services Available" Margin="10" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

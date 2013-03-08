@@ -1,0 +1,3 @@
+﻿This sample illustrates how to use the ArcGISWebClient class to post multi-part content (e.g. file) to a service\operation.  The ArcGISWebClient.PostMultipartAsync method supports providing a dictionary of parameter values as string-value pairs, and an IEnumerable of StreamContent.  Use StreamContent to define the name, filename, content type, and the stream with content.  
+
+This sample also demonstrates how to use the ArcGIS Portal REST API to generate features from a shapefile (http://www.arcgis.com/apidocs/rest/generate.html).   

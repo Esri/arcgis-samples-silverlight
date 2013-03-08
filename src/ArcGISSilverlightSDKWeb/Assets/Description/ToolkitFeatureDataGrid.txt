@@ -1,0 +1,3 @@
+﻿This sample demonstrates using the ESRI.ArcGIS.Client.Toolkit FeatureDataGrid to view and edit attributes associated with a FeatureLayer.
+
+To use the sample, edit values in the data grid.  When finished, click the Commit button to save to the database.

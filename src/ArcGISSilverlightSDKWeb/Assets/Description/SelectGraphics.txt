@@ -1,0 +1,1 @@
+﻿This sample demonstrates adding graphics (MapPoint, Polyline and Polygon) to the map using XAML. Different Symbol types (MarkerSymbol, LineSymbol and FillSymbol) are created and used in a StaticResource dictionary. Using Mouse Click events the graphics are selected and unselected which change the symbols to which they are bound.

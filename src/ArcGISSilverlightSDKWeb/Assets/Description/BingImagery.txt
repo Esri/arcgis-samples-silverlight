@@ -1,0 +1,1 @@
+﻿This sample demonstrates using the ESRI.ArcGIS.Client.Toolkit.Bing TileLayer to display map imagery from Microsoft's Bing services. Click on the radio buttons to change the various Bing map styles to different enumerations (like: Road, Aerial and ArielWithLabels).

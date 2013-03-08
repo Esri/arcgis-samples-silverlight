@@ -1,0 +1,1 @@
+﻿This sample includes a Map and a ArcGISTiledMapServiceLayer and demonstrates how to add an ArcGIS Server cached map service layer to a map.  Use ArcGIS Server Services Directory to discover the Url to reference the map service.

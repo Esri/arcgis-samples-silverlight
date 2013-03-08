@@ -1,0 +1,1 @@
+﻿This sample demonstrates enabling MapTips on a GraphicsLayer using the GraphicsLayer's MapTip property.  The sample XAML shows that the MapTip property can contain any valid XAML elements.  Also shown is how attributes can be bound to text using a DictionaryConverter.

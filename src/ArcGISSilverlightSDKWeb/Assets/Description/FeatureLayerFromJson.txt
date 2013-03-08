@@ -1,0 +1,1 @@
+﻿This sample demonstrates how to use the FeatureLayer.FromJson method to deserialize a ArcGIS Json feature layer to a native FeatureLayer.  An ArcGIS Json feature layer consists of a layer definition and feature set.  

@@ -1,0 +1,3 @@
+﻿This sample displays the cumulative activity (in 2 hour increments) of earthquakes on the Map using an ESRI.ArcGIS.Client.Toolkit TimeSlider control. The Earthquakes are based on a FeatureLayer that has valid TimeExtents set and has a Renderer set using SimpleMarkerSymbols as well as more complex animations using a MarkerSymbol.ControlTemplate. Earthquake data is valid for the last 7 days from the USGS in 2 hour increments. 
+
+To use the sample, push the play button to automate the earthquakes on the map. It is also possible to use the forward and rewind buttons to manually cycle through the cumulative earthquakes being displayed.

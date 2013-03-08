@@ -1,0 +1,4 @@
+﻿The sample uses a GP service to fetch the list of available versions  accessible by the enterprise geodatabase hosting Water_Network.
+By default the featurelayer version is sde.Default. The sde version for the featurelayer can be changed by selecting the respective version from the dropdown.
+
+Note, features may not appear different because data might be same in all versions.

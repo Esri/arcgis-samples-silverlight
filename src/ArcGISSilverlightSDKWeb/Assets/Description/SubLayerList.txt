@@ -1,0 +1,1 @@
+﻿This sample contains a Map with one tiled map service layer and one dynamic map service layer.  A layer list shows the layers (sublayers) within the dynamic map service and a visibility check box.  Element binding in XAML is used to populate the ListBox contents and enable runtime interactivity between sublayers and UI elements in the layer list.

@@ -1,0 +1,4 @@
+﻿The sample showcases 10.1 GeocodeServer's new capability of performing a batch Geocoding. 
+
+To use the sample use the default list of addresses and click in Find Addresses button. 
+You may also clear pre-populated list of addresses and enter new addresses using the Street and Zip input fields.

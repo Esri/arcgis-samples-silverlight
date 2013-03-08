@@ -1,0 +1,1 @@
+﻿This sample demonstrates displaying an ESRI.ArcGIS.Client.ToolkitDataSources WmsLayer draped over an ArcGISTiledMapServiceLayer. The WmsLayer allows display of Open Geospatial Consortium (OGC) WMS layers.

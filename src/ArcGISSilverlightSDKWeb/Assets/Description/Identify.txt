@@ -1,0 +1,3 @@
+﻿This sample demonstrates performing identify operations.  To use the sample, simply click anywhere in the United States to identify features.  The results will be shown in the drop-down menu and DataGrid in the upper right corner of the application.  View the data for different results by selecting them from the drop-down menu.
+
+In the code-behind, the sample uses a Draw object to get the click geometry and an IdentifyTask to perform the identify operation.  The tasks identify parameters specify to query all the layers in the target map service, which enables the returning of results from multiple layers.

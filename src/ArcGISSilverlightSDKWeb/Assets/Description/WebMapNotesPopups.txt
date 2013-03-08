@@ -1,0 +1,1 @@
+﻿This sample shows how to return and modify the contents of a webmap from ArcGIS Online that contains map notes with pop-ups.  Map notes are represented by a client-side feature layer with MapTips that contain popup contents.  In this sample, the style of the map tips container is modified.    

@@ -1,0 +1,1 @@
+This sample demonstrates how to change the Url of a single tiled map service layer at runtime.  When a radio button is clicked, the code in the event handler is used to change the url of the layer.   

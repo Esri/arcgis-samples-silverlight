@@ -1,0 +1,3 @@
+This sample demonstrates using the GenerateRendererTask to create a class breaks or a unique value renderer on the server without having to retrieve all the data to the client. To use the sample, click either the Generate Range Values or Generate Unique Values button. This updates the renderer on the map.
+
+In the code-behind, a GenerateRendererTask is used to create a renderer, and the LayerDrawingOptions.Renderer is set to the GenerateRendererResultEventArgs.GenerateRendererResult.Renderer to use the generated renderer in the map's display.

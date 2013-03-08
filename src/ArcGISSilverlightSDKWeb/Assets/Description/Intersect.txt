@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input polygon that cuts across another existing polygons in a GraphicsLayer to return the intersection between the two polygons that are filled with random colors. 
+
+To use the sample, add a polygon that intersects a portion of the parcel features.  Intersecting portions of  features are displayed in random colors.

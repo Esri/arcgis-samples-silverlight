@@ -1,0 +1,3 @@
+This sample demonstrates performing a query and generating statistics for fields. The query is run when the sample loads.
+
+In the sample's code-behind, a list of OutStatistic instances is created. Each OutStatistic uses OnStatisticField to specify the field to generate a statistic for, OutStatisticFieldName to specify the field to contain the statistic in the output, and StatisticType to specify the type of statistic to generate. This sample shows both StatisticType.Sum and StatisticType.Count. The query is then executed to generate the requested statistics, and the results are used to populate the DataGrid.

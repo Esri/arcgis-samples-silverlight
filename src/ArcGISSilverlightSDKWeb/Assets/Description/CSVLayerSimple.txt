@@ -1,0 +1,6 @@
+﻿This sample demonstrates the use of the CSVLayer type.  CSVLayer is designed to read and render text files that contain delimited values where at least two of the delimited columns reference an X and Y value.  Note, CSVLayer only supports point geometry. The CSVLayer derives from GraphicsLayer and thus inherits the ability to define renderers and map tips.  
+
+In this example a text file, hosted by the USGS, contains comma delimited values, and two of the columns are recognized to contain X and Y values from which to construct point geometry.  A set of fields are automatically detected to contain X and Y values, such as "latitude", "y", "longitude", "x".  Use XFieldName and YFieldName to set explicitly.   
+
+CSVLayer provides some optional properties to handle properties of source files.  For example, by default, the CSVLayer assumes a spatial reference of geographic WGS84 (WKID: 4326).  Use SourceSpatialReference to set explicitly.  The default column delimiter is a comma (,).  Use ColumnDelimeter to set explicitly.  
+     

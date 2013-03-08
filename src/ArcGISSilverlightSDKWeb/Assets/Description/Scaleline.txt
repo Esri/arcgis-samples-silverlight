@@ -1,0 +1,1 @@
+﻿This sample demonstrates the use of the ScaleLine control to display map scale in map units.  The ScaleLine changes size and display values as the map scale changes.  

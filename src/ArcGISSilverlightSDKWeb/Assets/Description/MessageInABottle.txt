@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of the Geoprocessor to call a MessageInABottle geoprocessing service.  To use the sample, specify the number of days and click a point in the ocean.  The path of a bottle dropped at the click point over the specified number of days will be drawn on the map.
+
+In the code-behind, a Geoprocessor is used to pass the number of days and the clicked point to the geoprocessing service.  When the results are returned, they are added to a GraphicsLayer in the map.

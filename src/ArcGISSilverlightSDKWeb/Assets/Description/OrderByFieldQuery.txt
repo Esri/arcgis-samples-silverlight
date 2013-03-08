@@ -1,0 +1,3 @@
+This sample demonstrates performing a query, sorting the results based on a specified field, and adding the results to the map and a FeatureDataGrid. To use the sample, perform a search for an owner name in the upper right corner of the application.
+
+In the sample's code-behind, a QueryTask is used to query a MontgomeryQuarters map service layer based on the name entered in the search box. The Query.OrderByFields property is set to an OrderByField object that specifies results should be sorted with SortOrder.Ascending based on the OWNER_NAME field. The features found are then added to a graphics layer and are displayed on the map and in the FeatureDataGrid.

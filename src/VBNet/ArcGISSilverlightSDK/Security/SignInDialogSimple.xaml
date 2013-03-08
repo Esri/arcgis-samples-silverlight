@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SignInDialogSimple"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot">
+        <esri:Map x:Name="MyMap" WrapAround="True">
+            <esri:ArcGISTiledMapServiceLayer
+                Url="http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer" />
+            <!-- username: user1 | password: pass.word1 -->
+            <esri:ArcGISTiledMapServiceLayer ID="SecureLayer"
+                Url="http://serverapps10.esri.com/arcgis/rest/services/GulfLawrenceSecureUser1/MapServer" 
+                InitializationFailed="Layer_InitializationFailed"
+                Initialized="Layer_Initialized" />
+        </esri:Map>
+    </Grid>
+</UserControl>

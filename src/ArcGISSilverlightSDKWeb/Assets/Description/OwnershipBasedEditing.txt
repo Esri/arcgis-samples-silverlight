@@ -1,0 +1,6 @@
+﻿This sample demonstrates the ability of feature services to restrict editing operations based on feature ownership.  The owner is defined as the user who created the feature.  In this example, owners can update or delete their features.  Feature not owned by the current user cannot be updated or deleted.  
+
+The following credentials are valid user accounts for the sample service: 
+user1\user1
+user2\user2
+user3\user3

@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input polyline graphic and makes a redline polygon graphic output. The GeometryService takes the input polyline to attempt to make a closed polygon against a FeatureLayer of parcels and if successful the output redline polygon graphic is returned. 
+
+To use the sample, connect the dots to create a polyline which defines a boundary for a new polygon.  Double click the final dot (#3) to auto complete the polygon boundary.

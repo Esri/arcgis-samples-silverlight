@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.AddGraphicsXAML"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="RedMarkerSymbol" Color="Red" Size="12" Style="Circle" />
+            <esri:PictureMarkerSymbol x:Key="PinPictureMarkerSymbol" OffsetX="11" OffsetY="39" Source="/Assets/images/i_pushpin.png" />
+            <esri:PictureMarkerSymbol x:Key="GlobePictureMarkerSymbol" OffsetX="8" OffsetY="8" Source="/Assets/images/globe-16x16.png" />
+            <esri:SimpleLineSymbol x:Key="RedLineSymbol" Color="Red" Width="4" Style="Solid" />
+            <esri:CartographicLineSymbol x:Key="CartoLineSymbol" Color="Green" Width="4" DashCap="Triangle" DashArray="5 1" />
+            <esri:SimpleFillSymbol x:Key="RedFillSymbol" Fill="#66FF0000" BorderBrush="Red" BorderThickness="2" />
+            <esri:PictureFillSymbol x:Key="GlobePictureFillSymbol" Source="/Assets/images/globe-16x16.png" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Background="White">
+            <esri:ArcGISTiledMapServiceLayer ID="PhysicalTiledLayer" 
+                  Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+
+            <esri:GraphicsLayer ID="MyGraphics" >
+                <esri:GraphicsLayer.Graphics >
+
+                    <esri:Graphic Symbol="{StaticResource RedMarkerSymbol}" >
+                        <esri:MapPoint X="-140.9" Y="63.391">
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:MapPoint>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource PinPictureMarkerSymbol}" >
+                        <esri:MapPoint X="-100.609" Y="43.729">
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:MapPoint>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource GlobePictureMarkerSymbol}" >
+                        <esri:MapPoint X="-80.210" Y="35.284">
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:MapPoint>
+                    </esri:Graphic>
+
+                    <esri:Graphic>
+                        <esri:Graphic.Symbol>
+                            <esri:TextSymbol FontFamily="Arial" FontSize="14" Foreground="Black" Text="My Text" />
+                        </esri:Graphic.Symbol>
+                        <esri:MapPoint X="-10.609" Y="23.729">
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:MapPoint>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource RedLineSymbol}" >
+                        <esri:Polyline >
+                            <esri:Polyline.Paths>
+                                <esri:PointCollection>
+                                    <esri:MapPoint X="0" Y="51.399" />
+                                    <esri:MapPoint X="2.637" Y="48.865" />
+                                    <esri:MapPoint X="12.568" Y="41.706" />
+                                    <esri:MapPoint X="13.447" Y="52.483" />
+                                    <esri:MapPoint X="21.357" Y="52.160" />
+                                    <esri:MapPoint X="30.322" Y="59.845" />
+                                </esri:PointCollection>
+                            </esri:Polyline.Paths>
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:Polyline>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource CartoLineSymbol}" >
+                        <esri:Polyline >
+                            <esri:Polyline.Paths>
+                                <esri:PointCollection>
+                                    <esri:MapPoint X="-118.169" Y="34.016" />
+                                    <esri:MapPoint X="-104.941" Y="39.7072" />
+                                    <esri:MapPoint X="-96.724" Y="32.732" />
+                                    <esri:MapPoint X="-87.671" Y="41.804" />
+                                    <esri:MapPoint X="-74" Y="40.68" />
+                                </esri:PointCollection>
+                            </esri:Polyline.Paths>
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:Polyline>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource RedFillSymbol}">
+                        <esri:Polygon >
+                            <esri:Polygon.Rings>
+                                <esri:PointCollection>
+                                    <esri:MapPoint X="110.039" Y="-20.303" />
+                                    <esri:MapPoint X="132.539" Y="-7.0137" />
+                                    <esri:MapPoint X="153.281" Y="-13.923" />
+                                    <esri:MapPoint X="162.773" Y="-35.174" />
+                                    <esri:MapPoint X="133.594" Y="-43.180" />
+                                    <esri:MapPoint X="111.797" Y="-36.032" />
+                                    <esri:MapPoint X="110.039" Y="-20.303" />
+                                </esri:PointCollection>
+                            </esri:Polygon.Rings>
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:Polygon>
+                    </esri:Graphic>
+
+                    <esri:Graphic Symbol="{StaticResource GlobePictureFillSymbol}">
+                        <esri:Polygon >
+                            <esri:Polygon.Rings>
+                                <esri:PointCollection>
+                                    <esri:MapPoint X="110.039" Y="20.303" />
+                                    <esri:MapPoint X="132.539" Y="7.0137" />
+                                    <esri:MapPoint X="162.773" Y="35.174" />
+                                    <esri:MapPoint X="111.797" Y="36.032" />
+                                    <esri:MapPoint X="110.039" Y="20.303" />
+                                </esri:PointCollection>
+                            </esri:Polygon.Rings>
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="4326" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:Polygon>
+                    </esri:Graphic>
+
+                </esri:GraphicsLayer.Graphics>
+            </esri:GraphicsLayer>
+
+        </esri:Map>
+
+    </Grid>
+</UserControl>

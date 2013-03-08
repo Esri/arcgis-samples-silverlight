@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.UsingPointDataSource"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:samples="clr-namespace:ArcGISSilverlightSDK">
+
+    <UserControl.Resources>
+        <samples:MainViewModel x:Key="MyViewModel" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.Resources>
+            <esri:MarkerSymbol x:Key="SelectMarkerSymbol" >
+                <esri:MarkerSymbol.ControlTemplate>
+                    <ControlTemplate>
+                        <Ellipse x:Name="Element" Width="15" Height="15" Fill="Cyan" Stroke="Black" RenderTransformOrigin=".5,.5" >
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Element" 
+												Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+												To="Yellow" Duration="00:00:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="scale" 
+												Storyboard.TargetProperty="ScaleX"
+												To="1.5" Duration="00:00:0.25"/>
+                                            <DoubleAnimation Storyboard.TargetName="scale" 
+												Storyboard.TargetProperty="ScaleY"
+												To="1.5" Duration="00:00:0.25"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform x:Name="scale" />
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                    </ControlTemplate>
+                </esri:MarkerSymbol.ControlTemplate>
+            </esri:MarkerSymbol>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" >
+
+            <esri:ArcGISTiledMapServiceLayer ID="BaseMap"
+				Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+
+            <esri:GraphicsLayer>
+                <esri:GraphicsLayer.GraphicsSource>
+                    <esri:PointDataSource
+                            ItemsSource="{Binding Source={StaticResource MyViewModel}, 
+                            Path=Instance.Data.PointsOfInterest}"
+                            XCoordinateBinding="{Binding X}"
+                            YCoordinateBinding="{Binding Y}"
+                            IsSelectedBinding="{Binding IsSelected}">
+                    </esri:PointDataSource>
+                </esri:GraphicsLayer.GraphicsSource>
+
+                <esri:GraphicsLayer.Clusterer>
+                    <esri:FlareClusterer />
+                </esri:GraphicsLayer.Clusterer>
+
+                <esri:GraphicsLayer.Renderer>
+                    <esri:SimpleRenderer Symbol="{StaticResource SelectMarkerSymbol}" />
+                </esri:GraphicsLayer.Renderer>
+
+                <esri:GraphicsLayer.MapTip>
+                    <Border Padding="4,2" Background="#99333333" CornerRadius="8" 
+                            DataContext="{Binding [DataContext]}">
+                        <TextBlock Text="{Binding Name}" Foreground="White" />
+                    </Border>
+                </esri:GraphicsLayer.MapTip>
+            </esri:GraphicsLayer>
+
+        </esri:Map>
+
+        <StackPanel DataContext="{Binding Source={StaticResource MyViewModel}, Path=Instance}"
+                    Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                    Width="250" Height="100" Margin="5">
+            <Button Content="Add item" Command="{Binding AddRandom}"/>
+            <Button Content="Remove item" Command="{Binding RemoveFirst}" />
+            <Button Content="Randomize items" Command="{Binding Randomize}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

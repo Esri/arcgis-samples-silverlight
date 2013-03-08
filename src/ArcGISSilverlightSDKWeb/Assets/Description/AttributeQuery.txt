@@ -1,0 +1,3 @@
+﻿This sample demonstrates performing an attribute query, adding the results to the map and a DataGrid, and zooming to the result.  To use the sample, select a state from the drop-down menu in the upper right corner of the application.
+
+In the sample's code-behind, a QueryTask is used to query a states map service layer based on the name selected in the drop-down menu.  The result is then added as a Graphic to the map and displayed in the DataGrid.

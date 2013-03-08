@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.LegendWithTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" >
+
+        <esri:Map x:Name="MyMap" Extent="-15000000,2000000,-7000000,8000000" WrapAround="True">
+            <esri:ArcGISTiledMapServiceLayer ID="Street Map" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+            <esri:ArcGISDynamicMapServiceLayer ID="United States" Opacity="0.6" 
+                    Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer"/>
+            <esri:FeatureLayer ID="Points of Interest" 
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/MapServer/0" />
+        </esri:Map>
+
+        <Border Background="#77919191" BorderThickness="1" CornerRadius="5"
+            HorizontalAlignment="Right"  VerticalAlignment="Top"
+            Margin="20" Padding="5" BorderBrush="Black" >
+            <!-- Use the Refreshed event to interact with and alter Legend contents-->
+            <esri:Legend Map="{Binding ElementName=MyMap}"  
+                         LayerIDs="Points of Interest, United States"
+                         LayerItemsMode="Tree" 
+                         ShowOnlyVisibleLayers="False"
+                         Refreshed="Legend_Refreshed">
+                <!-- Data template for map layers.  Map layers can be services with sublayers or a layer within a service.-->
+                <esri:Legend.MapLayerTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="{Binding Label}"
+            						IsChecked="{Binding IsEnabled, Mode=TwoWay}"
+            						IsEnabled="{Binding IsInScaleRange}" >
+                            </CheckBox>
+                            <Slider Maximum="1" Value="{Binding Layer.Opacity, Mode=TwoWay}" Width="50" />
+                        </StackPanel>
+                    </DataTemplate>
+                </esri:Legend.MapLayerTemplate>
+                <!-- Data template for sublayers within a map layer-->
+                <esri:Legend.LayerTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Label}"
+            			    IsChecked="{Binding IsEnabled, Mode=TwoWay}"
+            				IsEnabled="{Binding IsInScaleRange}" >
+                        </CheckBox>
+                    </DataTemplate>
+                </esri:Legend.LayerTemplate>
+            </esri:Legend>
+        </Border>
+
+    </Grid>
+</UserControl>

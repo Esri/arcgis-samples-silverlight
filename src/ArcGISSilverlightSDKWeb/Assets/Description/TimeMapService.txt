@@ -1,0 +1,3 @@
+﻿This sample displays hurricane paths and intensity off the coast of the United States between the year 1851 and 2007.  An ArcGIS Server dynamic map services is hosting the hurricane data.  The legend (a screenshot of the legend in ArcMap) provides a key to the symbology used along a hurricanes path to indicate intensity of the event.    
+
+To use the sample, push the play button to automate the display or hurricane paths on the map. It is also possible to use the forward and rewind buttons to manually cycle through the hurricanes' paths being displayed.

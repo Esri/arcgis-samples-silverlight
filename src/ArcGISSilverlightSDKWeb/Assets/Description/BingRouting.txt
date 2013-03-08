@@ -1,0 +1,1 @@
+﻿This sample demonstrates using the ESRI.ArcGIS.Client.Toolkit.Bing Routing class to perform optimal routing along a highway network between two or more points using Microsoft Bing services. The results of the routing operation are display back both as written travel directions and graphic polylines on the map.

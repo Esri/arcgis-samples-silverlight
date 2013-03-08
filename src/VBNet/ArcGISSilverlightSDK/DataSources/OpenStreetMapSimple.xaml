@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.OpenStreetMapSimple"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" >
+
+		<esri:Map x:Name="MyMap" WrapAround="True">
+            <esri:OpenStreetMapLayer ID="OSMLayer" Style="Mapnik" />
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5" >
+                <RadioButton x:Name="MapnikRadioButton" 
+                         Tag="Mapnik" IsChecked="true" Margin="5,0,0,0" Foreground="White"
+                         GroupName="Layers" Content="Mapnik" Click="RadioButton_Click"/>
+                <RadioButton x:Name="CycleMapRadioButton" 
+                         Tag="CycleMap" Margin="5,0,0,0" Foreground="White" 
+                         GroupName="Layers" Content="CycleMap" Click="RadioButton_Click"/>
+                <RadioButton x:Name="NoNameRadioButton" 
+                         Tag="NoName" Margin="5,0,0,0" Foreground="White" 
+                         GroupName="Layers" Content="NoName" Click="RadioButton_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <esri:Attribution Layers="{Binding ElementName=MyMap, Path=Layers}" Margin="10" VerticalAlignment="Bottom" />
+
+    </Grid>
+</UserControl>

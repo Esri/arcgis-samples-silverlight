@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes graphic polyline with numerous vertices and returns a generalized polyline with less vertices. Additionally a SliderControl appears after the GeometryService completes that allows adjusting the opacity of the generalized polyline graphics layer for ease of viewing.
+
+To use the sample, click the Generalize Line button to generalize the line feature. Original line and vertices are red.  Generalized line a vertices are cyan. Use the slider to change the opacity of the generalized line. Zoom in on the graphics to see in better detail the difference between the original polyline and the generalized line.

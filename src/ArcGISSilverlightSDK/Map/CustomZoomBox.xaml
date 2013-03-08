@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.CustomZoomBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">    
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <Grid.Resources>
+            <Style x:Key="MyMapStyle" TargetType="esri:Map">
+                <Setter Property="IsTabStop" Value="true"/>
+                <Setter Property="ZoomDuration" Value="0:0:.75"/>
+                <Setter Property="PanDuration" Value="0:0:.75"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="ZoomFactor" Value="2"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="esri:Map">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid x:Name="RootElement" Height="Auto" Width="Auto"/>
+                                    <Rectangle x:Name="ZoomBox" Fill="#55C0C0C0" Stroke="Black" StrokeDashArray="10"  
+                                               StrokeThickness="1" Visibility="Collapsed"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <esri:Map WrapAround="True" Style="{StaticResource MyMapStyle}" >
+            <esri:ArcGISTiledMapServiceLayer 
+                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" >
+            <Rectangle Fill="#77919191" Stroke="Gray" Margin="5" />
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" Margin="10" />
+            <TextBlock x:Name="ResponseTextBlock" Text="To zoom-in, press and hold the Shift key then click and hold the left mouse button and drag the mouse cursor over the map to define a zoom box.  To zoom-out, press and hold the Ctrl and Shift keys then click and hold the left mouse button and drag the mouse cursor over the map to define a zoom box.  Release the left mouse button to start zooming in\out." 
+                       Width="200" TextAlignment="Left" Margin="20" TextWrapping="Wrap" />
+        </Grid>
+
+    </Grid>
+</UserControl>

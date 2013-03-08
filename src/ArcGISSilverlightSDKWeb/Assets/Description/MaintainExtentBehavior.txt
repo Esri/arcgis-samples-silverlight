@@ -1,0 +1,1 @@
+﻿This sample demonstrates the maintain extent behavior, which forces a Map control to maintain its current extent when resized. When using the sample, attempt to resize the browser window and observe that the extent of the Map control is maintained.  The sample XAML shows that using this behavior only requires declaring it within a Map element.

@@ -1,0 +1,1 @@
+﻿This sample demonstrates selecting individual features in an ESRI.ArcGIS.Client FeatureLayer using OnDemand mode. Features that are in the current map extent are automatically selected as pan/zooms occur.

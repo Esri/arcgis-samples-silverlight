@@ -1,0 +1,1 @@
+﻿This sample demonstrates how to create a graphics layer by binding to a source of items (i.e. graphics).  The GraphicsSource property should reference an IEnumerable of Graphic objects (such as ObservableCollection).   The appropriate event mechanisms are in place so changes in the items are reflected in the graphics layer.  

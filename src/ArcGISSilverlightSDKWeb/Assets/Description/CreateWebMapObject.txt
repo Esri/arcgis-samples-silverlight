@@ -1,0 +1,4 @@
+﻿This sample shows how to create a new webmap from scratch i.e. creating a new WebMap object and adding a BaseMap and OperationLayers.
+
+In this sample a webmap object is created with a base map and operationlayers including a ArcGISDynamicMapService layer,
+a featureService with Pop-ups and a featurecollection.

@@ -1,0 +1,5 @@
+﻿This sample demonstrates the InfoWindow control. The InfoWindow control allows displaying content placed at a specific anchor point on the Map control. The Content property of an InfoWindow can be any type of object, such as a string, a UIElement, or a DateTime.
+
+For this sample, if the user clicks over a US State the name of the State will appear in the InfoWindow. If however the user clicks in an area that is not over a US State, the coordinate location of the Map will be displayed in the InfoWindow.
+
+The sample shows how to add Content to an existing InfoWindow defined in XAML using code-behind and how to create a new InfoWindow wholly in code-behind and populate its Content. 

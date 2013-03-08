@@ -1,0 +1,3 @@
+﻿This sample displays an interval (in months) of images on the earth using an ESRI.ArcGIS.Client.Toolkit TimeSlider control. The images are based on an ArcGISImageServiceLayer using the MosaicRule of esriMosaicCenter. The image data is for the year 2004 and shows seasonal variations in vegetation and snowfall. 
+
+To use the sample, push the play button to automate the images on the map. It is also possible to use the forward and rewind buttons to manually cycle through the images being displayed.

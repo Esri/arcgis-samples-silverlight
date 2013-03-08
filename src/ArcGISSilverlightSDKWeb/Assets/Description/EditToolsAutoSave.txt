@@ -1,0 +1,3 @@
+﻿This sample demonstrates using the ESRI.ArcGIS.Client Editor on a FeatureLayer where the edit changes are saved automatically. Individual Editor functions like: Add, Select, ClearSelection, EditVerticies, etc. are bound to Buttons using the Command property. Additional Editor functions like: Freehand, AutoComplete, AutoSelect, and ContinuousMode are bound to CheckBoxes using the IsChecked property.
+
+To use the sample, use the Add Polygon button to draw a polygon feature on the map.  Use other buttons to move or select and delete features.  All changes are automatically committed to the database.

@@ -1,0 +1,4 @@
+﻿This sample demonstrates how to solve the routing problem of finding service areas for one or more facilities. Barriers in the form of points, lines, and polygons, can be placed across the line network to provide alternative optimal service areas. A variety of input parameters to modify the service area problem can be adjusted. This is a fairly complex sample that has extensive use of XAML and code-behind to demonstrate the closet facility problem. Some of the main classes used in the sample are SimpleFillSymbol, SimpleLineSymbol, SimpleMarkerSymbol, Editor, GraphicsLayer, RouteTask, and 
+RouteClosesFacilityParameters. 
+
+To use this sample, click on a button to add facilities and barriers. Modify input properties to define the service areas parameters. Click the Solve button to generate results and display them in the map.

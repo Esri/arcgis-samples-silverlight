@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input graphic polyline and point and returns the linear difference of the shortest length between the two graphics. 
+
+To use the sample, click on the map to add a polyline then add a point.  After the point is entered the shortest distance between them is displayed in the textblock on the map.

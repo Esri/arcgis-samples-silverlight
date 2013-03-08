@@ -1,0 +1,3 @@
+﻿This sample demonstrates reverse-geocoding points using a LocatorTask.  To use the sample, simply click on or near a street in the map.  When a result is found, it will be drawn on the map with the returned address in the graphic's MapTip.
+
+In the code-behind, a LocatorTask is used to perform an address lookup operation for the clicked point.  When a result is returned, a graphic is added to the map, and the address is added to the graphic's attributes such that it shows up in the graphic's MapTip.

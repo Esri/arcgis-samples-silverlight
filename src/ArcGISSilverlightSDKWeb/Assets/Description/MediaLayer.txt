@@ -1,0 +1,1 @@
+This sample demonstrates how to transform and display a media element (video) on a map.  The video placed initially using the ElementLayer.Envelope attached property.  A simple rotation transformation is then used to orient the video to an acceptable location over the base map.  More accurate placement will require a more complex transformation.      

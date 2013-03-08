@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.EditToolsSelectionOnly"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <esri:Editor x:Key="MyEditor"                                                  
+                         Map="{Binding ElementName=MyMap}"
+                         LayerIDs="WildFirePolygons"
+                         GeometryServiceUrl="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"
+                         ContinuousMode="True"
+                         SelectionMode="Point"  
+                         EditCompleted="Editor_EditCompleted"/>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Background="White" WrapAround="True" Extent="-13279585.9811197,4010136.34579502,-12786146.5545795,4280849.94238526">
+
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+
+            <esri:ArcGISDynamicMapServiceLayer DisableClientCaching="True" ID="WildFireDynamic" VisibleLayers="2"
+                                               Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/MapServer"/>
+
+            <esri:FeatureLayer ID="WildFirePolygons" Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/2" 
+                               DisableClientCaching="True" 
+                               OutFields="symbolid,description"                                
+                               Mode="SelectionOnly"	
+                               EndSaveEdits="FeatureLayer_EndSaveEdits"
+                               SaveEditsFailed="FeatureLayer_SaveEditsFailed"
+                               Initialized="FeatureLayer_Initialized"
+                               />
+        </esri:Map>
+        <StackPanel Orientation="Vertical">
+            <Border Background="White" BorderThickness="1" 
+            	HorizontalAlignment="Right"  VerticalAlignment="Top"
+            	Padding="5" BorderBrush="Black" Margin="5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+                </Border.Effect>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Select a polygon feature to edit" />
+                    <StackPanel x:Name="EditorTools" Margin="5" 
+                        Orientation="Horizontal" DataContext="{StaticResource MyEditor}">
+                        <Button x:Name="SelectButton" Margin="2" 
+                            Content="Select" 
+                            Command="{Binding Select}" 
+                            CommandParameter="New">
+                        </Button>
+                        <Button x:Name="ClearSelectionButton" Margin="2" 
+                            Content="Clear"
+                            Command="{Binding ClearSelection}">
+                        </Button>
+                        <Button x:Name="CancelButton" Margin="2" 
+                            Content="Cancel"
+                            Command="{Binding CancelActive}">
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border x:Name="FeatureDataFormBorder" Visibility="Collapsed" 
+                HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,10,10,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+                </Border.Effect>
+                <esri:FeatureDataForm x:Name="MyFeatureDataForm" EditEnded="MyFeatureDataForm_EditEnded" 
+                                         FeatureLayer="{Binding Path=Layers[WildFirePolygons], ElementName=MyMap}" 
+                                         IsReadOnly="False" LabelPosition="Left" />
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

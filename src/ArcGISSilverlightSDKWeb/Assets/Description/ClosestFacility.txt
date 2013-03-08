@@ -1,0 +1,4 @@
+﻿This sample demonstrates how to solve the routing problem of finding the closest facility among multiple incidents (i.e. target points to go to). Barriers in the form of points, lines, and polygons, can be placed across the line network to provide alternative optimal routes. A variety of input parameters to modify the routing problem can be adjusted. This is a fairly complex sample that has extensive use of XAML and code-behind to demonstrate the closet facility problem. Some of the main classes used in the sample are SimpleMarkerSymbol.ControlTemplate, Storyboard animation, Editor, GraphicsLayer, 
+RouteTask, RouteClosesFacilityParameters and RouteResult. 
+
+To use this sample, click on a button to add facilities, barriers, and incidents. Modify input properties to define closest facility parameters. Click the Solve button to generate results and display them in the map.  Hover over route results to see incident and facility ids and travel time.

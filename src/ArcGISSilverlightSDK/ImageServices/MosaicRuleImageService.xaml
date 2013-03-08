@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.MosaicRuleImageService"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="19164065.6424007,-5430543.78134711,19281080.7570598,-5363641.74460979" 
+                  MouseClick="MyMap_MouseClick">
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+            <esri:ArcGISImageServiceLayer ID="ImageServiceLayer"
+                Url="http://servicesbeta.esri.com/ArcGIS/rest/services/NewZealand/ChristChurchAerial/ImageServer" 
+                ImageFormat="PNG8"
+                NoData="0"/>
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Click on the map to change the view point of the raster tiles in the image service. Notice the order of overlapping tiles will change as the view point changes." 
+                           Width="200" TextAlignment="Left"  TextWrapping="Wrap" Margin="20" />
+        </Grid>
+
+    </Grid>
+</UserControl>

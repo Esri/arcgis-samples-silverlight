@@ -1,0 +1,11 @@
+﻿This sample demonstrates the use of the mensuration (measure) operations on an ArcGIS image service.  Choose a measure operation and units to be returned in the results.  The measure operations provided apply to data in this service; more are available.    
+
+Area/Perimeter - Returns the area and perimeter of a polygon.
+Centroid - Returns the centroid of a geometry.
+Distance/Azimuth - Returns distance and angle of a line segment.
+Height Base to Top - Returns height using building base and top.
+Height Base to Top Shadow - Returns height using building base and top of shadow.
+Height Top to Top Shadow - Returns height using building top and top of shadow.
+Point - Returns a point location. 
+
+Note, an ArcGISTiledMapServerLayer is used to display the tiled image service.  

@@ -1,0 +1,1 @@
+This sample demonstrates adding a feature service hosted on ArcGIS Online (http://www.arcgis.com) to a Map. The Map includes a FeatureLayer, and the FeatureLayer.Url is set to the URL of the hosted feature service. Use ArcGIS Online to discover the URL to reference a hosted feature service.

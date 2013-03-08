@@ -1,0 +1,2 @@
+﻿This sample demonstrates the Bookmark control.  The Bookmark control allows users to save extents in a list and zoom to saved extents by clicking on them in the list.  Saved extents are preserved on the user's machine even when the application is closed.  The sample code shows that enabling this functionality only requires adding a simple XAML element.
+ 

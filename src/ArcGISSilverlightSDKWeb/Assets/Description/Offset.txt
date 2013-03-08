@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input graphic polygon and returns a buffered (or offset) graphic polygon. To obtain the input graphic polygon, a user makes a single mouse click that generates a graphic which is turned into an MapPoint object. The MapPoint object has a SpatialReference applied and is used as an input into the FindGraphicsInHostCoordinates Method which generates the input graphic polygon. 
+
+To use the sample, click on a parcel to generate an offset (cyan).

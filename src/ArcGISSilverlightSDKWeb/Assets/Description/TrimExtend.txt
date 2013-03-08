@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input polyline and a set of other polyline graphics and returns either a trimmed or extended set of polyline graphics. If the input polyline crosses another polyline graphic a trim will occur where the two cross. If the input polyline does not cross the other polyline but crosses an imaginary ray that extends out from the other polyline that and extend will occur.  
+
+To use this sample, digitize a line that crosses over or near the end of one or more blue lines.  Trimmed or extended lines are returned in red.

@@ -1,0 +1,1 @@
+﻿This sample demonstrates the Magnifier control.  Click and drag the magnifier over the map to see a zoomed-in view of the map within the magnifying glass.  As you can see, layers can be shown within the magnifying glass that are not included within the map.

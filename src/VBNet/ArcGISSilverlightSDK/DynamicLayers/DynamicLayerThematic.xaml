@@ -1,0 +1,146 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.DynamicLayerThematic"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,2000000,-7000000,8000000" Grid.Column="0">
+            <esri:ArcGISTiledMapServiceLayer ID="BaseMapLayer" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+            <esri:FeatureLayer ID="StatesFeatureLayer" OutFields="*" DisplayName="USA Census - States"
+                    Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/dynamicLayer" 
+                               Initialized="FeatureLayer_Initialized">
+                <esri:FeatureLayer.Source>
+                    <esri:LayerMapSource MapLayerID="3"/>
+                </esri:FeatureLayer.Source>
+            </esri:FeatureLayer>
+        </esri:Map>
+
+
+        <esri:Legend Map="{Binding ElementName=MyMap}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"
+                         LayerIDs="StatesFeatureLayer"
+                         LayerItemsMode="Tree"
+                         Background="White">
+            <esri:Legend.Effect>
+                <DropShadowEffect />
+            </esri:Legend.Effect>
+        </esri:Legend>
+
+
+        <Grid x:Name="ClassGrid" Grid.Column="1" Margin="2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <TextBlock TextAlignment="Center" Text="Set Thematic Properties" 
+                      FontWeight="Bold" Height="16" Grid.Row="0" />
+            <ScrollViewer Grid.Row="1" Padding="3" VerticalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Base Symbol:" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="ColorRampCombo"  HorizontalAlignment="Left" SelectedIndex="0">
+                        <ComboBoxItem Content="Red" Background="Red" />
+                        <ComboBoxItem Content="Orange" Background="Orange" />
+                        <ComboBoxItem Content="Yellow" Background="Yellow" />
+                        <ComboBoxItem Content="Green" Background="Green" />
+                        <ComboBoxItem Content="Blue" Background="Blue" />
+                        <ComboBoxItem Content="Purple" Background="Purple" />
+                        <ComboBoxItem Content="Magenta" Background="Magenta" />
+                        <ComboBoxItem Content="Cyan" Background="Cyan" />
+                        <ComboBoxItem Content="Black" Background="Black" Foreground="White"/>
+                        <ComboBoxItem Content="White" Background="White"/>
+                        <ComboBoxItem Content="Brown" Background="Brown"/>
+
+                    </ComboBox>
+                    <TextBlock Text="Start Color:" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="StartColorCombo" HorizontalAlignment="Left" SelectedIndex="0">
+                        <ComboBoxItem Content="Red" Background="Red" />
+                        <ComboBoxItem Content="Orange" Background="Orange" />
+                        <ComboBoxItem Content="Yellow" Background="Yellow" />
+                        <ComboBoxItem Content="Green" Background="Green" />
+                        <ComboBoxItem Content="Blue" Background="Blue" />
+                        <ComboBoxItem Content="Purple" Background="Purple" />
+                        <ComboBoxItem Content="Magenta" Background="Magenta" />
+                        <ComboBoxItem Content="Black" Background="Black" Foreground="White"/>
+                        <ComboBoxItem Content="White" Background="White"/>
+                        <ComboBoxItem Content="Brown" Background="Brown"/>
+                        <ComboBoxItem Content="Cyan" Background="Cyan" />
+
+                    </ComboBox>
+                    <TextBlock Text="End Color:" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="EndColorCombo" HorizontalAlignment="Left" SelectedIndex="6" >
+                        <ComboBoxItem Content="Red" Background="Red" />
+                        <ComboBoxItem Content="Orange" Background="Orange" />
+                        <ComboBoxItem Content="Yellow" Background="Yellow" />
+                        <ComboBoxItem Content="Green" Background="Green" />
+                        <ComboBoxItem Content="Blue" Background="Blue" />
+                        <ComboBoxItem Content="Purple" Background="Purple" />
+                        <ComboBoxItem Content="Magenta" Background="Magenta" />
+                        <ComboBoxItem Content="Black" Background="Black" Foreground="White"/>
+                        <ComboBoxItem Content="White" Background="White"/>
+                        <ComboBoxItem Content="Brown" Background="Brown"/>
+                        <ComboBoxItem Content="Cyan" Background="Cyan" />
+                    </ComboBox>
+                    <TextBlock Text="Algorithm :" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="AlgorithmCombo" HorizontalAlignment="Left" Width="150">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Classification Field :" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="ClassificationFieldCombo" HorizontalAlignment="Left" MaxWidth="200" Width="150">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Method :" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="ClassificationMethodCombo" SelectionChanged="ClassificationMethodCombo_SelectionChanged" HorizontalAlignment="Left" Width="150">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Interval:" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="IntervalCombo" HorizontalAlignment="Left">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Break Count:" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <TextBox x:Name="BreakCountTb" Text="5" HorizontalAlignment="Left" MinWidth="20"/>
+                    <TextBlock Text="Normalization Type :" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="NormalizationTypeCombo" SelectionChanged="NormalizationTypeCombo_SelectionChanged" HorizontalAlignment="Left" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock Text="Normalization Field :" Margin="0,5,0,0"  FontWeight="Bold" />
+                    <ComboBox x:Name="NormalizationFieldCombo" HorizontalAlignment="Left" IsEnabled="False">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </ScrollViewer>
+            <Button x:Name="RenderButton" IsEnabled="False" Content="Apply" 
+                    Click="RenderButton_Click" Width="100" Margin="5" Grid.Row="2" />
+        </Grid>
+    </Grid>
+</UserControl>

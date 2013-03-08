@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ToolkitTemplatePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot">
+
+        <esri:Map x:Name="MyMap" WrapAround="True">
+            <esri:ArcGISTiledMapServiceLayer ID="BaseLayer" 
+				                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            
+            <esri:FeatureLayer ID="Evacuation Perimeter" 
+                               DisableClientCaching="True" 
+                               AutoSave="True"
+                               Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/1"
+                               OutFields="*" />
+            
+            <esri:FeatureLayer ID="Points of Interest" DisableClientCaching="True" 
+                               AutoSave="True"
+                               Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0"
+                               OutFields="*" />
+        </esri:Map>
+
+        <Border Background="#FF919191" BorderThickness="1" CornerRadius="5"
+            			HorizontalAlignment="Right"  VerticalAlignment="Top"
+            			Padding="5" BorderBrush="Black" Margin="5">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+            </Border.Effect>
+            <esri:TemplatePicker x:Name="MyTemplatePicker" Map="{Binding ElementName=MyMap, Mode=OneWay}" 
+                           ShowAttributesOnAdd="True" Loaded="MyTemplatePicker_Loaded"/>
+        </Border>
+
+
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,0"  >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Select a template from the picker, and draw a feature on the map.  Modify attributes and click Apply to finish." 
+                       Width="200" TextAlignment="Left" Margin="30,20,30,30" TextWrapping="Wrap" />
+        </Grid>
+    </Grid>
+</UserControl>

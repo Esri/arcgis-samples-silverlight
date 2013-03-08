@@ -1,0 +1,3 @@
+﻿This sample demonstrates performing find operations.  To use the sample, specify a search string in the textbox and click the Find button.  Click on rows in the DataGrid at the bottom of the application to see them in the map.
+
+In the code-behind, the sample uses a FindTask to perform the find operation.  The task's find parameters specify to search specific fields in the states and counties layers.

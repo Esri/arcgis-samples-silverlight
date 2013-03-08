@@ -1,0 +1,8 @@
+﻿The Sample demonstrates editing a FeatureLayer in Selection Only mode. 
+
+In a selection only feature layer features are queried from the feature layer based on the selected extent. 
+So to be able to edit selected features, it is required that feature are selected and are available at client side. 
+
+To use this sample, use selection tool to select feature(s) from WildFirePoint and WildFire polygon layer. Perform edits and clear the selection. 
+After the edits are saved, WildFire ArcGIS Dynamic MapService should be refreshed to reflect the new updates.
+

@@ -1,0 +1,1 @@
+﻿The sample illustrates how to use buttons at standard directions around a map to pan in the direction of the button that was clicked.   

@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SDSRenderersXAML"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009" >
+  <Grid x:Name="LayoutRoot">
+
+    <Grid.Resources>
+
+      <esri:SimpleRenderer x:Key="MySimpleRenderer">
+        <esri:SimpleRenderer.Symbol>
+          <esri:SimpleLineSymbol Color="Red" Style="Solid" Width="2" />
+        </esri:SimpleRenderer.Symbol>
+      </esri:SimpleRenderer>
+
+      <esri:SimpleFillSymbol x:Key="MyYellowFillSymbol" Fill="#44FFFF00" BorderBrush="Transparent" BorderThickness="2" />
+      <esri:SimpleFillSymbol x:Key="MyRedFillSymbol" Fill="#44FF0000" BorderBrush="Transparent" BorderThickness="2" />
+      <esri:UniqueValueRenderer x:Key="MyUniqueValueRenderer" Field="STATE_NAME" >
+        <esri:UniqueValueRenderer.Infos>
+          <esri:UniqueValueInfo Value="Arizona" Symbol="{StaticResource MyRedFillSymbol}" />
+          <esri:UniqueValueInfo Value="New Mexico" Symbol="{StaticResource MyYellowFillSymbol}" />
+          <esri:UniqueValueInfo Value="Texas" >
+            <esri:UniqueValueInfo.Symbol>
+              <esri:SimpleFillSymbol Fill="#44FF6600" BorderBrush="Transparent" BorderThickness="2" />
+            </esri:UniqueValueInfo.Symbol>
+          </esri:UniqueValueInfo>
+        </esri:UniqueValueRenderer.Infos>
+      </esri:UniqueValueRenderer>
+
+      <esri:SimpleMarkerSymbol x:Key="MySmallMarkerSymbol" Color="#FF007700" Size="8" Style="Circle" />
+      <esri:SimpleMarkerSymbol x:Key="MyMediumMarkerSymbol" Color="#FF00BB00" Size="12" Style="Circle" />
+      <esri:SimpleMarkerSymbol x:Key="MyLargeMarkerSymbol" Color="#FF00FF00" Size="16" Style="Circle" />
+      <esri:ClassBreaksRenderer x:Key="MyClassBreaksRenderer" Field="POP2000" >
+        <esri:ClassBreaksRenderer.Classes>
+          <esri:ClassBreakInfo MinimumValue="0" MaximumValue="30000" Symbol="{StaticResource MySmallMarkerSymbol}" />
+          <esri:ClassBreakInfo MinimumValue="30000" MaximumValue="300000" Symbol="{StaticResource MyMediumMarkerSymbol}" />
+          <esri:ClassBreakInfo MinimumValue="300000" MaximumValue="5000000" Symbol="{StaticResource MyLargeMarkerSymbol}" />
+        </esri:ClassBreaksRenderer.Classes>
+      </esri:ClassBreaksRenderer>
+
+      <LinearGradientBrush x:Key="BlueGradient" MappingMode="RelativeToBoundingBox" >
+        <GradientStop Color="#990011FF" Offset="0"/>
+        <GradientStop Color="#990055FF" Offset="0.25"/>
+        <GradientStop Color="#990099FF" Offset="0.5"/>
+        <GradientStop Color="#9900CCFF" Offset="0.75"/>
+        <GradientStop Color="#9900FFFF" Offset="1"/>
+      </LinearGradientBrush>
+    </Grid.Resources>
+
+		<esri:Map x:Name="MyMap" Background="White" WrapAround="True">
+      <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer"/>
+
+
+            <esri:FeatureLayer ID="MyFeatureLayerUnique"
+                    Url="http://servicesbeta5.esri.com/arcgis/rest/services/UnitedStates/FeatureServer/3"                    
+                    Where="STATE_NAME in ('New Mexico', 'Arizona', 'Texas')" 
+                    Renderer="{StaticResource MyUniqueValueRenderer}"
+                    OutFields="STATE_NAME" 
+                    UpdateCompleted="FeatureLayer_UpdateCompleted" />
+
+            <esri:FeatureLayer ID="MyFeatureLayerSimple"
+                    Url="http://servicesbeta5.esri.com/arcgis/rest/services/UnitedStates/FeatureServer/1" 
+                    Mode="OnDemand" 
+                    Renderer="{StaticResource MySimpleRenderer}" />
+
+            <esri:FeatureLayer ID="MyFeatureLayerClassBreak"
+                    Url="http://servicesbeta5.esri.com/arcgis/rest/services/UnitedStates/FeatureServer/0"
+                    Where="ST in ('NM', 'AZ', 'TX')" Renderer="{StaticResource MyClassBreaksRenderer}"
+                    OutFields="AREANAME,POP2000" />
+
+
+        </esri:Map>
+  </Grid>
+</UserControl>

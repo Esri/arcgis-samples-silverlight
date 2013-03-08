@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.FeatureLayerMapTips"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+		<Grid.Resources>
+			<esri:SimpleRenderer x:Key="MySimplePointRenderer">
+				<esri:SimpleRenderer.Symbol>
+					<esri:SimpleMarkerSymbol Color="Orange"/>
+				</esri:SimpleRenderer.Symbol>
+			</esri:SimpleRenderer>
+		</Grid.Resources>
+		<esri:Map x:Name="MyMap" WrapAround="True">
+
+            <esri:Map.Extent>
+                <esri:Envelope XMin="-15000000" YMin="2000000" XMax="-7000000" YMax="8000000" >
+                    <esri:Envelope.SpatialReference>
+                        <esri:SpatialReference WKID="102100"/>
+                    </esri:Envelope.SpatialReference>
+                </esri:Envelope>
+            </esri:Map.Extent>
+            <esri:Map.Layers>
+
+                <esri:ArcGISTiledMapServiceLayer ID="TopoMapLayer"
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+
+                <esri:FeatureLayer ID="CitiesFeatureLayer"
+                    Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/0" 
+                    Where="POP1990 > 75000" 
+                    Renderer="{StaticResource MySimplePointRenderer}" 
+                    OutFields="CITY_NAME,POP1990">
+                    <esri:FeatureLayer.Clusterer>
+                        <esri:FlareClusterer FlareBackground="Orange" FlareForeground="Black" MaximumFlareCount="9" />
+                    </esri:FeatureLayer.Clusterer>
+                    <esri:FeatureLayer.MapTip>                        
+                        <Border CornerRadius="10" BorderBrush="#FF222957" BorderThickness="3" Margin="0,0,15,15">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="1.038,1.136" StartPoint="0.015,0.188">
+                                    <GradientStop Color="#FFD1DFF2"/>
+                                    <GradientStop Color="#FF0088FF" Offset="0.946"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="10" BlurRadius="14" Direction="300" />
+                            </Border.Effect>
+                            <StackPanel Margin="7">
+                                <TextBlock Text="{Binding [CITY_NAME]}" FontWeight="Bold" Foreground="Black"  />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Population: " Foreground="Black" />
+                                    <TextBlock Text="{Binding [POP1990]}" Foreground="Black" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </esri:FeatureLayer.MapTip>
+                </esri:FeatureLayer>
+
+            </esri:Map.Layers>
+        </esri:Map>
+    </Grid>
+</UserControl>

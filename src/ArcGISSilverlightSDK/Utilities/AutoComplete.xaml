@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.AutoComplete"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="BlackMarkerSymbol" Color="Black" Size="10" />
+            <esri:SimpleLineSymbol x:Key="RedLineSymbol" Color="Red" Width="4" Style="Solid" />
+            <esri:SimpleFillSymbol x:Key="BlueFillSymbol" Fill="#660000FF" BorderBrush="Blue" BorderThickness="2" />
+            <esri:SimpleFillSymbol x:Key="RedFillSymbol" Fill="#66FF0000" BorderBrush="Red" BorderThickness="2" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Extent="-83.32428481333132,42.61615162222472,-83.31723104257484,42.61906045707023" >
+            
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+        		Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer" />
+            
+            <esri:GraphicsLayer ID="ParcelsGraphicsLayer" />
+            
+            <esri:GraphicsLayer ID="CompletedGraphicsLayer" />
+            
+            <esri:GraphicsLayer ID="ConnectDotsGraphicsLayer">
+                <esri:Graphic Symbol="{StaticResource BlackMarkerSymbol}">
+                    <esri:MapPoint X="-83.3215192779185" Y="42.6176674939048" />
+                    <esri:Graphic.MapTip>
+                        <TextBlock Text="Click" FontSize="12" Foreground="White" >
+                            <TextBlock.Effect>
+                                 <DropShadowEffect Opacity="1" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </esri:Graphic.MapTip>
+                </esri:Graphic>
+                <esri:Graphic>
+                    <esri:Graphic.Symbol>
+                        <esri:TextSymbol FontFamily="Arial" FontSize="16" Foreground="Black" 
+                                                Text="1" OffsetX="-5" OffsetY="15"/>
+                    </esri:Graphic.Symbol>
+                    <esri:MapPoint X="-83.3215192779185" Y="42.6176674939048" />
+                </esri:Graphic>
+                <esri:Graphic Symbol="{StaticResource BlackMarkerSymbol}">
+                    <esri:MapPoint X="-83.3212324913845" Y="42.6179747651913" />
+                    <esri:Graphic.MapTip>
+                        <TextBlock Text="Click" FontSize="12" Foreground="White" >
+                            <TextBlock.Effect>
+                                 <DropShadowEffect Opacity="1" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </esri:Graphic.MapTip>
+                </esri:Graphic>
+                <esri:Graphic>
+                    <esri:Graphic.Symbol>
+                        <esri:TextSymbol FontFamily="Arial" FontSize="16" Foreground="Black" 
+                                                Text="2" OffsetX="-5" OffsetY="15" />
+                    </esri:Graphic.Symbol>
+                    <esri:MapPoint X="-83.3212324913845" Y="42.6179747651913" />
+                </esri:Graphic>
+                <esri:Graphic Symbol="{StaticResource BlackMarkerSymbol}">
+                    <esri:MapPoint X="-83.3209183918471" Y="42.6178655131783" />
+                    <esri:Graphic.MapTip>
+                        <TextBlock Text="Double click" FontSize="12" Foreground="White" >
+                            <TextBlock.Effect>
+                                 <DropShadowEffect Opacity="1" ShadowDepth="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </esri:Graphic.MapTip>
+                </esri:Graphic>
+                <esri:Graphic>
+                    <esri:Graphic.Symbol>
+                        <esri:TextSymbol FontFamily="Arial" FontSize="16" Foreground="Black" 
+                                                Text="3" OffsetX="-5" OffsetY="15" />
+                    </esri:Graphic.Symbol>
+                    <esri:MapPoint X="-83.3209183918471" Y="42.6178655131783" />
+                </esri:Graphic>
+            </esri:GraphicsLayer>
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Connect the dots to create a polyline which defines a boundary for a new polygon.  Double click the final dot (#3) to auto complete the polygon boundary." 
+                       Width="200" TextAlignment="Left" Margin="30,20,20,30" TextWrapping="Wrap" />
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.AddLayerDynamically"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <esri:Map x:Name="MyMap" WrapAround="True" ExtentChanged="MyMap_ExtentChange" ExtentChanging="MyMap_ExtentChange"/>
+
+        <Border HorizontalAlignment="Right" Background="White" VerticalAlignment="Top" Margin="15" MinHeight="80" 
+                BorderBrush="Black" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5" >
+                <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="Enter url to an ArcGIS Server tiled map service" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBlock Text="Url: " TextAlignment="Right" VerticalAlignment="Center" />
+                    <TextBox x:Name="UrlTextBox" Text="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" Width="550"/>
+                </StackPanel>
+                <Button x:Name="AddLayerButton" Content="Add Layer" Width="100" Margin="0,5,0,0" HorizontalAlignment="Center" Click="AddLayerButton_Click" />
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="ExtentGrid" HorizontalAlignment="Right" Margin="5" Background="White"
+                VerticalAlignment="Bottom" Visibility="Collapsed" BorderBrush="Black" BorderThickness="1" >
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock x:Name="ExtentTextBlock" Text="Extent: " Margin="5" TextWrapping="Wrap" FontWeight="Bold" />
+                <TextBox x:Name="ExtentTextBox" IsReadOnly="True" Margin="5" />
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</UserControl>

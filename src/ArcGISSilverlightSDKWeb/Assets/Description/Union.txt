@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes two or more input polygons and returns a polygon that is the union of the inputs. The input polygons do not have to be contiguous (i.e. touching) to be unioned. Polygons that are spatially disparate, like islands, can be unioned into one polygon.
+ 
+To use the sample, click on the parcel polygons to select or unselect graphic features.  Click on the Union button to union selected parcels.

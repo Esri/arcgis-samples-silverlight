@@ -1,0 +1,1 @@
+﻿This sample includes a Map and a DynamicMapServiceLayer and demonstrates how to add an ArcGIS Server dynamic (non-cached) map service layer to a map.  Use ArcGIS Server Services Directory to discover the Url to reference the map service.

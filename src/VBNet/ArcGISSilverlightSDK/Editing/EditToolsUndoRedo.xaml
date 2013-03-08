@@ -1,0 +1,259 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.EditToolsUndoRedo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:esriActions="clr-namespace:ESRI.ArcGIS.Client.Actions;assembly=ESRI.ArcGIS.Client.Behaviors"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:esriSymbols="clr-namespace:ESRI.ArcGIS.Client.Symbols;assembly=ESRI.ArcGIS.Client"
+    xmlns:esriPrimitives="clr-namespace:ESRI.ArcGIS.Client.Toolkit.Primitives;assembly=ESRI.ArcGIS.Client.Toolkit"        
+    xmlns:esriToolkit="clr-namespace:ESRI.ArcGIS.Client.Toolkit;assembly=ESRI.ArcGIS.Client.Toolkit" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:ArcGISSilverlightSDK">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <ControlTemplate x:Key="ScaleButton" TargetType="Button">
+                <Grid Cursor="Hand" Background="Transparent" Margin="2,0,2,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <ScaleTransform x:Name="handScale" />
+                    </Grid.RenderTransform>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <DoubleAnimation To="1.5" Storyboard.TargetName="handScale" BeginTime="0:0:0" Storyboard.TargetProperty="ScaleX" Duration="0:0:0.1" />
+                                    <DoubleAnimation To="1.5" Storyboard.TargetName="handScale" BeginTime="0:0:0" Storyboard.TargetProperty="ScaleY" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <ContentPresenter
+							x:Name="contentPresenter"
+							Content="{TemplateBinding Content}"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="{TemplateBinding Padding}"/>
+                </Grid>
+            </ControlTemplate>
+            <Style x:Key="EditorToobarButton" TargetType="Button">
+                <Setter Property="Template" Value="{StaticResource ScaleButton}" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Height" Value="24" />
+            </Style>
+            <esri:SimpleMarkerSymbol x:Name="MyVertexSymbol">
+                <esri:SimpleMarkerSymbol.Color>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFF9E81D" Offset="0.578"/>
+                        <GradientStop Color="#FF0E0D07" Offset="1"/>
+                    </RadialGradientBrush>
+                </esri:SimpleMarkerSymbol.Color>
+            </esri:SimpleMarkerSymbol>
+            <LinearGradientBrush x:Key="BaseColor" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0" Color="#ee76a8d3"/>
+                <GradientStop Offset="0.25" Color="#ee5b8cb5"/>
+                <GradientStop Offset="0.75" Color="#ee4b7ba7"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="BlueBorderGradient" StartPoint="0.5,0" EndPoint="0.5,1" >
+                <GradientStop Color="#FF44449E" Offset="0" />
+                <GradientStop Color="#FF161B4B" Offset="0.5"/>
+                <GradientStop Color="#FF44449E" Offset="1"/>
+            </LinearGradientBrush>
+            <Style x:Name="MyBorderStyle" TargetType="Border">
+                <Setter Property="BorderBrush" Value="{StaticResource BlueBorderGradient}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="{StaticResource BaseColor}" />
+                <Setter Property="Margin" Value="5,0,0,0" />
+                <Setter Property="Padding" Value="3" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+            <Style TargetType="esri:TemplatePicker" x:Name="TemplatePicker_2Columns">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="esri:TemplatePicker">
+                            <esriPrimitives:TemplatePanel Templates="{TemplateBinding Templates}" StackCount="2" StackDirection="Vertical">
+                                <esriPrimitives:TemplatePanel.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <esri:CommandButton Margin="2"
+															Command="{Binding SelectTemplateCommand}"
+															CommandParameter="{Binding}" HorizontalContentAlignment="Center" ToolTipService.ToolTip="{Binding Name}">
+                                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                                                    <esriPrimitives:SymbolDisplay Height="20" Width="20" Symbol="{Binding Symbol}"></esriPrimitives:SymbolDisplay>
+
+                                                </StackPanel>
+                                            </esri:CommandButton>
+                                        </Grid>
+                                    </DataTemplate>
+                                </esriPrimitives:TemplatePanel.ItemTemplate>
+                            </esriPrimitives:TemplatePanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Extent="-13054165,3850112,-13027133,3863559"  >
+            <esri:ArcGISTiledMapServiceLayer ID="BaseLayer" 
+				Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            <esri:FeatureLayer ID="Threat Areas"  
+                  Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/HomelandSecurity/operations/FeatureServer/2"                  
+                  Mode="Snapshot" AutoSave="False" DisableClientCaching="True" />
+        </esri:Map>
+
+        <StackPanel  x:Name="EditorToolStrip" Margin="0,5,5,0" >
+            <Border Background="#FF5986AD" BorderThickness="1" CornerRadius="5"
+            			HorizontalAlignment="Right"  VerticalAlignment="Top"
+            			Padding="5" BorderBrush="Black">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+                </Border.Effect>
+                <StackPanel x:Name="EditorTools" Orientation="Horizontal">
+                    <local:DropDownMenu Opacity="0.75">
+                        <local:DropDownMenu.MenuHeader>
+                            <Button Style="{StaticResource EditorToobarButton}" Margin="2" 
+                                    ToolTipService.ToolTip="Add feature" >
+                                <Image Source="/Assets/images/AddFeature.png" Stretch="Fill" />
+                            </Button>
+                        </local:DropDownMenu.MenuHeader>
+                        <Border Style="{StaticResource MyBorderStyle}" HorizontalAlignment="Right" Margin="0,10,0,0" >
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+                            </Border.Effect>
+                            <esri:TemplatePicker Map="{Binding ElementName=MyMap, Mode=OneWay}" 
+                                GeometryServiceUrl="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"
+                                LayerIDs="Threat Areas"
+                                Style="{StaticResource TemplatePicker_2Columns}"/>
+                        </Border>
+                    </local:DropDownMenu>
+                    <Button x:Name="EditGeometry" Margin="2" ToolTipService.ToolTip="Edit geometry" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:EditVerticesAction LayerIDs="Threat Areas"                                                                 
+                                                                TargetName="MyMap"
+                                                                VertexSymbol="{StaticResource MyVertexSymbol}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/EditVertices.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="MoveFeature" Margin="2" ToolTipService.ToolTip="Move Feature" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:MoveAction LayerIDs="Threat Areas"                                                                 
+                                                        TargetName="MyMap" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/MoveFeature.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="UndoButton" Margin="2" ToolTipService.ToolTip="Undo edit" 
+                            Style="{StaticResource EditorToobarButton}" 
+					        IsEnabled="{Binding Path=Layers[1].UndoTracker.CanUndo, ElementName=MyMap, Mode=OneWay}"
+                            >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:UndoAction LayerID="Threat Areas" 
+                                                        TargetName="MyMap" 
+                                                        IsEnabled="True" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/Undo.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="RedoButton" Margin="2" ToolTipService.ToolTip="Redo edit" 
+                            Style="{StaticResource EditorToobarButton}"
+                            IsEnabled="{Binding Path=Layers[1].UndoTracker.CanRedo, ElementName=MyMap, Mode=OneWay}"
+                            >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:RedoAction LayerID="Threat Areas" 
+                                                        TargetName="MyMap"
+                                                        IsEnabled="True"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/Redo.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="SelectButton" Margin="2" ToolTipService.ToolTip="New selection" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:SpatialSelectAction SelectionMode="New"
+                                                                 LayerIDs="Threat Areas" 
+                                                                 TargetName="MyMap"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/NewSelection.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="AddSelectButton" Margin="2" ToolTipService.ToolTip="Add to selection" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:SpatialSelectAction SelectionMode="Add" 
+                                                                 LayerIDs="Threat Areas" 
+                                                                 TargetName="MyMap"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/AddToSelection.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="RemoveSelectButton" Margin="2" ToolTipService.ToolTip="Remove from selection" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:SpatialSelectAction SelectionMode="Remove" 
+                                                                 LayerIDs="Threat Areas"                                                                  
+                                                                 TargetName="MyMap"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/RemoveFromSelection.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="ClearSelectionButton" Margin="2" ToolTipService.ToolTip="Clear selection" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:ClearSelectionAction LayerIDs="Threat Areas" 
+                                                                  TargetName="MyMap"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/Clear.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="DeleteSelectionButton" Margin="2" ToolTipService.ToolTip="Delete selected features" 
+                            Style="{StaticResource EditorToobarButton}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:DeleteSelectedAction LayerIDs="Threat Areas" 
+                                                                  TargetName="MyMap"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/DeleteFeature.png" Stretch="Fill"/>
+                    </Button>
+                    <Button x:Name="SaveButton" Margin="2" ToolTipService.ToolTip="Save edits" 
+                            Style="{StaticResource EditorToobarButton}"
+                            IsEnabled="{Binding Path=Layers[1].HasEdits, ElementName=MyMap, Mode=OneWay}"
+                            >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <esri:SaveAction LayerIDs="Threat Areas" 
+                                                         TargetName="MyMap" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Image Source="/Assets/images/Commit.png" Stretch="Fill" />
+                    </Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,0" >
+            <Rectangle Fill="#775C90B2" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Use the Add Feature button to select a template and draw a feature on the map.  Use other buttons to move or select and delete features.  Use the Undo and Redo buttons to interate through edit stages.  When finished making changes, commit edits by clicking the Save edits button." 
+                       Width="200" TextAlignment="Left" Margin="30,20,20,30" TextWrapping="Wrap" />
+        </Grid>
+    </Grid>
+</UserControl>

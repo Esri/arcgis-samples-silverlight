@@ -1,0 +1,5 @@
+﻿This sample demonstrates the Measure action.  To use this action, click the Measure item from the menu in the upper right corner of the application, then click points on the map.
+
+In the sample XAML, the action is attached to a Button inside the Grid that comprises the menu.  The key element in the XAML is this Button element and the action it contains.  Examining this, you can see that an action can easily be attached to a button's click event in XAML.  The Measure action has properties to specify whether to display total distance, the distance units, the area units, the measure mode, the fill symbol, and the name of the target Map control.
+
+Make sure and the following Assembly Reference to your project: System.Windows.Interactivity

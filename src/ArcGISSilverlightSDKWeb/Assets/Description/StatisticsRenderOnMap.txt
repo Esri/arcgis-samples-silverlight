@@ -1,0 +1,4 @@
+﻿The sample demonstrates ability to render the statistics results on the Map. 
+
+The result of Statistics query is added to a graphicslayer then a Query is performed on states sub-layer to get all states in each sub-region. 
+The states in each sub-region are unioned and appended to graphics layer from statistics Query result.

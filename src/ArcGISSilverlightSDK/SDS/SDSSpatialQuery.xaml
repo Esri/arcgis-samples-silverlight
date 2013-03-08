@@ -1,0 +1,342 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.SDSSpatialQuery"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009" 
+    xmlns:slData="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:slPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <Style x:Key="MyCustomRow" TargetType="slData:DataGridRow">
+                <Setter Property="IsTabStop" Value="False" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="slData:DataGridRow">
+                            <slPrimitives:DataGridFrozenGrid Name="Root">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0" />
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Normal" >
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#ebf4fa"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Normal AlternatingRow">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#bbd9ee"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Normal Selected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="MouseOver Selected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Unfocused Selected">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                                <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                    <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                                </ColorAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.Resources>
+                                    <Storyboard x:Key="DetailsVisibleTransition">
+                                        <DoubleAnimation Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight" 
+                                           Duration="00:00:0.1" />
+                                    </Storyboard>
+                                </Grid.Resources>
+
+                                <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" 
+                                           Fill="#FFFFCC00"/>
+
+                                <slPrimitives:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" 
+                                           slPrimitives:DataGridFrozenGrid.IsFrozen="True" />
+                                <slPrimitives:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" 
+                                           slPrimitives:DataGridFrozenGrid.IsFrozen="True" />
+                                <slPrimitives:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
+                                <Rectangle Grid.Row="2" Grid.Column="1" Name="BottomGridLine" HorizontalAlignment="Stretch" 
+                                           Height="1" />
+                            </slPrimitives:DataGridFrozenGrid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <esri:SimpleMarkerSymbol x:Key="DefaultMarkerSymbol" Color="Red" Size="12" Style="Circle" />
+            <esri:SimpleLineSymbol x:Key="DefaultLineSymbol" Color="Red" Width="4" />
+            <esri:FillSymbol x:Key="DefaultFillSymbol" >
+                <esri:FillSymbol.ControlTemplate>
+                    <ControlTemplate>
+                        <Path x:Name="Element" IsHitTestVisible="False" Fill="#66FF0000" 
+                            Stroke="Red" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </esri:FillSymbol.ControlTemplate>
+            </esri:FillSymbol>
+            <esri:FillSymbol x:Key="ResultsFillSymbol">
+                <esri:FillSymbol.ControlTemplate>
+                    <ControlTemplate x:Name="CustomPolygonTemplate">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#880000FF" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Path x:Name="Element" Stroke="Blue" Fill="#880000FF"
+                                StrokeStartLineCap="Round" StrokeThickness="2" 
+                                StrokeLineJoin="Round" StrokeEndLineCap="Round" />
+                        </Grid>
+                    </ControlTemplate>
+                </esri:FillSymbol.ControlTemplate>
+            </esri:FillSymbol>
+
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#FF1F3B53"/>
+                <Setter Property="Foreground" Value="#FF000000"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                            <GradientStop Color="#FF617584" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" To="1" 
+                                                                 Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+                                                <ColorAnimation Duration="0" To="#F2FFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                                <ColorAnimation Duration="0" To="#CCFFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                                <ColorAnimation Duration="0" To="#7FFFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ColorAnimation Duration="0" To="#D8FFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                                <ColorAnimation Duration="0" To="#C6FFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                                <ColorAnimation Duration="0" To="#8CFFFFFF" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                                <ColorAnimation Duration="0" To="Red" 
+                                                                Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="MyStates">
+                                        <VisualState x:Name="Selected">
+                                            <Storyboard>
+                                                <ColorAnimation 
+                                                    Duration="0" 
+                                                    To="Red" 
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                                    Storyboard.TargetName="Background"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="UnSelected">
+                                            <Storyboard>
+                                                <ColorAnimation 
+                                                    Duration="0" 
+                                                    To="White" 
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                                    Storyboard.TargetName="Background"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Background" BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        Background="White" 
+                                        CornerRadius="3">
+                                    <Grid Background="{TemplateBinding Background}" 
+                                          Margin="1">
+                                        <Border x:Name="BackgroundAnimation" 
+                                                Background="#FF448DCA" 
+                                                Opacity="0"/>
+                                        <Rectangle x:Name="BackgroundGradient">
+                                            <Rectangle.Fill>
+                                                <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                    <GradientStop Color="#F9FFFFFF" Offset="0.375"/>
+                                                    <GradientStop Color="#E5FFFFFF" Offset="0.625"/>
+                                                    <GradientStop Color="#C6FFFFFF" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </Grid>
+                                </Border>
+                                <ContentPresenter x:Name="contentPresenter" 
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                  Content="{TemplateBinding Content}" 
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                                  Margin="{TemplateBinding Padding}" 
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,2000000,-7000000,8000000">
+            <esri:Map.Layers>
+                <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                <esri:GraphicsLayer ID="MySelectionGraphicsLayer" 
+                                    MouseEnter="GraphicsLayer_MouseEnter" 
+                                    MouseLeave="GraphicsLayer_MouseLeave" />
+            </esri:Map.Layers>
+        </esri:Map>
+
+        <Border Background="#DD919191" BorderThickness="1" CornerRadius="5"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Margin="10" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid Margin="10" Background="White">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel x:Name="MyStackPanel" Orientation="Horizontal">
+                        <Button Tag="DrawPoint" Margin="5" Click="Tool_Click" 
+                                ToolTipService.ToolTip="Select with a point">
+                            <Image Source="/Assets/images/DrawPoint.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawPolyline" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with a polyline">
+                            <Image Source="/Assets/images/DrawPolyline.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawPolygon" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with a polygon">
+                            <Image Source="/Assets/images/DrawPolygon.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawRectangle" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with a rectangle">
+                            <Image Source="/Assets/images/DrawRectangle.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawFreehand" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with a freehand line">
+                            <Image Source="/Assets/images/DrawFreehand.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawCircle" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with a circle">
+                            <Image Source="/Assets/images/DrawCircle.png" Margin="2" />
+                        </Button>
+                        <Button Tag="DrawEllipse" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Select with an ellipse">
+                            <Image Source="/Assets/images/DrawEllipse.png" Margin="2" />
+                        </Button>
+                        <Button Tag="ClearStopDraw" Margin="5" Click="Tool_Click"
+                                Style="{x:Null}"
+                                ToolTipService.ToolTip="Clear map">
+                            <Image Source="/Assets/images/StopDraw.png" Margin="2" />
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border x:Name="ResultsDisplay" Background="#77919191" BorderThickness="1" CornerRadius="5"
+                HorizontalAlignment="Right"  VerticalAlignment="Bottom" Visibility="Collapsed"
+                Margin="5" Padding="10" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="DataDisplayTitle" Text="Search Results"
+                           Foreground="White" FontSize="9" Grid.Row="0" FontWeight="Bold" >
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </TextBlock.Effect>
+                </TextBlock><slData:DataGrid x:Name="QueryDetailsDataGrid" Width="Auto" Height="170" AutoGenerateColumns="False" HeadersVisibility="Column" Background="White" 
+                             IsReadOnly="True" Grid.Row="1" HorizontalScrollBarVisibility="Hidden"
+                             RowStyle="{StaticResource MyCustomRow}"
+                             SelectionChanged="QueryDetailsDataGrid_SelectionChanged"
+                             LoadingRow="QueryDetailsDataGrid_LoadingRow">
+                    <slData:DataGrid.Columns>
+                        <slData:DataGridTextColumn Binding="{Binding Attributes[STATE_NAME]}" Header="State Name"/>
+                        <slData:DataGridTextColumn Binding="{Binding Attributes[SUB_REGION]}" Header="Region"/>
+                        <slData:DataGridTextColumn Binding="{Binding Attributes[POP2000]}" Header="Population"/>
+                    </slData:DataGrid.Columns>
+                </slData:DataGrid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

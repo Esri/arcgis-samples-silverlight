@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.GeodesicOperations"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="OriginalMarkerSymbol" Color="Red" Size="12" />
+            <esri:SimpleMarkerSymbol x:Key="NewMarkerSymbol" Size="8">
+                <esri:SimpleMarkerSymbol.Color>
+                    <RadialGradientBrush>
+                        <GradientStop Color="LightGreen" Offset="0.578"/>
+                        <GradientStop Color="#FF0E0D07" Offset="1"/>
+                    </RadialGradientBrush>
+                </esri:SimpleMarkerSymbol.Color>
+            </esri:SimpleMarkerSymbol>
+            <esri:SimpleFillSymbol x:Key="ResultFillSymbol" Fill="#88000000" BorderBrush="Blue" BorderThickness="2" />
+            <esri:SimpleLineSymbol x:Key="ResultLineSymbol" Color="Blue" Width="2" />
+            <esri:SimpleLineSymbol x:Key="DrawLineSymbol" Color="Green" Width="4" />
+            <esri:SimpleFillSymbol x:Key="DrawFillSymbol" Fill="#3300FF00" BorderBrush="Green" BorderThickness="2" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" WrapAround="True">
+            <esri:ArcGISTiledMapServiceLayer
+        		Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            <esri:GraphicsLayer ID="GeodesicResultGraphicsLayer" />
+            <esri:GraphicsLayer ID="VerticesGraphicsLayer" />
+        </esri:Map>
+
+        <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,15,0" 
+                BorderBrush="Black" BorderThickness="1" Background="White">
+            <StackPanel x:Name="DrawTools" Margin="10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="2" Content="Draw Line" Tag="Polyline" Click="Button_Click" />
+                    <Button Margin="2" Content="Draw Polygon" Tag="Polygon" Click="Button_Click" />
+                    <Button Margin="2" Content="Clear" Tag="Clear" Click="Button_Click" />
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <RadioButton Name="RadioButtonGeodesic" Grid.Row="0" Grid.Column="0"
+                         Tag="Geodesic" IsChecked="true" Margin="5,5,0,5" 
+                         GroupName="RadioButtonOperation" Content="Geodesic" />
+                    <RadioButton Name="RadioButtonEuclidian" Grid.Row="0" Grid.Column="1"
+                         Tag="Euclidian" Margin="5" 
+                         GroupName="RadioButtonOperation" Content="Euclidean" />
+                    <TextBlock Text="Length: " Grid.Column="0" Grid.Row="1" />
+                    <TextBlock Name="TextBlockLength" Grid.Column="1" Grid.Row="1" />
+                    <TextBlock Text="Area: " Grid.Column="0" Grid.Row="2" />
+                    <TextBlock Name="TextBlockArea" Grid.Column="1" Grid.Row="2" />
+                    <TextBlock Text="Vertices Before: " Grid.Column="0" Grid.Row="3" />
+                    <TextBlock Name="TextBlockVerticesBefore" Grid.Column="1" Grid.Row="3" />
+                    <TextBlock Text="Vertices After: " Grid.Column="0" Grid.Row="4" />
+                    <TextBlock Name="TextBlockVerticesAfter" Grid.Column="1" Grid.Row="4" />
+                </Grid>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

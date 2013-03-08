@@ -1,0 +1,10 @@
+﻿This sample demonstrates use of the Geoprocessor to call a ViewShed geoprocessing service.  To use the sample, specify a distance, height and click a point on the map.  Once the viewshed is calculated, it is added to the map as a ArcGISDynamicMapService. 10.1 Result Map Service is simple and easy to use and supports all operations and child resources of ArcGIS Dynamic Map Service.
+
+Map Service Operation: Export Map  Identify  Find  Generate KML
+Child Resources: Layer / Table; Dynamic Layer / Table;   Legend;   KML  
+
+•	A Result Map Service is also time-aware and supports querying and exporting maps based on time.
+•	It supports HTML popups and attachments as well.
+
+
+In the code-behind, a Geoprocessor is used to pass the distance, height and clicked point to the ViewShed service. After the viewshed result map service is added it is available for identify. To calculate another viewshed click clear results.

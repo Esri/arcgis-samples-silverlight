@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.Distance"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009" >
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="DefaultMarkerSymbol" Size="12">
+                <esri:SimpleMarkerSymbol.Color>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FFFF0000" Offset="0.578"/>
+                        <GradientStop Color="#FF0E0D07" Offset="1"/>
+                    </RadialGradientBrush>
+                </esri:SimpleMarkerSymbol.Color>
+            </esri:SimpleMarkerSymbol>
+            <esri:SimpleLineSymbol x:Key="DefaultLineSymbol" Width="3" Color="Red" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Extent="-112.461447, 33.393199, -111.564157, 33.66974" >
+                <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+                <esri:GraphicsLayer ID="MyGraphicsLayer" />
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Click on the map to add a polyline, then add a point.  After the point is entered the shortest distance between them is displayed here." 
+                       Width="200" TextAlignment="Left" Margin="30,20,30,30" TextWrapping="Wrap" />
+        </Grid>
+
+    </Grid>
+</UserControl>

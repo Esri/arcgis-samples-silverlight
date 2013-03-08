@@ -1,0 +1,5 @@
+﻿The swipe sample provides a way to see what's underneath a layer. It can be used as a good comparison tool.
+
+To use the sample drag the red slider.
+
+ 

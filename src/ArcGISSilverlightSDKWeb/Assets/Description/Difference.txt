@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input polygon that cuts across another existing polygon graphic to return the different between the two polygons.
+
+To use the sample, create a polygon on the map that intersects the existing graphic on the map (red). When complete the difference between the polygon and the original graphics will be displayed (yellow).  Click the Reset button to remove the results.

@@ -1,0 +1,3 @@
+﻿This sample demonstrates performing a spatial query and adding the results to the map and a DataGrid.  To use the sample, select a drawing tool from the toolbar, then draw a query geometry on the map.  
+
+In the sample's code-behind, a QueryTask is used to query a states map service layer based on the geometry drawn.  The results are then added as a Graphics to the map and displayed in a DataGrid.  The sample also demonstrates specifying a mouse over symbol in XAML for the results graphics and highlighting a graphic when the corresponding row in the DataGrid is moused over.

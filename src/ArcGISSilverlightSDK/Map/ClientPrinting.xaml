@@ -1,0 +1,336 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ClientPrinting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:esri="http://schemas.esri.com/arcgis/client/2009" 
+             xmlns:samples="clr-namespace:ArcGISSilverlightSDK"
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <!--  Dictionary with all available Print Templates  -->
+                <ResourceDictionary x:Key="PrintTemplates">
+                    <!--  Basic style with the map only  -->
+                    <ControlTemplate x:Key="Map Only">
+                        <esri:Map x:Name="PrintMap" Background="White"
+                                  IsLogoVisible="False" samples:CloneMap.Map="{Binding Map}" />
+                    </ControlTemplate>
+
+                    <!--  Print map with header and footer  -->
+                    <ControlTemplate x:Key="With Header And Footer">
+                        <Grid Background="White">
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  Title  -->
+                                <TextBlock HorizontalAlignment="Center" FontSize="14"
+                                           Text="{Binding Title}" TextWrapping="Wrap" />
+
+                                <!--  Map with scale line and attribution  -->
+                                <Border Grid.Row="1" Background="Transparent"
+                                        BorderBrush="Black" BorderThickness="1">
+                                    <Grid>
+                                        <esri:Map x:Name="PrintMap" IsLogoVisible="False" samples:CloneMap.Map="{Binding Map}" />
+                                        <esri:ScaleLine Margin="10" HorizontalAlignment="Right"
+                                                        VerticalAlignment="Bottom"
+                                                        Map="{Binding ElementName=PrintMap}" />
+                                        <esri:Attribution Margin="10,10,300,10" HorizontalAlignment="Left"
+                                                          VerticalAlignment="Bottom"
+                                                          Layers="{Binding Layers, ElementName=PrintMap}" />
+                                    </Grid>
+                                </Border>
+
+                                <!--  Date as Footer  -->
+                                <TextBlock Grid.Row="2" HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Now, StringFormat='Printed {0:D} '}" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+
+                    <!--  Standard style with Title, Map, ScaleLine and Attribution  -->
+                    <ControlTemplate x:Key="Standard">
+                        <Border Background="White">
+                            <Grid Margin="20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  Header  -->
+                                <TextBlock Margin="10" HorizontalAlignment="Center"
+                                           FontSize="22" Text="{Binding Title}"
+                                           TextWrapping="Wrap" />
+
+                                <!--  Map  -->
+                                <Border Grid.Row="1" BorderBrush="Black"
+                                        BorderThickness="1" CornerRadius="0">
+                                    <esri:Map x:Name="PrintMap" IsLogoVisible="False" samples:CloneMap.Map="{Binding Map}" />
+                                </Border>
+
+                                <!--  Footer  -->
+                                <Grid Grid.Row="2" Margin="0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                                               FontSize="16"
+                                               Text="{Binding Now, StringFormat='Printed {0:d} '}" />
+                                    <TextBlock Grid.Column="1" HorizontalAlignment="Left"
+                                               VerticalAlignment="Center" FontSize="14"
+                                               Text="{Binding Scale, ElementName=PrintMap, StringFormat='1 : {0:F0} '}" />
+
+                                    <!--  Scale Bar  -->
+                                    <esri:ScaleLine Grid.Row="1" Grid.Column="1"
+                                                    Map="{Binding ElementName=PrintMap}" TargetWidth="300" />
+
+                                    <!--  Attribution  -->
+                                    <esri:Attribution Grid.Row="2" Grid.Column="1" Layers="{Binding Layers, ElementName=PrintMap}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+
+                    <!--  Print with Legend  -->
+                    <ControlTemplate x:Key="With Legend">
+                        <Border Background="White">
+                            <Grid Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <!--  Header  -->
+                                <TextBlock Margin="10" HorizontalAlignment="Center"
+                                           FontSize="24" Text="{Binding Title}"
+                                           TextWrapping="Wrap" />
+
+                                <!--  Map  -->
+                                <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                                    <Grid>
+                                        <esri:Map x:Name="PrintMap" IsLogoVisible="False" samples:CloneMap.Map="{Binding Map}" />
+                                        <esri:Legend HorizontalAlignment="Left" VerticalAlignment="Bottom" Map="{Binding ElementName=PrintMap}">
+                                            <esri:Legend.Template>
+                                                <!--  Change the legend style to avoid treeview 'collapse' button  -->
+                                                <ControlTemplate TargetType="esri:Legend">
+                                                    <Border Background="White" BorderBrush="Black" BorderThickness="1">
+                                                        <ItemsControl ItemsSource="{TemplateBinding LayerItemsSource}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel Orientation="Vertical">
+                                                                        <!--  Layer Item  -->
+                                                                        <TextBlock FontWeight="SemiBold" Text="{Binding Label}" />
+
+                                                                        <!--  Legend Items  -->
+                                                                        <ItemsControl ItemsSource="{Binding LegendItems}">
+                                                                            <ItemsControl.ItemTemplate>
+                                                                                <DataTemplate>
+                                                                                    <StackPanel Orientation="Horizontal">
+                                                                                        <Image MinWidth="20" HorizontalAlignment="Center"
+                                                                                               VerticalAlignment="Center" Source="{Binding ImageSource}"
+                                                                                               Stretch="None" />
+                                                                                        <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Label}" />
+                                                                                    </StackPanel>
+                                                                                </DataTemplate>
+                                                                            </ItemsControl.ItemTemplate>
+                                                                        </ItemsControl>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </esri:Legend.Template>
+                                        </esri:Legend>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </ResourceDictionary>
+
+                <!--  Collection of preview sizes (Note: real size will be set during the print process depending on printer properties)  -->
+                <samples:PreviewSizes x:Key="MyPreviewSizes">
+                    <samples:PreviewSize Width="780" Height="1100" Id="A4 Portrait" />
+                    <samples:PreviewSize Width="1100" Height="780" Id="A4 Landscape" />
+                    <samples:PreviewSize Width="1100" Height="1560" Id="A3 Portrait" />
+                    <samples:PreviewSize Width="1560" Height="1100" Id="A3 Landscape" />
+                    <samples:PreviewSize Width="2200" Height="1560" Id="A2 Landscape" />
+                    <samples:PreviewSize Width="3120" Height="2200" Id="A1 Landscape" />
+                    <samples:PreviewSize Width="925" Height="1343" Id="B4 Portrait" />
+                    <samples:PreviewSize Width="1343" Height="925" Id="B4 Landscape" />
+                    <samples:PreviewSize Width="687" Height="971" Id="B5 Portrait" />
+                    <samples:PreviewSize Width="971" Height="687" Id="B5 Landscape" />
+                    <samples:PreviewSize Width="760" Height="1000" Id="Letter Portrait" />
+                    <samples:PreviewSize Width="976" Height="760" Id="Letter Landscape" />
+                    <samples:PreviewSize Width="665" Height="977" Id="Executive" />
+                    <samples:PreviewSize Width="689" Height="415" Id="Envelope" />
+                </samples:PreviewSizes>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <!--  Map Control  -->
+        <esri:Map x:Name="MyMap" Extent="-9813504.6933477,5127140.45392125,-9812977.49431059,5127508.54492118" WrapAround="True">
+            <esri:ArcGISTiledMapServiceLayer ID="Basemap" ShowLegend="False" Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+            <esri:ArcGISDynamicMapServiceLayer ID="Water Network" Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Water_Network/MapServer" />
+        </esri:Map>
+
+        <Button Margin="20" HorizontalAlignment="Left"
+                VerticalAlignment="Top" Click="ActivatePrintPreview"
+                Content="Print" FontSize="18"
+                Padding="10"
+                ToolTipService.ToolTip="Show Print Preview Dialog" />
+
+        <!--  Print Preview Dialog (overlaps the map in this sample)  -->
+        <Grid x:Name="PrintPreview" Background="LightGray" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <!--  Print parameters  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  Separator  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  MapPrinter preview  -->
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <!--  Print parameters  -->
+            <Grid Grid.Column="0" MaxWidth="350" Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--  Print properties row 0  -->
+                <Grid Grid.Row="0" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <toolkit:DockPanel Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                            <TextBlock FontSize="16" FontWeight="Bold" Text="Print properties " />
+                            <toolkit:Separator Margin="0" Background="DarkGray" />
+                        </toolkit:DockPanel>
+
+                        <!--  Title  -->
+                        <TextBlock Grid.Row="1" Margin="5"
+                                   VerticalAlignment="Center" Text="Title: " />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 Margin="5" VerticalAlignment="Center"
+                                 HorizontalScrollBarVisibility="Visible"
+                                 Text="{Binding Title, Mode=TwoWay, ElementName=MyMapPrinter}"
+                                 TextWrapping="Wrap" />
+
+                        <!--  Rotate map  -->
+                        <TextBlock Grid.Row="2" Margin="5"
+                                   VerticalAlignment="Center" Text="Rotate Map: " />
+                        <CheckBox Grid.Row="2" Grid.Column="1"
+                                  Margin="5" VerticalAlignment="Center"
+                                  IsChecked="{Binding RotateMap, Mode=TwoWay, ElementName=MyMapPrinter}" />
+
+                        <!--  Style selector from the PrintTemplates resource dictionary  -->
+                        <TextBlock Grid.Row="3" Margin="5"
+                                   VerticalAlignment="Center" Text="Print Style: " />
+                        <ComboBox x:Name="MyPrintTemplateCombo" Grid.Row="3"
+                                  Grid.Column="1" MinWidth="80"
+                                  Margin="5" VerticalAlignment="Center"
+                                  DisplayMemberPath="Key"
+                                  ItemsSource="{StaticResource PrintTemplates}"
+                                  SelectedIndex="1" SelectedValuePath="Value" />
+                    </Grid>
+                </Grid>
+
+                <!--  Print Menu  row 1  -->
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <toolkit:DockPanel Grid.ColumnSpan="2">
+                            <TextBlock FontSize="16" FontWeight="Bold" Text="Print menu " />
+                            <toolkit:Separator Margin="0" Background="DarkGray" />
+                        </toolkit:DockPanel>
+
+                        <!--  Preview size selector  -->
+                        <TextBlock Grid.Row="1" Margin="5"
+                                   VerticalAlignment="Center" Text="Preview size: " />
+                        <ComboBox Grid.Row="1" Grid.Column="1"
+                                  MinWidth="80" Margin="5"
+                                  VerticalAlignment="Center" DisplayMemberPath="Id"
+                                  ItemsSource="{StaticResource MyPreviewSizes}"
+                                  SelectedIndex="0" SelectionChanged="OnPreviewSizeChanged" />
+
+                        <!--  Print Button  -->
+                        <Button x:Name="PrintButton" Grid.Row="2"
+                                Grid.ColumnSpan="2" Margin="5"
+                                HorizontalAlignment="Stretch" Click="OnPrint"
+                                ToolTipService.ToolTip="Print Map">
+                            <Image Source="/Assets/Images/i_printer.png" Stretch="None" />
+                        </Button>
+                    </Grid>
+                </Grid>
+                <!--  Busy indicator over all parameters  -->
+                <toolkit:BusyIndicator Grid.Row="0" Grid.RowSpan="2"
+                                       BusyContent="Printing..."
+                                       IsBusy="{Binding IsPrinting, ElementName=MyMapPrinter}" />
+
+                <!--  Footer with Cancel button row 2  -->
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                    <toolkit:Separator Margin="5,0" Background="DarkGray" />
+                    <Button Margin="5" HorizontalAlignment="Right"
+                            Click="DesactivatePrintPreview" Content="Cancel"
+                            FontSize="14" />
+                </StackPanel>
+
+            </Grid>
+
+            <!--  Separator  column 1  -->
+            <Border Grid.Column="1" HorizontalAlignment="Stretch"
+                    BorderBrush="Black" BorderThickness="1" />
+
+            <!--  Preview Map column 2  -->
+            <Grid Grid.Column="2">
+                <Border Margin="4" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" BorderBrush="Black"
+                        BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="-45" Opacity="0.5" ShadowDepth="4" />
+                    </Border.Effect>
+                    <!--  Viewbox allows the whole mapprinter to be rendered in the allocate size  -->
+                    <Viewbox>
+                        <samples:MapPrinter x:Name="MyMapPrinter" Title="Water Network"
+                                          Width="750" Height="1050"
+                                          HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch"
+                                          Template="{Binding SelectedValue, ElementName=MyPrintTemplateCombo}" />
+                    </Viewbox>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

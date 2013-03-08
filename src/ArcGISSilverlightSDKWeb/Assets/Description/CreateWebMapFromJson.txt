@@ -1,0 +1,1 @@
+﻿The sample shows how to create a WebMap using the raw json string. The json should be valid json and must match ArcGIS.com WebMap specification.

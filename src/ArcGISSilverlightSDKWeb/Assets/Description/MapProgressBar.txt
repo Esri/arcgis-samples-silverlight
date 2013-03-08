@@ -1,0 +1,1 @@
+﻿This sample demonstrates the MapProgressBar control.  Zoom or pan the map, and you will see a progress bar appear while map tiles are loaded.  As shown in the sample XAML, use of the control only requires declaring a MapProgressBar element and binding it to a Map control.

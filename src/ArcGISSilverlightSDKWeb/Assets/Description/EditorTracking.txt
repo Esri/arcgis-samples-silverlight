@@ -1,0 +1,3 @@
+This sample demonstrates tracking the identity of users who make edits (adds, updates) to a feature class. IdentityManager is used to prompt the user to log in. The user information is used to set the FeatureLayer.EditUserName which is used to tell the service who is editing the features.
+
+To use the sample, click the "Login and Load Layer" button (username and password have been populated for you). Use the tools to add new features, select features, and delete features. Update features using the FeatureDataGrid. 

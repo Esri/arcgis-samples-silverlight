@@ -1,0 +1,1 @@
+﻿This sample shows how to get initial map properties and layer details.   Note, the map properties may change during the application session (e.g. extent will change as the map is navigated) but layer properties will usually remain the same.  Note that layer properties are directly related to what the layer provides via its respective service endpoint.   

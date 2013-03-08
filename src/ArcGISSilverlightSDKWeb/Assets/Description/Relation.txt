@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of a GeometryService to calculate topological relationships.  To use the sample, click points on the map and click Execute.  The relationship of the points to the pre-defined polygons on the map is calculated and added to the points' MapTips.
+
+In the code-behind, a GeometryService is used to check whether the points are in the polygons by specifying a relation parameter of esriGeometryRelationWithin.  The results are added to the points' MapTips when the are returned.

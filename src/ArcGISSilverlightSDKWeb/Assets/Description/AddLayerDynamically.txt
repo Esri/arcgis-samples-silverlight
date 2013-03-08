@@ -1,0 +1,1 @@
+﻿This sample includes a Map with no layers.  Enter a url to an ArcGIS Server tiled map service and click the Add Layer button to add the service as a layer to the map at runtime.   The map will also zoom to the initial extent of the layer.   

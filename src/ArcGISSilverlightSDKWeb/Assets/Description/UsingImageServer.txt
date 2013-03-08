@@ -1,0 +1,1 @@
+This sample demonstrates how to use an ArcGIS Server Image service layer in a map. ArcGIS Server Image services display raster data and generate dynamic map images.          

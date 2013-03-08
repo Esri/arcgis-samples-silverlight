@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.PanButtons"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot">
+
+        <esri:Map x:Name="MyMap" WrapAround="True" Background="White" Extent="99000,6000000,2170000,7120000" RenderTransformOrigin="0.5,0.5">
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+            <esri:Map.RenderTransform>
+                <ScaleTransform ScaleX="0.94" ScaleY="0.9" />
+            </esri:Map.RenderTransform>
+        </esri:Map>
+
+        <Button FontFamily="Webdings" FontSize="24" Content="3" Tag="W" Height="35" 
+                HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Click="PanClick" />
+        <Button FontFamily="Webdings" FontSize="24" Content="4" Tag="E" Height="35" 
+                HorizontalAlignment="Right" VerticalAlignment="Center" Width="35" Click="PanClick" />
+        <Button FontFamily="Webdings" FontSize="24" Content="5" Tag="N" Height="35" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" Width="35" Click="PanClick" />
+        <Button FontFamily="Webdings" FontSize="24" Content="6" Tag="S" Height="35" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="35" Click="PanClick" />
+        <Button Tag="NE" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" Width="35" Click="PanClick" >
+            <Button.Content>
+                <TextBlock FontFamily="Webdings" FontSize="24" Text="5" RenderTransformOrigin="0.5,0.5" >
+					<TextBlock.RenderTransform>
+						<CompositeTransform Rotation="45"/>
+					</TextBlock.RenderTransform>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Tag="SE" Height="35" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="35" Click="PanClick" >
+            <Button.Content>
+                <TextBlock FontFamily="Webdings" FontSize="24" Text="5" RenderTransformOrigin="0.5,0.5" >
+					<TextBlock.RenderTransform>
+						<CompositeTransform Rotation="135"/>
+					</TextBlock.RenderTransform>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Tag="SW" Height="35" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="35" Click="PanClick" >
+            <Button.Content>
+                <TextBlock FontFamily="Webdings" FontSize="24" Text="5" RenderTransformOrigin="0.5,0.5" >
+					<TextBlock.RenderTransform>
+						<CompositeTransform Rotation="225"/>
+					</TextBlock.RenderTransform>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+        <Button Tag="NW" Height="35" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" Click="PanClick" >
+            <Button.Content>
+                <TextBlock FontFamily="Webdings" FontSize="24" Text="5" RenderTransformOrigin="0.5,0.5" >
+					<TextBlock.RenderTransform>
+						<CompositeTransform Rotation="315"/>
+					</TextBlock.RenderTransform>
+                </TextBlock>
+            </Button.Content>
+        </Button>
+    </Grid>
+</UserControl>

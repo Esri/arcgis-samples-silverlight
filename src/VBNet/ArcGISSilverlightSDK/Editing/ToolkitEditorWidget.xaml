@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ToolkitEditorWidget"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+	<Grid x:Name="LayoutRoot">
+
+		<esri:Map x:Name="MyMap" WrapAround="True">
+			<esri:ArcGISTiledMapServiceLayer ID="BaseLayer" 
+				                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+
+			<esri:ArcGISDynamicMapServiceLayer ID="Fire Perimeter" 
+                                               Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/MapServer" 
+                                               Initialized="ArcGISDynamicMapServiceLayer_Initialized" />
+
+			<esri:FeatureLayer ID="Evacuation Perimeter" DisableClientCaching="True" 
+                               AutoSave="False"
+                               Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/1" 
+                               OutFields="*"
+                               Mode="OnDemand" />
+
+			<esri:FeatureLayer ID="Points of Interest" DisableClientCaching="True" 
+                               AutoSave="False"
+                               Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/FeatureServer/0"
+                               OutFields="*" 
+                               Mode="OnDemand" />
+
+		</esri:Map>
+
+		<StackPanel  x:Name="EditorToolStrip" Margin="0,5,5,0" >
+			<Border Background="#00919191" CornerRadius="5"
+            			HorizontalAlignment="Right"  VerticalAlignment="Top"
+            			Padding="5" BorderBrush="Transparent">
+				<Border.Effect>
+					<DropShadowEffect Color="Black" Direction="-45" BlurRadius="20" Opacity=".75" />
+				</Border.Effect>
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="0,5,5,0"	VerticalAlignment="Top" >
+					<esri:EditorWidget x:Name="MyEditorWidget"
+                             Map="{Binding ElementName=MyMap}" 
+                                      Width="300" 
+                                      AutoSelect="False"
+                                      AlwaysDisplayDefaultTemplates="True" 
+                                      GeometryServiceUrl="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"
+                                      ShowAttributesOnAdd="True"  
+                                      Loaded="EditorWidget_Loaded"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+
+		<Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,0" >
+			<Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+				<Rectangle.Effect>
+					<DropShadowEffect/>
+				</Rectangle.Effect>
+			</Rectangle>
+			<Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+			<TextBlock x:Name="ResponseTextBlock" Text="Two editable feature layers represent points of interest and fire evacuation areas.  Use the symbol templates to add new features.  Use the tools to modify or delete existing features. Save your edits when finished to commit any updates to the database." 
+                       Width="200" TextAlignment="Left" Margin="30,20,20,30" TextWrapping="Wrap" />
+		</Grid>
+
+	</Grid>
+</UserControl>

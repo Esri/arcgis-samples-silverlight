@@ -1,0 +1,5 @@
+﻿This sample demonstrates the use of the FeatureDataGrid control. This control provides an interactive data table for GraphicsLayers.  Aside from providing a tabular display of the layer's data, graphics can be selected, deselected, and zoomed to by interacting with the FeatureDataGrid.
+
+The key elements in the sample's XAML are the SimpleFillSymbol and FeatureDataGrid.  The FeatureDataGrid uses a symbol's selected state for displaying selection.  The sample XAML declares a color animation for the symbol's selected state.  The FeatureDataGrid declaration binds the FeatureDataGrid to the Map control and sets its GraphicsLayer property to the second layer in the map. 
+
+The code-behind declares an event handler that scrolls to a record in the FeatureDataGrid when the corresponding Graphic is clicked in the map.

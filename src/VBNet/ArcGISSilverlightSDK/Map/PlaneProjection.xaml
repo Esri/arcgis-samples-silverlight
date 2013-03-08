@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.PlaneProjection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+   xmlns:esri="http://schemas.esri.com/arcgis/client/2009" >
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF023761"/>
+                <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                <GradientStop Color="#FFB5DFFF" Offset="0.293"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid>
+            <Grid.Projection>
+                <PlaneProjection x:Name="MyPlaneProjection" RotationX="{Binding Value, ElementName=MySlantSlider}" />
+            </Grid.Projection>
+            <Border BorderBrush="Black" BorderThickness="1">               
+                <esri:Map x:Name="MyMap" Background="Transparent" WrapAround="True">
+                    <esri:ArcGISTiledMapServiceLayer ID="MapLayer" 
+                              Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                </esri:Map>
+            </Border>
+            <Canvas Width="20" Height="20" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Visibility="Visible" Grid.Row="1" >
+                <Line X1="0" X2="20" Y1="10" Y2="10" Stroke="#BB000000" StrokeThickness="1" />
+                <Line X1="10" X2="10" Y1="0" Y2="20" Stroke="#BB000000" StrokeThickness="1" />
+            </Canvas>
+        </Grid>
+        
+        <Border Background="#99FFFFFF" BorderBrush="#99999999" BorderThickness="1" Padding="5" 
+                CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"  >
+            <Slider x:Name="MySlantSlider" Minimum="-70" Maximum="0" Width="Auto" 
+                    Value="0" Height="200" Orientation="Vertical"/>
+        </Border>
+
+        <Border Background="#99FFFFFF" BorderBrush="#99999999" BorderThickness="1" Padding="3" 
+                CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"  >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
+                <Run Text="{Binding Value, Mode=OneWay, ElementName=MySlantSlider, StringFormat=\{0:0.0\}}" />
+                <Run Text=" Degrees" />
+            </TextBlock>
+        </Border>
+    </Grid>
+</UserControl>

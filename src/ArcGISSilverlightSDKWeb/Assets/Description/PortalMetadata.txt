@@ -1,0 +1,4 @@
+﻿This sample illustrates simple way of querying the Portal metadata/properties and retrieving featuredItems using Portal API. 
+
+ To use the sample, Click on Intialize button to initialize the portal. Once the portal is initialized , the portal metadata is displayed. 
+

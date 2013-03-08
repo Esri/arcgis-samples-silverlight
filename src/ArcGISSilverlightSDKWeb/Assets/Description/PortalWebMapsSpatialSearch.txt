@@ -1,0 +1,8 @@
+﻿This samples shows how to use the Portal API to search public webmaps matching the search criterion on ArcGIS Online.
+
+To use the sample, click on Intialize button to initialize the portal. Once the portal is initialized it is available to perform searches and queries. 
+Enter the search parameters and click Find WebMaps. Webmaps matching the search parameters are listed and are marked on the Map using a GraphicsLayer.
+ 
+Clicking on graphic will pop-up an info-window with some details and has an option to view/open the WebMap using ArcGIS-online.
+ 
+Note, map's current extent should be in Geographic coordinates.

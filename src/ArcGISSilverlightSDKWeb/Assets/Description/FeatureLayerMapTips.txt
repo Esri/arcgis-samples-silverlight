@@ -1,0 +1,1 @@
+﻿This sample demonstrates specifying MapTips using the FeatureLayer's MapTips property.  In the sample, the layer's OutFields are displayed on the MapTips.  The OutFields property allows you to explicitly specify what fields to include with the layer.

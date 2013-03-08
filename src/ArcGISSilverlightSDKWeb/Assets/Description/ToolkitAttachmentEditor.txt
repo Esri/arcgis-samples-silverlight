@@ -1,0 +1,3 @@
+﻿This sample demonstrates using the ESRI.ArcGIS.Client.Toolkit AttachmentEditor to upload, download, and delete files associated with selected features in a FeatureLayer.
+
+To use the sample, select a point feature and click the 'Add' button to attach a file. To download an attachment for a selected feature, click the hyperlink for the filename. To delete an attachment associated with a selected feature click the red X next to the file name.

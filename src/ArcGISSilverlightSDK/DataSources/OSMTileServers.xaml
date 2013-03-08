@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.OSMTileServers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"    
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <Grid>
+        <esri:Map x:Name="MyMap" WrapAround="True">
+            <!--MapQuest Tile Servers-->
+            <esri:OpenStreetMapLayer ID="OSMLayer">
+                <esri:OpenStreetMapLayer.TileServers>
+                    <sys:String>http://otile1.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                    <sys:String>http://otile2.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                    <sys:String>http://otile3.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                </esri:OpenStreetMapLayer.TileServers>
+            </esri:OpenStreetMapLayer>
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" Background="#CC919191" VerticalAlignment="Top" Margin="10" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent" Margin="5">               
+                <RadioButton x:Name="MapQuestRadioButton" IsChecked="true"
+                         Tag="MapQuest"  Margin="5,0,0,0" Foreground="White"
+                         GroupName="Layers" Content="MapQuest" Click="RadioButton_Click"/>
+                <RadioButton x:Name="CloudmadeRadioButton" 
+                         Tag="Cloudmade"  Margin="5,0,0,0" Foreground="White"
+                         GroupName="Layers" Content="Cloudmade" Click="RadioButton_Click"/>
+                <RadioButton x:Name="CycleMapRadioButton" 
+                         Tag="CycleMap" Margin="5,0,0,0" Foreground="White" 
+                         GroupName="Layers" Content="CycleMap" Click="RadioButton_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <esri:Attribution Layers="{Binding ElementName=MyMap, Path=Layers}" Margin="10" VerticalAlignment="Bottom" />
+
+    </Grid>
+</UserControl>

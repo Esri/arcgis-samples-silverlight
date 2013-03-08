@@ -1,0 +1,123 @@
+<UserControl xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"  
+    x:Class="ArcGISSilverlightSDK.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"             
+    xmlns:common="clr-namespace:System.Windows;assembly=System.Windows.Controls" 
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:esri="clr-namespace:ESRI.ArcGIS.Client;assembly=ESRI.ArcGIS.Client"
+    xmlns:esriGeometry="clr-namespace:ESRI.ArcGIS.Client.Geometry;assembly=ESRI.ArcGIS.Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:agssl="clr-namespace:ArcGISSilverlightSDK"
+    Loaded="UserControl_Loaded" mc:Ignorable="d">
+	<Grid x:Name="LayoutRoot" ShowGridLines="False" >
+		<Grid.Resources>
+			<common:HierarchicalDataTemplate x:Key="categoryItem" >
+				<StackPanel Orientation="Horizontal">
+					<Image Margin="0 0 2 0" Source="{Binding Icon}" Width="16" Height="16" />
+					<TextBlock Text="{Binding Path=ID}" VerticalAlignment="Center" />
+				</StackPanel>
+			</common:HierarchicalDataTemplate>
+			<common:HierarchicalDataTemplate x:Key="categoryEntry" ItemsSource="{Binding Path=CategoryItems}" ItemTemplate="{StaticResource categoryItem}">
+				<StackPanel Orientation="Horizontal">
+					<Image Margin="0 2 4 0" Source="{Binding Icon}" Width="12" Height="12" />
+					<TextBlock FontWeight="Bold" Text="{Binding Path=Name}" VerticalAlignment="Center"/>
+				</StackPanel>
+			</common:HierarchicalDataTemplate>
+		</Grid.Resources>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition MinWidth="100" MaxWidth="350" Width="260"/>
+			<ColumnDefinition MinWidth="500" />
+		</Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="75" MaxHeight="75" Height="75" />
+            <RowDefinition MinHeight="500" Height="*" />           
+        </Grid.RowDefinitions>
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FF257194" Offset="0"/>
+				<GradientStop Color="#FFd2e2f4" Offset="1"/>
+			</LinearGradientBrush>
+		</Grid.Background>
+		<!-- Side Bar-->
+		<Rectangle x:Name="sideShadow" Margin="2" Fill="#FF117CA2" Stroke="#FF92a8b3" 
+                   RadiusX="5" RadiusY="5" Grid.Row="1" Grid.Column="0"
+                   StrokeThickness="1" Opacity="0.25"/>
+		<TextBlock FontSize="12" Foreground="White" Margin="25,8,5,5" Grid.Row="1" Grid.Column="0">
+                <TextBlock.Text>
+                    What do you want to do?
+                </TextBlock.Text>
+		</TextBlock>
+		<Border x:Name="sideBar" Grid.Row="1" Grid.Column="0" Margin="15,25,15,15" BorderBrush="#775C90B2" BorderThickness="1" CornerRadius="5" Background="White" SizeChanged="sideBar_SizeChanged" >
+			<StackPanel Orientation="Vertical" Margin="0,0,0,0"  
+                    VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+				<controls:TreeView x:Name="treeSamples" BorderThickness="0" BorderBrush="#336894a2" 
+                Background="White" Margin="3,3,3,3"
+                ItemsSource="{Binding Mode=OneWay}" 
+                SelectedItemChanged="treeSamples_SelectedItemChanged"
+                ItemTemplate="{StaticResource categoryEntry}"
+                HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+                >
+				</controls:TreeView>
+			</StackPanel>
+		</Border>
+		<!-- Grid Splitter-->
+		<basics:GridSplitter x:Name="gridSplitter" Grid.Column="0" Grid.Row="1" 
+            VerticalAlignment="Stretch" Background="White" Width="5"  >
+		</basics:GridSplitter>
+
+		<!-- Fill Panel -->
+		<Rectangle x:Name="fillShadow"  Grid.Row="1" Grid.Column="2" Fill="#FF117CA2"
+            Grid.ColumnSpan="1" RadiusX="5" RadiusY="5" 
+            Opacity="0.25" HorizontalAlignment="Stretch" Margin="2" 
+                    />
+		<basics:TabControl x:Name="tabPanel"  Grid.Row="1" Grid.Column="2" 
+            Margin="15,10,15,15" SelectionChanged="tabPanel_SelectionChanged">
+			<basics:TabItem x:Name="tabSample" Header="Live Sample" BorderBrush="#775C90B2" BorderThickness="1"  >
+				<agssl:LogosFade />
+			</basics:TabItem>
+			<basics:TabItem x:Name="tabXaml" Header="XAML" >
+				<ScrollViewer x:Name="tabXamlScrollView" HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto" >
+					<ScrollViewer.Content>
+						<TextBox x:Name="txtXaml" AcceptsReturn="False"  />
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</basics:TabItem>
+			<basics:TabItem x:Name="tabSrc" Header="Code Behind"  >
+				<ScrollViewer x:Name="tabSrcScrollView" HorizontalScrollBarVisibility="Auto"
+                    VerticalScrollBarVisibility="Auto">
+					<ScrollViewer.Content>
+						<TextBox x:Name="txtSrc" AcceptsReturn="False" />
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</basics:TabItem>
+		</basics:TabControl>
+		<Button x:Name="copyToClipboard"  Grid.Row="1" Grid.Column="2" Canvas.ZIndex="10" Visibility="Collapsed" 
+                Click="copyToClipboard_Click" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Content="  Copy to Clipboard  " Margin="15, 8, 15, 15"
+                >
+		</Button>
+		<TextBlock Margin="27,19,128,26" Grid.ColumnSpan="2" Text="ArcGIS API for Silverlight - Interactive Samples" TextWrapping="Wrap" FontFamily="./Fonts/Fonts.zip#Verdana" FontSize="24" RenderTransformOrigin="0.5,0.5" FontWeight="Normal" d:IsStaticText="False" x:Name="BottomText">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform AngleY="0"/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<TextBlock Margin="25,17,128,26" RenderTransformOrigin="0.5,0.5" FontFamily="./Fonts/Fonts.zip#Verdana" FontSize="24" FontWeight="Normal" Text="ArcGIS API for Silverlight - Interactive Samples" TextWrapping="Wrap" d:IsStaticText="False" Grid.ColumnSpan="2" x:Name="TopText" Foreground="#FFFFFFFF">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform AngleY="0"/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+    </Grid>
+</UserControl>

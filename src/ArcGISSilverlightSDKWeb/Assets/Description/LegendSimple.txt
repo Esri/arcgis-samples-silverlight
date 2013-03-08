@@ -1,0 +1,3 @@
+﻿This sample demonstrates the Legend control. The Legend control displays the symbology of specified Layers with text explanations of what the symbols mean in a Map an organized in a tree view hierarchy. The specific Layers that are displayed in the Legend control are controlled by what is specified in the LayersIDs Property.
+
+For this sample, the LayerItemsMode Property is set to ‘Tree’ meaning all sub-layers and groups will automatically be displayed in the Legend control. Users are free to collapse the symbology with text descriptions of the Legend for individual layers and sub-layers.

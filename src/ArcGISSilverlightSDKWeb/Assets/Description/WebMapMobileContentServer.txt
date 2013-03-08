@@ -1,0 +1,1 @@
+﻿This sample illustrates how to set the ServerBaseUrl on the WebMap Document class to use a Mobile Content Server.  A Mobile Content Server is capable of hosting custom webmaps.  

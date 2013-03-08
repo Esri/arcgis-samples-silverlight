@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.FeatureLayerRendering"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+	<Grid x:Name="LayoutRoot" Background="White">
+
+		<Grid.Resources>
+
+			<esri:SimpleMarkerSymbol x:Key="MyGreenMarkerSymbol" Color="#CC00FF00" Size="6" />
+			<esri:SimpleMarkerSymbol x:Key="MyRedMarkerSymbol" Color="#CCFF0000" Size="10" />
+			<esri:UniqueValueRenderer x:Key="MyUniqueValueRendererPoints" Field="CAPITAL" >
+				<esri:UniqueValueRenderer.Infos>
+					<esri:UniqueValueInfo Value="N" Symbol="{StaticResource MyGreenMarkerSymbol}" />
+					<esri:UniqueValueInfo Value="Y" Symbol="{StaticResource MyRedMarkerSymbol}" />
+				</esri:UniqueValueRenderer.Infos>
+			</esri:UniqueValueRenderer>
+
+			<esri:SimpleRenderer x:Key="MySimpleRendererLines" >
+				<esri:SimpleRenderer.Symbol>
+					<esri:LineSymbol >
+						<esri:LineSymbol.ControlTemplate>
+							<ControlTemplate>
+								<Grid>
+									<VisualStateManager.VisualStateGroups>
+										<VisualStateGroup x:Name="CommonStates">
+											<VisualState x:Name="MouseOver">
+												<Storyboard>
+													<DoubleAnimation BeginTime="0" Storyboard.TargetName="Element" Storyboard.TargetProperty="(Shape.StrokeThickness)" To="3" Duration="00:00:01" />
+												</Storyboard>
+											</VisualState>
+											<VisualState x:Name="Normal">
+												<Storyboard>
+													<DoubleAnimation BeginTime="0" Storyboard.TargetName="Element" Storyboard.TargetProperty="(Shape.StrokeThickness)" To="1" Duration="00:00:01" />
+												</Storyboard>
+											</VisualState>
+										</VisualStateGroup>
+									</VisualStateManager.VisualStateGroups>
+									<Path x:Name="Element" Stroke="Blue" StrokeThickness="1" />
+								</Grid>
+							</ControlTemplate>
+						</esri:LineSymbol.ControlTemplate>
+					</esri:LineSymbol>
+				</esri:SimpleRenderer.Symbol>
+			</esri:SimpleRenderer>
+
+			<esri:SimpleFillSymbol x:Key="LowFillSymbol" Fill="#99B9D3EE" BorderBrush="#AAFFFFFF" BorderThickness="1" />
+			<esri:SimpleFillSymbol x:Key="MediumFillSymbol" Fill="#999FB6CD" BorderBrush="#AAFFFFFF" BorderThickness="1" />
+			<esri:SimpleFillSymbol x:Key="HighFillSymbol" Fill="#996C7B8B" BorderBrush="#AAFFFFFF" BorderThickness="1"/>
+			<esri:ClassBreaksRenderer x:Key="MyClassBreaksRenderer" Field="POP07_SQMI" >
+				<esri:ClassBreaksRenderer.Classes>
+					<esri:ClassBreakInfo MinimumValue="0" MaximumValue="50" Symbol="{StaticResource LowFillSymbol}" />
+					<esri:ClassBreakInfo MinimumValue="50" MaximumValue="200" Symbol="{StaticResource MediumFillSymbol}" />
+					<esri:ClassBreakInfo MinimumValue="200" MaximumValue="50000" Symbol="{StaticResource HighFillSymbol}" />
+				</esri:ClassBreaksRenderer.Classes>
+			</esri:ClassBreaksRenderer>
+
+		</Grid.Resources>
+
+		<esri:Map x:Name="MyMap" WrapAround="True">
+			<esri:Map.Extent>
+				<esri:Envelope XMin="-15000000" YMin="2000000" XMax="-7000000" YMax="8000000">
+					<esri:Envelope.SpatialReference>
+						<esri:SpatialReference WKID="102100"/>
+					</esri:Envelope.SpatialReference>
+				</esri:Envelope>
+			</esri:Map.Extent>
+			<esri:Map.Layers>
+
+				<esri:ArcGISTiledMapServiceLayer ID="TopoMapLayer"
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer"/>
+
+				<esri:FeatureLayer ID="StatesFeatureLayer"
+                    Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/5"
+										Renderer="{StaticResource MyClassBreaksRenderer}" 
+                    OutFields="POP07_SQMI"/>
+
+				<esri:FeatureLayer ID="RiversFeatureLayer"
+                    Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/1" 
+                    Renderer="{StaticResource MySimpleRendererLines}"  />
+
+				<esri:FeatureLayer ID="CitiesFeatureLayer"
+                    Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/0" 
+                    Renderer="{StaticResource MyUniqueValueRendererPoints}"
+                    Where="POP1990 > 75000"
+                    OutFields="CAPITAL">
+					<esri:FeatureLayer.Clusterer>
+						<esri:FlareClusterer FlareBackground="Orange" FlareForeground="Black" MaximumFlareCount="9" />
+					</esri:FeatureLayer.Clusterer>
+				</esri:FeatureLayer>
+
+			</esri:Map.Layers>
+		</esri:Map>
+
+	</Grid>
+</UserControl>

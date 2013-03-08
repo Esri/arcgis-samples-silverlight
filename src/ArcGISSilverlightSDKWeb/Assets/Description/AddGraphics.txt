@@ -1,0 +1,1 @@
+﻿This sample demonstrates adding graphics to the map using code.  Simple marker symbols, picture marker symbols, simple line symbols, and simple fill symbols are shown.

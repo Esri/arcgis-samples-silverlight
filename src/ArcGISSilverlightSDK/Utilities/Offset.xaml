@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.Offset"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.Resources>
+            <esri:SimpleLineSymbol x:Key="RedLineSymbol" Color="Red" Width="4" Style="Solid" />
+            <esri:SimpleFillSymbol x:Key="BlueFillSymbol" Fill="#990000FF" BorderBrush="Blue" />
+            <esri:SimpleFillSymbol x:Key="CyanFillSymbol" Fill="#4400FFFF"  BorderBrush="Cyan"/>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Extent="-9275076.4794,5253225.9406,-9274273.6411,5253885.6155" >
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+        		Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            <esri:GraphicsLayer ID="ParcelsGraphicsLayer" />
+            <esri:GraphicsLayer ID="OffsetGraphicsLayer" />
+        </esri:Map>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+                <Rectangle.Effect>
+                    <DropShadowEffect/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+            <TextBlock x:Name="ResponseTextBlock" Text="Click on a parcel to generate an offset (cyan)." 
+                       Width="200" TextAlignment="Left" Margin="30,20,20,30" TextWrapping="Wrap" />
+        </Grid>
+
+    </Grid>
+</UserControl>

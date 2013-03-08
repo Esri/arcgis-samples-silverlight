@@ -1,0 +1,3 @@
+﻿This sample demonstrates how to apply an ESRI.ArcGIS.Client RenderingRule class on an ArcGISImageServiceLayer to display imagery in different stretch display formats. The stretch display types that are used for the stretch raster function include: None, Standard Deviation, Histogram, and MinMax.
+
+To use the sample, define input properties for the stretch raster function via the radio buttons and click Apply to see the changes.

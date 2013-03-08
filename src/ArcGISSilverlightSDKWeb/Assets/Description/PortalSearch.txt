@@ -1,0 +1,8 @@
+﻿This samples shows how to use the Portal API to search public webmaps  on ArcGIS.com that matches the search criterion.
+
+To use the sample, enter the search keyword and press enter. Webmaps matching the search parameters will be listed.
+To view details of an item click on its description to display the display panel. You can also view/open the webmap by clicking thumbnail image.
+ 
+To access the results list after the webmap is opened , click on Back to Results button on top left corner of the sample.
+ 
+There is an option to login in to portal and limit the search only within the organization.

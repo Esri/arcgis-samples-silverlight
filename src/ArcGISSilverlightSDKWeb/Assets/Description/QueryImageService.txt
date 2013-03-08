@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks QueryTask class to Query an ArcGISImageServiceLayer to find and display the outlines of image tiles and display them as SimpleFillSymbols in a GraphicsLayer. MapTips containing attribute information is displayed for those tiles that are returned from the Query when the mouse is hovered over them. 
+
+To use this sample, drag a rectangle to query image tiles.  Tile footprints will be displayed and their attributes will be available in map tips.

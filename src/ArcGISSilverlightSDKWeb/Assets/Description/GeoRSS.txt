@@ -1,0 +1,3 @@
+﻿This sample demonstrates displaying a GeoRSS feed on the map.  Click the Fetch RSS button to retrieve the RSS feed specified in the textbox and display it on the map.  The textbox is initialized with the URL to an earthquake data feed from the USGS.
+
+When the Fetch RSS button is clicked, the GeoRSS feed is fetched in the code-behind.  When received, it is parsed and used to create Graphics, which are then added to a GraphicsLayer.

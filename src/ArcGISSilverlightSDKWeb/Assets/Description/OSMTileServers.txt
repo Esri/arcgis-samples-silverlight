@@ -1,0 +1,6 @@
+﻿This sample demonstrates the use of the TileServer list for an OpenStreetMapLayer.  The TileServer property can be used to:
+
+1) Reference the url to any tiled map service that adheres to the OpenStreetMap standard.     
+2) Provide a list of servers from which to retrieve tiles for the same tiled map service.  
+
+This example shows how to use the TileServer list in XAML and code behind, and display different OpenStreetMap tiled services, such as MapQuest, Cloudmade, or Cyclemap.  Note, the OpenStreetMap.Style property references some standard OpenStreetMap tiled services.  It will be ignored if the TileServer list is populated.   

@@ -1,0 +1,3 @@
+﻿This sample demonstrates using an ESRI.ArcGIS.Client.Tasks GeometryService that takes an input polygon graphic and returns a densified polygon graphic. The original vertices to create the original polygon graphic are shown in red. The returned polygon shows the additional densified vertices in green.
+
+To use the sample, create a polygon on the map. Red points indicate digitized polygon vertices.  Click the Densify Polygon button to densify the polygon.  Green points show all vertices (original and new) in the densified polygon.

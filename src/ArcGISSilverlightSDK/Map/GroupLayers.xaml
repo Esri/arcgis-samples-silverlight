@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.GroupLayers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot" Background="White">        
+        <esri:Map x:Name="MyMap" Extent="-9270700.60701385,5247434.47612114,-9266497.14128696,5250070.4730108">
+            <esri:ArcGISTiledMapServiceLayer ID="Street Map" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"/>
+
+            <esri:GroupLayer ID="Bloomfield Hills">
+                <esri:ArcGISDynamicMapServiceLayer ID="Parcels" 
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/Parcels/MapServer" />
+
+                <esri:GroupLayer ID="Landuse Planning">
+                    <esri:FeatureLayer ID="Points of Interest" Mode="OnDemand" 
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/0" />
+                    <esri:FeatureLayer ID="Linear Features" Mode="OnDemand" Visible="False"
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/1" />
+                    <esri:FeatureLayer ID="Planning Areas" Mode="OnDemand" Visible="False"
+                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/2" />
+                </esri:GroupLayer>
+            </esri:GroupLayer>
+
+        </esri:Map>
+
+            <esri:Legend Map="{Binding ElementName=MyMap}" LayerItemsMode="Tree" LayerIDs="Bloomfield Hills" 
+                         ShowOnlyVisibleLayers="False" Refreshed="Legend_Refreshed"
+                         HorizontalAlignment="Right"  VerticalAlignment="Top" MinWidth="200" MaxWidth="250"
+                         Margin="20" BorderBrush="Black">
+                <esri:Legend.MapLayerTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="{Binding Label}"
+            						IsChecked="{Binding IsEnabled, Mode=TwoWay}"
+            						IsEnabled="{Binding IsInScaleRange}" >
+                            </CheckBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </esri:Legend.MapLayerTemplate>
+                <esri:Legend.LayerTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Label}"
+            			    IsChecked="{Binding IsEnabled, Mode=TwoWay}"
+            				IsEnabled="{Binding IsInScaleRange}" >
+                        </CheckBox>
+                    </DataTemplate>
+                </esri:Legend.LayerTemplate>
+            </esri:Legend>
+
+    </Grid>
+</UserControl>

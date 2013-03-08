@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ElementLayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <esri:Map x:Name="MyMap">
+            <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer"/>
+
+            <esri:ElementLayer>
+                <esri:ElementLayer.Children>
+                    <!--Clickable button-->
+                    <Button x:Name="RedlandsButton" Width="20" Height="20" Content="X" 
+				        esri:ElementLayer.Envelope="-117,34,-117,34"
+				        VerticalAlignment="Center" HorizontalAlignment="Center"
+				        Click="RedlandsButton_Click" />
+
+                    <!--Arrow pointing at Copenhagen from the right-->
+                    <TextBlock Text="&lt;=" HorizontalAlignment="Right" 
+						   FontSize="15" Foreground="Blue" FontWeight="Bold"
+						   esri:ElementLayer.Envelope="12.5698,55.6765,12.5698,55.6765" />
+                    <!--Arrow pointing at Copenhagen from the left-->
+                    <TextBlock Text="=&gt;" HorizontalAlignment="Left" 
+						   FontSize="15" Foreground="Blue" FontWeight="Bold"
+						   esri:ElementLayer.Envelope="12.5698,55.6765,12.5698,55.6765" />
+
+                    <!-- Red box - No size specified. Envelope guides the size -->
+                    <Rectangle Fill="Red" esri:ElementLayer.Envelope="0,0,10,10" />
+
+                    <!--Editable textbox-->
+                    <TextBox Width="100" Height="20" esri:ElementLayer.Envelope="40,0,40,0"
+						 Text="Editable text" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                </esri:ElementLayer.Children>
+            </esri:ElementLayer>
+
+        </esri:Map>
+
+    </Grid>
+</UserControl>

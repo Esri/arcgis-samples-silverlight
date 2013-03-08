@@ -1,0 +1,3 @@
+﻿This sample demonstrates editing the attribute data of a FeatureLayer using an ESRI.ArcGIS.Client.Toolkit FeatureDataForm.
+
+To use the sample, click on a feature in the map to view the attributes in the data form.  Edit values in the data form and click ok to save to the database.

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.FeatureLayerChangeVersion"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <esri:Editor x:Key="MyEditor"
+                         Map="{Binding ElementName=MyMap}" 
+                         LayerIDs="ServiceConnections"                         
+                         GeometryServiceUrl="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"/>
+        </Grid.Resources>
+
+        <esri:Map WrapAround="True" x:Name="MyMap" Extent="-9813504.6933477,5127140.45392125,-9812977.49431059,5127508.54492118">
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+            <esri:FeatureLayer ID="ServiceConnections" GdbVersion="sde.DEFAULT" OutFields="*" AutoSave="False"                               
+                               Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Water_Network/FeatureServer/7"/>
+        </esri:Map>
+
+        <Border Background="#DD919191" BorderThickness="1" CornerRadius="5"
+                HorizontalAlignment="Right"  VerticalAlignment="Top"
+                Padding="10" BorderBrush="Black" Margin="0,15,15,0" >
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <TextBlock Text="The dropdown displays the list of versions available for the Water Service Connections featurelayer.
+                           Switch values to display featurelayer in selected version " TextWrapping="Wrap" Width="200" TextAlignment="Center" Foreground="White"/>
+                <ComboBox x:Name="VersionsCombo" Width="110" ItemsSource="{Binding Features}" Margin="0,5,0,0"
+                      SelectionChanged="VersionsCombo_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Attributes[name]}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</UserControl>

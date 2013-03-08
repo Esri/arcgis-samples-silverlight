@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of a GeometryService to calculate a buffer.  To use the sample, simply click a point on the map.  The click point and a buffer of 10 miles around the point will be shown.
+
+In the code-behind, a GeometryService is used to buffer the point.  Note that, for accurate results, the BufferSpatialReference is set based on the area of interest.

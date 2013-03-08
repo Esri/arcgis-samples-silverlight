@@ -1,0 +1,1 @@
+This sample includes a Map with an ArcGISTiledMapServiceLayer as a base layer and an FeatureLayer on top. The feature layer has a minimum scale set to 350000, and since it is in OnDemand mode it respects the current map scale to determine when it should be retrieved and displayed. The Map.Scale property is used to display the current scale of the map at the bottom of the display.

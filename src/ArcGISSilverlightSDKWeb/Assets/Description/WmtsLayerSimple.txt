@@ -1,0 +1,1 @@
+This sample demonstrates displaying an ESRI.ArcGIS.Client.ToolkitDataSources WmtsLayer. The WmtsLayer allows display of Open Geospatial Consortium (OGC) Web Map Tile Service (WMTS) layers.

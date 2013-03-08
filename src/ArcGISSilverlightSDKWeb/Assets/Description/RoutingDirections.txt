@@ -1,0 +1,3 @@
+﻿This sample demonstrates use of the RouteTask to calculate driving directions.  To use the sample, specify the start and end address in the textboxes and click Get Directions.  The route will be plotted on the map, and the driving steps are shown on the right side of the application.  Clicking on a step zooms to that portion of the route.
+
+In the code-behind, a Locator is first used to convert the addresses to geographic coordinates.  Then, a RouteTask is used to calculate the route between the start and end points.  When the results are returned, the route geometry is added to the map and the driving steps are added as TextBlocks.  

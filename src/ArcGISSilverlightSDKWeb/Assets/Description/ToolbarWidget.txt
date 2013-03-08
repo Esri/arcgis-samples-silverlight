@@ -1,0 +1,3 @@
+﻿This sample demonstrates the Toolkit's Toolbar control.  This control provides a container for toolbar items and events for when toolbar items are hovered over and clicked.  Toolbar items are simply content controls, so may contain any Silverlight elements.  To use the toolbar in the sample, simply click the tool you wish to use.  If the tool is Zoom In or Zoom Out, click and drag a zoom rectangle on the map.
+
+In the sample's code-behind, the ToolbarItemClicked event handler parses which toolbar item was clicked and initiates logic accordingly.

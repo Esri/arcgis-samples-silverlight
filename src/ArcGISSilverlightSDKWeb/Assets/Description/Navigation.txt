@@ -1,0 +1,1 @@
+﻿This sample demonstrates the Toolkit's Navigation control.  This control provides a zoom slider, buttons to pan and zoom to full extent, and a ring to rotate the map.  As the sample XAML shows, use of the Navigation control just requires declaring a Navigation element and binding to a Map control.

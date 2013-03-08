@@ -1,0 +1,3 @@
+﻿This sample demonstrates adding 3 or more graphic points on the map to call an ESRI.ArcGIS.Client.Tasks GeometryService that will return and display a convex hull graphic. A convex hull is the smallest polygon that completely encases a set (i.e. locus) of points. 
+
+To use the sample, add 3 or more points on the map and click the Generate Convex Hull button.  A polygon containing all the points entered will be returned.

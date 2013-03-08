@@ -1,0 +1,3 @@
+﻿This sample demonstrates using a ControlTemplate to define three different System.Windows.FrameworkElement Styles for the ESRI.ArcGIS.Client.Toolkit TemplatePicker. The Styles used by the TemplatePickers are defined as StaticResources. The samples show being able to add features and their associated attributes in two FeatureLayers using the ESRI.ArcGIS.Client.Toolkit TemplatePicker.
+
+To use the sample, select a template from one of the custom styled pickers, and draw a feature on the map.

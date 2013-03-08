@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.Densify"      
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+  <Grid x:Name="LayoutRoot">
+
+    <Grid.Resources>
+      <esri:SimpleMarkerSymbol x:Key="DefaultMarkerSymbol" Color="Red" Size="12" />
+      <esri:SimpleMarkerSymbol x:Key="NewMarkerSymbol" Size="8">
+        <esri:SimpleMarkerSymbol.Color>
+          <RadialGradientBrush>
+            <GradientStop Color="LightGreen" Offset="0.578"/>
+            <GradientStop Color="#FF0E0D07" Offset="1"/>
+          </RadialGradientBrush>
+        </esri:SimpleMarkerSymbol.Color>
+      </esri:SimpleMarkerSymbol>
+      <esri:SimpleFillSymbol x:Key="DefaultFillSymbol" Fill="#88000000" BorderBrush="Black" />
+    </Grid.Resources>
+
+    <esri:Map x:Name="MyMap">
+      <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+      <esri:GraphicsLayer ID="PolygonGraphicsLayer" />
+      <esri:GraphicsLayer ID="VerticesGraphicsLayer" />
+    </esri:Map>
+
+    <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >
+      <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
+        <Rectangle.Effect>
+          <DropShadowEffect/>
+        </Rectangle.Effect>
+      </Rectangle>
+      <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
+      <StackPanel Orientation="Vertical" Margin="30,20,25,30" >
+        <TextBlock x:Name="ResponseTextBlock" Text="Create a polygon on the map. Red points indicate digitized polygon vertices.  Click the Densify Polygon button to densify the polygon.  Green points show all vertices (original and new) in the densified polygon." 
+                           Width="550" TextAlignment="Left"  TextWrapping="Wrap" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+          <Button Content="Densify Polygon" Margin="0,5,5,0" x:Name="DensifyButton" 
+                            Click="DensifyButton_Click" IsEnabled="False" />
+        </StackPanel>
+      </StackPanel>
+    </Grid>
+
+  </Grid>
+</UserControl>

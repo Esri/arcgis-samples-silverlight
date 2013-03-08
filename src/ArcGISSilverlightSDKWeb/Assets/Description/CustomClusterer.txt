@@ -1,0 +1,1 @@
+﻿This sample demonstrates implementing a custom clusterer.  The clusterer in this sample aggregates the values of a specified field for each feature in a cluster and displays that value on the cluster.  In the sample XAML, the custom clusterer is used to display aggregate population for each cluster.

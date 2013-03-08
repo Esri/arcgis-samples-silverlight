@@ -1,0 +1,1 @@
+﻿This sample demonstrates adding attachments to the selected feature. The attachment editor allows you to attach multiple files. You can also drag and drop files to attachment editor. Most of the file types are supported.

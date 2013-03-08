@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.LoadSecureWebMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+	
+	<Grid x:Name="LayoutRoot" >
+		<Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,15,0">
+			<Rectangle Stroke="Gray"  RadiusX="10" RadiusY="10" Fill="#77919191" Margin="0,0,0,5" >
+				<Rectangle.Effect>
+					<DropShadowEffect/>
+				</Rectangle.Effect>
+			</Rectangle>
+			<Rectangle Fill="#DDFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10" />
+			<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20,20,20,20">
+                <TextBlock FontWeight="Bold" HorizontalAlignment="Center" 
+                           Text="Enter ArcGIS.com WebMap ID, Username, Password" Margin="2" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<TextBlock Text="WebMap ID: " TextAlignment="Right" Grid.Column="0" Grid.Row="0"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" />
+					<TextBox x:Name="WebMapTextBox" Width="250" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="0,2,0,2" />
+					<TextBlock Text="Username: " TextAlignment="Right" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1"
+                               VerticalAlignment="Center"  />
+					<TextBox x:Name="UsernameTextBox" Width="250" Grid.Column="1" Grid.Row="1" Margin="0,2,0,2" />
+					<TextBlock Text="Password: " TextAlignment="Right" HorizontalAlignment="Left" 
+                               VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" />
+					<PasswordBox x:Name="PasswordTextBox" Width="250" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Margin="0,2,0,2" />
+				</Grid>
+				<Button x:Name="LoadWebMapButton" Content="Load WebMap" Width="100" Margin="0,5,0,10" 
+                        HorizontalAlignment="Center" Click="LoadWebMapButton_Click" />
+			</StackPanel>
+		</Grid>
+	</Grid> 
+</UserControl>
