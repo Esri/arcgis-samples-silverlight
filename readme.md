@@ -2,37 +2,29 @@
 
 This project contains the C# and VB source code for the ArcGIS API for Silverlight interactive sample app.  
 
-[View it live](http://resources.arcgis.com/en/help/arcgis-toolkit-sl-wpf/samples/start.htm)
+[View it live](http://resources.arcgis.com/en/help/silverlight-api/samples/start.htm)
 
-![App](https://raw.github.com/Esri/arcgis-toolkit-sl-wpf/master/arcgis-toolkit-sl-wpf.png)
-
-## Instructions
+## Instructions (for the Silverlight 5 platform)
 
 1. Fork and then clone the repo or download the .zip file. 
-2. Download the ArcGIS API for Silverlight   
-3. Download and install the December 2011 version of the Silverlight 5 Toolkit on CodePlex. If necessary, repair the reference to the System.Windows.Controls.Toolkit assembly.
-Download and install the Expression Blend 4 SDK for Silverlight. If necessary, repair the reference to the System.Windows.Interactivity assembly.
-Unzip the sample to a location of your choice. Two solutions are included—one with CSharp code, and the other with VB.NET code. Each solution contains two projects, a Silverlight project and a web host application.
-In Visual Studio 2010, open the CSharp or VB.NET solution. The Silverlight 5 Tools for Visual Studio 2010 SP1 must be installed.
-NoteNote:
-
-If you want to see the VB.NET code-behind pages when running the CSharp solution, the VB.NET solution must be built before the CSharp solution.
-If necessary, repair the references to the ArcGIS API for Silverlight assemblies in the Silverlight application.
-Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the interactive SDK that was downloaded from the ArcGIS Resource Center, unblock it before building and running the application. For instructions on how to unblock an assembly for Visual Studio, see How to: Use an assembly from the web in Visual Studio.
-In the Solution Explorer, right-click the c:\...\ArcGISSilverlightSDKWeb\ project and select Set as StartUp Project.
-Clean and build the solution, then run the application. 
+2. Download the [ArcGIS API for Silverlight (requires Esri Global account)](http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=876).   
+3. Download and install the [December 2011 version of the Silverlight 5 Toolkit](http://silverlight.codeplex.com/) on CodePlex. 
+4. Download and install the [Expression Blend Preview for Silverlight 5](http://www.microsoft.com/en-us/download/details.aspx?id=9503). 
+5. Download and install the [Silverlight 5 Tools for Visual Studio 2010 SP1](http://www.microsoft.com/en-us/download/details.aspx?id=28358).
+6. Two solutions are included.  One with CSharp code, and the other with VB.NET code. Each solution contains two projects, a Silverlight project and a web host application.  In Visual Studio, open the CSharp or VB.NET solution. If you want to see the VB.NET code-behind pages when running the CSharp solution, the VB.NET solution must be built before the CSharp solution.
+7. If necessary, repair the references to the ArcGIS API for Silverlight assemblies, System.Windows.Controls.Toolkit assembly (Silverlight 5 Toolkit), and System.Windows.Interactivity assembly (Expression Blend Preview for Silverlight 5) in the Silverlight application.
+8. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the interactive SDK that was downloaded from the ArcGIS Resource Center, unblock it before building and running the application. For instructions on how to unblock an assembly for Visual Studio, see How to:Use an assembly from the web in Visual Studio.
+9. In the Solution Explorer, right-click the c:\...\ArcGISSilverlightSDKWeb\ project and elect "Set as StartUp Project".
+10. Clean and build the solution, then run the application. 
 
 ## Requirements
 
-* ArcGIS API for Silverlight
-* Visual Studio 2010 or 2012
-
-See instructions above.
+* [Supported system configurations](http://resources.arcgis.com/en/help/silverlight-api/concepts/#/System_requirements/01660000000t000000/)
 
 ## Resources
 
 * [ArcGIS API for Silverlight Resource Center](http://resources.arcgis.com/en/communities/silverlight-api/index.html)
-* [ArcGIS API for Silverlight download (requires Esri Global account](http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=876)
+* [ArcGIS API for Silverlight download (requires Esri Global account)](http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=876)
 
 ## Issues
 
@@ -61,3 +53,4 @@ A copy of the license is available in the repository's [license.txt]( https://ra
 
 [](Esri Tags: ArcGIS API Silverlight)
 [](Esri Language: Silverlight)
+
