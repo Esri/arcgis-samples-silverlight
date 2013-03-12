@@ -3,6 +3,8 @@
 This project contains the C# and VB source code for the ArcGIS API for Silverlight interactive sample app.  
 
 [View it live](http://resources.arcgis.com/en/help/silverlight-api/samples/start.htm)
+[![Image of sample app](https://raw.github.com/Esri/arcgis-samples-silverlight/master/arcgis-samples-silverlight.png "Interactive sample app")](http://resources.arcgis.com/en/help/silverlight-api/samples/start.htm)
+
 
 ## Instructions (for the Silverlight 5 platform)
 
