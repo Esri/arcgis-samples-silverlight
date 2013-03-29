@@ -54,6 +54,6 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/arcgis-samples-silverlight/master/license.txt) file.
 
-[](Esri Tags: ArcGIS API Silverlight)
-[](Esri Language: Silverlight)
+[](Esri Tags: ArcGIS API Silverlight C-Sharp VB C# XAML)
+[](Esri Language: DotNet)
 
