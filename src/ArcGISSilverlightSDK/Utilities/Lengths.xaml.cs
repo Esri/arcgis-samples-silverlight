@@ -27,7 +27,7 @@ namespace ArcGISSilverlightSDK
         private void MyDrawObject_DrawBegin(object sender, EventArgs args)
         {
             GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
         }
 
         private void MyDrawObject_DrawComplete(object sender, DrawEventArgs args)

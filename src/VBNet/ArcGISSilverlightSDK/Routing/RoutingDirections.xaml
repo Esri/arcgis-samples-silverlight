@@ -3,58 +3,55 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
 
-  <Grid Background="White" x:Name="LayoutRoot">
-    <Grid.Resources>
-      <esri:SimpleMarkerSymbol x:Name="FromSymbol" Size="15" Style="Circle" Color="#9900FF00"/>
-      <esri:SimpleMarkerSymbol  x:Name="ToSymbol" Size="15" Style="Circle" Color="#99FF0000" />
-      <esri:SimpleLineSymbol x:Name="RouteSymbol" Color="#990000FF" Width="5"/>
-      <esri:SimpleLineSymbol x:Name="SegmentSymbol" Color="#99FF0000" Width="8"/>
-    </Grid.Resources>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="30" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="1*" />
-      <ColumnDefinition Width="1*" />
-    </Grid.ColumnDefinitions>
+    <Grid x:Name="LayoutRoot" Background="White">
 
-    <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
-      <TextBox x:Name="FromTextBox" Width="250" Margin="5" Text="380 New York St, Redlands, CA, 92373"
-					   ToolTipService.ToolTip="Enter a U.S. address as 'Street, City, State, Zip'" />
-      <TextBox x:Name="ToTextBox" Width="250" Margin="5" Text="345 Park Ave, San Jose, CA, 95110"
-					   ToolTipService.ToolTip="Enter a U.S. address as 'Street, City, State, Zip'" />
-      <Button Content="Get Directions" Click="GetDirections_Click" Margin="5" />
-    </StackPanel>
+        <Grid.Resources>
+            <esri:SimpleMarkerSymbol x:Key="FromSymbol" Size="15" Style="Circle" Color="#9900FF00" />
+            <esri:SimpleMarkerSymbol x:Key="ToSymbol" Size="15" Style="Circle" Color="#99FF0000" />
+            <esri:SimpleLineSymbol x:Key="RouteSymbol" Color="#990000FF" Width="5"/>
+            <esri:SimpleLineSymbol x:Key="SegmentSymbol" Color="#99FF0000" Width="8"/>
+        </Grid.Resources>
 
-    <esri:Map x:Name="MyMap" 
-				  Grid.Row="1" Grid.Column="0"
-				  Extent="-123,33,-115,37">
-      <esri:Map.Layers>
-        <esri:ArcGISTiledMapServiceLayer
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
-        <esri:GraphicsLayer ID="MyRouteGraphicsLayer" />
-      </esri:Map.Layers>
-    </esri:Map>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
 
-    <Grid Grid.Row="1" Grid.Column="1">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="70" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <StackPanel ToolTipService.ToolTip="Click to zoom to full route" Margin="5" 
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Text="From:" Margin="5,0,0,0" VerticalAlignment="Center" />
+            <TextBox x:Name="FromTextBox" Width="250" Margin="5" Text="Balboa Park" />
+            <TextBlock Text="To:" VerticalAlignment="Center" />
+            <TextBox x:Name="ToTextBox" Width="250" Margin="5" Text="SeaWorld" />
+            <Button Content="Get Directions" Click="GetDirections_Click" Margin="5" />
+        </StackPanel>
+
+        <esri:Map x:Name="MyMap" Grid.Row="1" Grid.Column="0" Extent="-13046432.965,3854870.095,-13036649.025,3859114.855">
+            <esri:ArcGISTiledMapServiceLayer
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+            <esri:GraphicsLayer ID="MyRouteGraphicsLayer" />
+        </esri:Map>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel ToolTipService.ToolTip="Click to zoom to full route" Margin="5" 
                         MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
-        <TextBlock x:Name="TitleTextBlock" FontWeight="Bold" TextWrapping="Wrap"
+                <TextBlock x:Name="TitleTextBlock" FontWeight="Bold" TextWrapping="Wrap"
 						   Text="Click 'Get Directions' above to display driving directions here..."/>
-        <TextBlock x:Name="TotalDistanceTextBlock" />
-        <TextBlock x:Name="TotalTimeTextBlock" />
-      </StackPanel>
-      <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="5">
-        <StackPanel x:Name="DirectionsStackPanel"
+                <TextBlock x:Name="TotalDistanceTextBlock" />
+                <TextBlock x:Name="TotalTimeTextBlock" />
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="5">
+                <StackPanel x:Name="DirectionsStackPanel"
 						ToolTipService.ToolTip="Click direction text to zoom to associated segment."/>
-      </ScrollViewer>
+            </ScrollViewer>
+        </Grid>
+
     </Grid>
-
-
-  </Grid>
 </UserControl>

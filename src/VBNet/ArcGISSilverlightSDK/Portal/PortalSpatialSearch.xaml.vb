@@ -24,7 +24,7 @@ Partial Public Class PortalSpatialSearch
     End Sub
 
     Private Sub FindWebMapsButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-        webmapGraphicsLayer.ClearGraphics()
+        webmapGraphicsLayer.Graphics.Clear()
 
         ' Search envelope must be in geographic (WGS84).  Convert the current map extent from Web Mercator
         ' to geographic. 

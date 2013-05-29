@@ -77,7 +77,7 @@ Imports ESRI.ArcGIS.Client.Tasks
 
     Private Sub GeometryService_AutoCompleteCompleted(ByVal sender As Object, ByVal e As GraphicsEventArgs)
       Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("CompletedGraphicsLayer"), GraphicsLayer)
-      graphicsLayer.ClearGraphics()
+      graphicsLayer.Graphics.Clear()
 
       For Each g As Graphic In e.Results
         g.Symbol = TryCast(LayoutRoot.Resources("RedFillSymbol"), Symbols.Symbol)
@@ -85,7 +85,7 @@ Imports ESRI.ArcGIS.Client.Tasks
       Next g
 
       If e.Results.Count > 0 Then
-        TryCast(MyMap.Layers("ConnectDotsGraphicsLayer"), GraphicsLayer).ClearGraphics()
+        TryCast(MyMap.Layers("ConnectDotsGraphicsLayer"), GraphicsLayer).Graphics.Clear()
       End If
 
     End Sub

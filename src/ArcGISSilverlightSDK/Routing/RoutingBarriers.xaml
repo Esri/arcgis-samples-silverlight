@@ -5,7 +5,7 @@
     <Grid x:Name="LayoutRoot" Background="White">
 
         <Grid.Resources>
-            <esri:SimpleMarkerSymbol x:Key="StopSymbol" Size="20" Style="Circle" Color="Salmon" >
+            <esri:SimpleMarkerSymbol x:Key="StopSymbol" Size="20" Style="Circle" Color="LightGreen" >
                 <esri:SimpleMarkerSymbol.ControlTemplate>
                     <ControlTemplate>
                         <Grid>
@@ -21,30 +21,25 @@
             <esri:SimpleLineSymbol x:Key="RouteSymbol" Color="#990000FF" Width="5"/>
         </Grid.Resources>
 
-        <esri:Map x:Name="MyMap" Background="White" Extent="-117.22,34.04,-117.17,34.07"
-				  MouseClick="MyMap_MouseClick" >
-            <esri:Map.Layers>
-                <esri:ArcGISTiledMapServiceLayer
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+        <esri:Map x:Name="MyMap" Background="White" Extent="-13043074.473,3856628.055,-13040628.488,3857689.246" WrapAround="True"
+				  MouseClick="MyMap_MouseClick">
+            <esri:ArcGISTiledMapServiceLayer
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
                 <esri:GraphicsLayer ID="MyRouteGraphicsLayer" />
                 <esri:GraphicsLayer ID="MyStopsGraphicsLayer" />
-                <esri:GraphicsLayer ID="MyBarriersGraphicsLayer" />
-            </esri:Map.Layers>
+                <esri:GraphicsLayer ID="MyBarriersGraphicsLayer" />         
         </esri:Map>
 
-        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" >
-            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0" >
-                <Rectangle.Effect>
-                    <DropShadowEffect/>
-                </Rectangle.Effect>
-            </Rectangle>
+        <Border Width="Auto" HorizontalAlignment="Right" Background="White" VerticalAlignment="Top" Margin="10" 
+                BorderBrush="Black" BorderThickness="1">
             <StackPanel Orientation="Horizontal" Margin="5">
                 <RadioButton Content="Add Stops" x:Name="StopsRadioButton" IsChecked="true"  
-						Foreground="White" GroupName="add" VerticalAlignment="Center" />
+						 GroupName="add" VerticalAlignment="Center" />
                 <RadioButton Content="Add Barriers" x:Name="BarriersRadioButton" 
-						Foreground="White" GroupName="add" VerticalAlignment="Center" />
-                <Button Content="Clear" Click="Button_Click" Margin="5,0,0,0"/>
+						 GroupName="add" VerticalAlignment="Center" Margin="10,0,10,0"/>
+                <Button Content="Clear" Click="Button_Click" Padding="5" Margin="5"/>
             </StackPanel>
-        </Grid>
+        </Border>
+
     </Grid>
 </UserControl>

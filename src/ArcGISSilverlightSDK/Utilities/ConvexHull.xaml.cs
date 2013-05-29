@@ -29,7 +29,7 @@ namespace ArcGISSilverlightSDK
 
         private void MyDrawObject_DrawComplete(object sender, DrawEventArgs args)
         {
-            outputGraphicsLayer.ClearGraphics();
+            outputGraphicsLayer.Graphics.Clear();
             
             ESRI.ArcGIS.Client.Geometry.MapPoint point = args.Geometry as ESRI.ArcGIS.Client.Geometry.MapPoint;
             point.SpatialReference = MyMap.SpatialReference;
@@ -48,7 +48,7 @@ namespace ArcGISSilverlightSDK
         private void ConvexButton_Click(object sender, RoutedEventArgs e)
         {
             ConvexButton.IsEnabled = false;
-            outputGraphicsLayer.ClearGraphics();
+            outputGraphicsLayer.Graphics.Clear();
             
             GeometryService geometryService =
                         new GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");

@@ -6,7 +6,6 @@ using ESRI.ArcGIS.Client;
 using ESRI.ArcGIS.Client.Geometry;
 using ESRI.ArcGIS.Client.Tasks;
 
-
 namespace ArcGISSilverlightSDK
 {
     public partial class AddressToLocation : UserControl
@@ -36,10 +35,10 @@ namespace ArcGISSilverlightSDK
 
         private void FindAddressButton_Click(object sender, RoutedEventArgs e)
         {
-            _locatorTask = new Locator("http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Streets_US_10/GeocodeServer");
+            _locatorTask = new Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
             _locatorTask.AddressToLocationsCompleted += LocatorTask_AddressToLocationsCompleted;
             _locatorTask.Failed += LocatorTask_Failed;
-
+            
             AddressToLocationsParameters addressParams = new AddressToLocationsParameters()
             {
                 OutSpatialReference = MyMap.SpatialReference
@@ -48,20 +47,20 @@ namespace ArcGISSilverlightSDK
             Dictionary<string, string> address = addressParams.Address;
 
             if (!string.IsNullOrEmpty(InputAddress.Text))
-                address.Add("Street", InputAddress.Text);
+                address.Add("Address", InputAddress.Text);
             if (!string.IsNullOrEmpty(City.Text))
                 address.Add("City", City.Text);
             if (!string.IsNullOrEmpty(State.Text))
-                address.Add("State", State.Text);
+                address.Add("Region", State.Text);
             if (!string.IsNullOrEmpty(Zip.Text))
-                address.Add("ZIP", Zip.Text);
+                address.Add("Postal", Zip.Text);
 
             _locatorTask.AddressToLocationsAsync(addressParams);
         }
 
         private void LocatorTask_AddressToLocationsCompleted(object sender, ESRI.ArcGIS.Client.Tasks.AddressToLocationsEventArgs args)
         {
-            _candidateGraphicsLayer.ClearGraphics();
+            _candidateGraphicsLayer.Graphics.Clear();
             CandidateListBox.Items.Clear();
 
             List<AddressCandidate> returnedCandidates = args.Results;

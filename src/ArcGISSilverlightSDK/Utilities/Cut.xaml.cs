@@ -80,7 +80,7 @@ namespace ArcGISSilverlightSDK
         
         void GeometryService_CutCompleted(object sender, CutEventArgs e)
         {
-            parcelGraphicsLayer.ClearGraphics();
+            parcelGraphicsLayer.Graphics.Clear();
 
             foreach (Graphic g in e.Results)
             {

@@ -100,7 +100,7 @@ namespace ArcGISSilverlightSDK
                 return;
             FeatureSet featureSet = args.FeatureSet;
             GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
 
             if (featureSet != null && featureSet.Features.Count > 0)
             {

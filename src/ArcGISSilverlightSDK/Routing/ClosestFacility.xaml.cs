@@ -30,7 +30,7 @@ namespace ArcGISSilverlightSDK
             barriersGraphicsLayer = MyMap.Layers["MyBarriersGraphicsLayer"] as GraphicsLayer;
             routeGraphicsLayer = MyMap.Layers["MyRoutesGraphicsLayer"] as GraphicsLayer;
 
-            myRouteTask = new RouteTask("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Closest%20Facility");
+            myRouteTask = new RouteTask("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/ClosestFacility");
             myRouteTask.SolveClosestFacilityCompleted += SolveClosestFacility_Completed;
             myRouteTask.Failed += SolveClosestFacility_Failed;
 
@@ -153,15 +153,13 @@ namespace ArcGISSilverlightSDK
         {
             foreach (Layer layer in MyMap.Layers)
                 if (layer is GraphicsLayer)
-                    (layer as GraphicsLayer).ClearGraphics();
+                    (layer as GraphicsLayer).Graphics.Clear();
 
             SolveButton.IsEnabled = false;
         }
 
         private AttributeParameter GetAttributeParameterValue (string attributeParamSelection)
         {
-            // See Attribute Parameter Values list at 
-            // http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Closest%20Facility
             if (attributeParamSelection.Equals("None"))
                 return null;
 

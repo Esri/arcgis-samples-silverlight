@@ -39,8 +39,8 @@ Imports ESRI.ArcGIS.Client.Symbols
       ' Input spatial reference for buffer operation defined by first feature of input geometry array
       clickGraphic.Geometry.SpatialReference = MyMap.SpatialReference
 
-      _pointAndBufferGraphicsLayer.ClearGraphics()
-      _resultsGraphicsLayer.ClearGraphics()
+      _pointAndBufferGraphicsLayer.Graphics.Clear()
+      _resultsGraphicsLayer.Graphics.Clear()
 
       clickGraphic.SetZIndex(2)
       _pointAndBufferGraphicsLayer.Graphics.Add(clickGraphic)

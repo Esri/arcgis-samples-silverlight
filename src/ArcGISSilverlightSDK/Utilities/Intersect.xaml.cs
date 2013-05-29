@@ -101,7 +101,7 @@ namespace ArcGISSilverlightSDK
 
         void GeometryService_IntersectCompleted(object sender, GraphicsEventArgs e)
         {
-            intersectGraphicsLayer.ClearGraphics();
+            intersectGraphicsLayer.Graphics.Clear();
 
             foreach (Graphic g in e.Results)
             {
@@ -130,7 +130,7 @@ namespace ArcGISSilverlightSDK
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            intersectGraphicsLayer.ClearGraphics();
+            intersectGraphicsLayer.Graphics.Clear();
             MyDrawObject.IsEnabled = true;
         }
     }

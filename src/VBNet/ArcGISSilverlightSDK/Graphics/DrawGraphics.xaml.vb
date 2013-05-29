@@ -83,7 +83,7 @@ Partial Public Class DrawGraphics
         _activeSymbol = TryCast(LayoutRoot.Resources("DefaultFillSymbol"), Symbol)
       Case Else
         MyDrawObject.DrawMode = DrawMode.None
-        graphicsLayer.ClearGraphics()
+        graphicsLayer.Graphics.Clear()
     End Select
     MyDrawObject.IsEnabled = (MyDrawObject.DrawMode <> DrawMode.None)
   End Sub

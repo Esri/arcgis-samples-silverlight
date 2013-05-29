@@ -56,7 +56,7 @@ Partial Public Class SDSSpatialQuery
         MyDrawObject.DrawMode = DrawMode.Ellipse
       Case Else
         MyDrawObject.DrawMode = DrawMode.None
-        selectionGraphicslayer.ClearGraphics()
+        selectionGraphicslayer.Graphics.Clear()
         QueryDetailsDataGrid.ItemsSource = Nothing
         ResultsDisplay.Visibility = Visibility.Collapsed
     End Select
@@ -64,7 +64,7 @@ Partial Public Class SDSSpatialQuery
   End Sub
 
   Private Sub MyDrawSurface_DrawComplete(ByVal sender As Object, ByVal args As ESRI.ArcGIS.Client.DrawEventArgs)
-    selectionGraphicslayer.ClearGraphics()
+    selectionGraphicslayer.Graphics.Clear()
 
     ' Bind data grid to query results
     Dim resultFeaturesBinding As New Binding("LastResult.Features")

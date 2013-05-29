@@ -25,7 +25,7 @@ Imports ESRI.ArcGIS.Client.Tasks
             identifyTask.ExecuteAsync(identifyParams)
 
             Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-            graphicsLayer.ClearGraphics()
+            graphicsLayer.Graphics.Clear()
             Dim graphic As New ESRI.ArcGIS.Client.Graphic() With {.Geometry = clickPoint, .Symbol = TryCast(LayoutRoot.Resources("DefaultPictureSymbol"), ESRI.ArcGIS.Client.Symbols.Symbol)}
             graphicsLayer.Graphics.Add(graphic)
         End Sub

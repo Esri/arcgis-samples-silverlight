@@ -20,7 +20,7 @@ namespace ArcGISSilverlightSDK
             InitializeComponent();
 
             _routeTask =
-                new RouteTask("http://tasks.arcgisonline.com/ArcGIS/rest/services/NetworkAnalysis/ESRI_Route_NA/NAServer/Route");
+                new RouteTask("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route");
             _routeTask.SolveCompleted += routeTask_SolveCompleted;
             _routeTask.Failed += routeTask_Failed;
 
@@ -91,7 +91,7 @@ namespace ArcGISSilverlightSDK
 
             foreach (Layer layer in MyMap.Layers)
                 if (layer is GraphicsLayer)
-                    (layer as GraphicsLayer).ClearGraphics();
+                    (layer as GraphicsLayer).Graphics.Clear();
         }
     }
 }

@@ -129,7 +129,7 @@ Partial Public Class MensurationImageService
   End Sub
 
   Private Sub ClearMeasureToolClick(ByVal sender As Object, ByVal e As RoutedEventArgs)
-    drawGraphicsLayer.ClearGraphics()
+    drawGraphicsLayer.Graphics.Clear()
     draw.IsEnabled = False
   End Sub
 
@@ -271,7 +271,7 @@ Partial Public Class MensurationImageService
   End Sub
 
   Private Sub ActivateMeasureToolClick(ByVal sender As Object, ByVal e As RoutedEventArgs)
-    drawGraphicsLayer.ClearGraphics()
+    drawGraphicsLayer.Graphics.Clear()
     draw.IsEnabled = True
 
     Dim btn As Button = TryCast(sender, Button)

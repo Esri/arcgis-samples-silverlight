@@ -95,7 +95,7 @@ namespace ArcGISSilverlightSDK
     private void ResetList_Click(object sender, RoutedEventArgs e)
     {
       batchaddresses.Clear();
-      geocodedResults.ClearGraphics();
+      geocodedResults.Graphics.Clear();
     }
 
     private void GraphicsLayer_MouseLeftButtonDown(object sender, GraphicMouseButtonEventArgs e)

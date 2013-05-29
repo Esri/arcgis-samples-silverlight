@@ -68,7 +68,7 @@ Imports ESRI.ArcGIS.Client.Tasks
 
             ' If an item has been selected            
             Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-            graphicsLayer.ClearGraphics()
+            graphicsLayer.Graphics.Clear()
 
             If featureSet IsNot Nothing AndAlso featureSet.Features.Count > 0 Then
                 ' Show selected feature attributes in DataGrid

@@ -17,7 +17,7 @@ namespace ArcGISSilverlightSDK
     private void MyMap_MouseClick(object sender, ESRI.ArcGIS.Client.Map.MouseEventArgs e)
     {
       GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-      graphicsLayer.ClearGraphics();
+      graphicsLayer.Graphics.Clear();
 
       e.MapPoint.SpatialReference = MyMap.SpatialReference;
       Graphic graphic = new ESRI.ArcGIS.Client.Graphic()

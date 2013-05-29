@@ -55,7 +55,7 @@ Partial Public Class GeoRSS
       Dim feedItems As New List(Of SyndicationItem)()
 
       Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-      graphicsLayer.ClearGraphics()
+      graphicsLayer.Graphics.Clear()
 
       Using reader As XmlReader = XmlReader.Create(s)
         feed = SyndicationFeed.Load(reader)
@@ -98,7 +98,7 @@ Partial Public Class GeoRSS
 
   Private Sub UseLinq(ByVal s As Stream)
     Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-    graphicsLayer.ClearGraphics()
+    graphicsLayer.Graphics.Clear()
 
     Dim doc As XDocument = XDocument.Load(s)
     Dim geo As XNamespace = "http://www.w3.org/2003/01/geo/wgs84_pos#"

@@ -8,7 +8,7 @@
         <Grid.Resources>
             <esri:SimpleRenderer x:Key="StopRenderer">
                 <esri:SimpleRenderer.Symbol>
-                    <esri:SimpleMarkerSymbol Size="15" Style="Triangle" Color="Green" />
+                    <esri:SimpleMarkerSymbol Size="20" Style="Circle" Color="Green" />
                 </esri:SimpleRenderer.Symbol>
             </esri:SimpleRenderer>
 
@@ -19,41 +19,31 @@
             </esri:SimpleRenderer>
 
             <esri:RouteTask x:Name="MyRouteTask"
-                            Url="http://tasks.arcgisonline.com/ArcGIS/rest/services/NetworkAnalysis/ESRI_Route_NA/NAServer/Route"			
+                            Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route"			
 				            SolveCompleted="MyRouteTask_SolveCompleted" 
                             Failed="MyRouteTask_Failed" />
         </Grid.Resources>
 
-        <esri:Map x:Name="MyMap" Background="White" Extent="-117.22,34.04,-117.17,34.07" WrapAround="True"
+        <esri:Map x:Name="MyMap" Background="White" Extent="-13043074.473,3856628.055,-13040628.488,3857689.246" WrapAround="True"
 				  MouseClick="MyMap_MouseClick">
 
             <esri:ArcGISTiledMapServiceLayer
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
 
             <esri:GraphicsLayer ID="MyStopsGraphicsLayer" 
                                 Renderer="{StaticResource StopRenderer}" />
 
             <esri:GraphicsLayer ID="MyRouteGraphicsLayer"
-                                Renderer="{StaticResource RouteRenderer}" >
-                <esri:GraphicsLayer.MapTip>
-                    <Grid>
-                        <Rectangle RadiusX="10" RadiusY="10" Fill="#22000000" Margin="5,5,-5,-5" />
-                        <Rectangle RadiusX="5" RadiusY="5" Margin="3" >
-                            <Rectangle.Fill>
-                                <LinearGradientBrush EndPoint="1.038,1.136" StartPoint="0.015,0.188">
-                                    <GradientStop Color="#FFD1DFF2"/>
-                                    <GradientStop Color="#FF092959" Offset="0.946"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
-                        <Border CornerRadius="10" BorderBrush="#FF222957" BorderThickness="3" />
-                        <StackPanel Orientation="Vertical" Margin="15,10,15,10">
-                            <TextBlock Text="Total Time:" Foreground="#FFFFFFFF" FontSize="10" />
-                            <TextBlock Text="{Binding [TIP]}" Foreground="#FFFFFFFF" FontSize="10" />
-                        </StackPanel>
-                    </Grid>
-                </esri:GraphicsLayer.MapTip>
-            </esri:GraphicsLayer>
+                                Renderer="{StaticResource RouteRenderer}" />
+                
         </esri:Map>
+
+        <Border Width="Auto" HorizontalAlignment="Right" Background="White" VerticalAlignment="Top" Margin="10" 
+                BorderBrush="Black" BorderThickness="1">
+                <TextBlock x:Name="TotalTimeTextBlock" Margin="5" FontSize="20"
+                    HorizontalAlignment="Left" VerticalAlignment="Center" Text="Total Time: 0 minutes " 
+                           TextWrapping="Wrap" />
+        </Border>
+
     </Grid>
 </UserControl>

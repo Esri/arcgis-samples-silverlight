@@ -152,7 +152,7 @@ namespace ArcGISSilverlightSDK
 
         private void ClearMeasureToolClick(object sender, RoutedEventArgs e)
         {
-            drawGraphicsLayer.ClearGraphics();
+            drawGraphicsLayer.Graphics.Clear();
             draw.IsEnabled = false;
         }
 
@@ -347,7 +347,7 @@ namespace ArcGISSilverlightSDK
 
         private void ActivateMeasureToolClick(object sender, RoutedEventArgs e)
         {
-            drawGraphicsLayer.ClearGraphics();
+            drawGraphicsLayer.Graphics.Clear();
             draw.IsEnabled = true;
 
             Button btn = sender as Button;

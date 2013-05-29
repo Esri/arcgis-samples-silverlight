@@ -95,7 +95,7 @@ namespace ArcGISSilverlightSDK
         void GeometryService_GeneralizeCompleted(object sender, GraphicsEventArgs e)
         {
             GraphicsLayer generalizedGraphicsLayer = MyMap.Layers["GeneralizedLineGraphicsLayer"] as GraphicsLayer;
-            generalizedGraphicsLayer.ClearGraphics();
+            generalizedGraphicsLayer.Graphics.Clear();
 
             foreach (Graphic g in e.Results)
             {

@@ -37,7 +37,7 @@ namespace ArcGISSilverlightSDK
 
         private void ClearGraphicsButton_Click(object sender, RoutedEventArgs e)
         {            
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
         }
 
         private void MyDrawObject_DrawComplete(object sender, ESRI.ArcGIS.Client.DrawEventArgs args)

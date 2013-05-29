@@ -72,7 +72,7 @@ namespace ArcGISSilverlightSDK
 
             // If an item has been selected            
             GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
 
             if (featureSet != null && featureSet.Features.Count > 0)
             {

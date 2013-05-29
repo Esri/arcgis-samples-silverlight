@@ -81,7 +81,7 @@ namespace ArcGISSilverlightSDK
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            footprintsGraphicsLayer.ClearGraphics();
+            footprintsGraphicsLayer.Graphics.Clear();
         }
     }
 }

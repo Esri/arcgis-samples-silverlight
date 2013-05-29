@@ -22,24 +22,20 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBox x:Name="FromTextBox" Width="250" Margin="5" Text="380 New York St, Redlands, CA, 92373"
-					   ToolTipService.ToolTip="Enter a U.S. address as 'Street, City, State, Zip'" />
-            <TextBox x:Name="ToTextBox" Width="250" Margin="5" Text="345 Park Ave, San Jose, CA, 95110"
-					   ToolTipService.ToolTip="Enter a U.S. address as 'Street, City, State, Zip'" />
+            <TextBlock Text="From:" Margin="5,0,0,0" VerticalAlignment="Center" />
+            <TextBox x:Name="FromTextBox" Width="250" Margin="5" Text="Balboa Park" />
+            <TextBlock Text="To:" VerticalAlignment="Center" />
+            <TextBox x:Name="ToTextBox" Width="250" Margin="5" Text="SeaWorld" />
             <Button Content="Get Directions" Click="GetDirections_Click" Margin="5" />
         </StackPanel>
 
-        <esri:Map x:Name="MyMap" 
-				  Grid.Row="1" Grid.Column="0"
-				  Extent="-123,33,-115,37">
-            <esri:Map.Layers>
+        <esri:Map x:Name="MyMap" Grid.Row="1" Grid.Column="0" Extent="-13046432.965,3854870.095,-13036649.025,3859114.855">
                 <esri:ArcGISTiledMapServiceLayer
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
                 <esri:GraphicsLayer ID="MyRouteGraphicsLayer" />
-            </esri:Map.Layers>
-        </esri:Map>
+            </esri:Map>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
                 <RowDefinition Height="*" />

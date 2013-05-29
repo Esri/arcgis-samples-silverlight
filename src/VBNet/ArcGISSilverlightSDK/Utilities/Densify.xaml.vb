@@ -27,9 +27,9 @@ Imports ESRI.ArcGIS.Client.Tasks
 
     Private Sub MyDrawObject_DrawBegin(ByVal sender As Object, ByVal args As EventArgs)
       Dim graphicsLayerPolygon As GraphicsLayer = TryCast(MyMap.Layers("PolygonGraphicsLayer"), GraphicsLayer)
-      graphicsLayerPolygon.ClearGraphics()
+      graphicsLayerPolygon.Graphics.Clear()
       Dim graphicsLayerVertices As GraphicsLayer = TryCast(MyMap.Layers("VerticesGraphicsLayer"), GraphicsLayer)
-      graphicsLayerVertices.ClearGraphics()
+      graphicsLayerVertices.Graphics.Clear()
     End Sub
 
     Private Sub MyDrawObject_DrawComplete(ByVal sender As Object, ByVal args As DrawEventArgs)

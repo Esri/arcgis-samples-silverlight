@@ -164,8 +164,8 @@ namespace ArcGISSilverlightSDK
       else
       {
         MyDrawObject.IsEnabled = false;
-        featureGraphicsLayer.ClearGraphics();
-        verticesGraphicsLayer.ClearGraphics();
+        featureGraphicsLayer.Graphics.Clear();
+        verticesGraphicsLayer.Graphics.Clear();
       }
     }
   }

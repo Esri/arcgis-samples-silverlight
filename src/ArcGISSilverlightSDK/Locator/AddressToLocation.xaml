@@ -6,10 +6,10 @@
 
         <Grid.Resources>
             <esri:PictureMarkerSymbol x:Key="DefaultMarkerSymbol" 
-                OffsetX="0" OffsetY="31" Source="/Assets/images/flag-yellow-32x32.png" />           
+                OffsetX="0" OffsetY="31" Source="/Assets/images/flag-yellow-32x32.png" />
         </Grid.Resources>
 
-        <esri:Map x:Name="MyMap" WrapAround="True">
+        <esri:Map x:Name="MyMap" Extent="-13639957.285,4541403.700,-13620389.406,4549305.317">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
                       Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
             <esri:GraphicsLayer ID="CandidateGraphicsLayer">

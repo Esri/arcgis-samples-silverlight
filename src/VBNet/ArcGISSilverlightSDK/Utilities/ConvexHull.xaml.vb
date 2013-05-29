@@ -23,7 +23,7 @@ Imports ESRI.ArcGIS.Client.Tasks
     End Sub
 
     Private Sub MyDrawObject_DrawComplete(ByVal sender As Object, ByVal args As DrawEventArgs)
-      outputGraphicsLayer.ClearGraphics()
+      outputGraphicsLayer.Graphics.Clear()
 
       Dim point As ESRI.ArcGIS.Client.Geometry.MapPoint = TryCast(args.Geometry, ESRI.ArcGIS.Client.Geometry.MapPoint)
       point.SpatialReference = MyMap.SpatialReference
@@ -42,7 +42,7 @@ Imports ESRI.ArcGIS.Client.Tasks
 
     Private Sub ConvexButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
       ConvexButton.IsEnabled = False
-      outputGraphicsLayer.ClearGraphics()
+      outputGraphicsLayer.Graphics.Clear()
 
 		Dim geometryService As New GeometryService("http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer")
       AddHandler geometryService.ConvexHullCompleted, AddressOf GeometryService_ConvexHullCompleted

@@ -29,7 +29,7 @@ Imports ESRI.ArcGIS.Client.Tasks
             barriersGraphicsLayer = TryCast(MyMap.Layers("MyBarriersGraphicsLayer"), GraphicsLayer)
             routeGraphicsLayer = TryCast(MyMap.Layers("MyRoutesGraphicsLayer"), GraphicsLayer)
 
-            myRouteTask = New RouteTask("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Closest%20Facility")
+        myRouteTask = New RouteTask("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/ClosestFacility")
             AddHandler myRouteTask.SolveClosestFacilityCompleted, AddressOf SolveClosestFacility_Completed
             AddHandler myRouteTask.Failed, AddressOf SolveClosestFacility_Failed
 
@@ -137,7 +137,7 @@ Imports ESRI.ArcGIS.Client.Tasks
         Private Sub ClearButton_Click (ByVal sender As Object, ByVal e As RoutedEventArgs)
             For Each layer As Layer In MyMap.Layers
                 If TypeOf layer Is GraphicsLayer Then
-                    TryCast(layer, GraphicsLayer).ClearGraphics()
+                    TryCast(layer, GraphicsLayer).Graphics.Clear()
                 End If
             Next layer
             SolveButton.IsEnabled = False
@@ -145,8 +145,6 @@ Imports ESRI.ArcGIS.Client.Tasks
 
         Private Function GetAttributeParameterValue (ByVal attributeParamSelection As String) As AttributeParameter
 
-        ' See Attribute Parameter Values list at 
-        ' http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Closest%20Facility
         If (attributeParamSelection.Equals("None")) Then
             Return Nothing
         End If

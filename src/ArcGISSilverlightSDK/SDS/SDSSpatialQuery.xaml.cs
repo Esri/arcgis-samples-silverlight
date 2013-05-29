@@ -70,7 +70,7 @@ namespace ArcGISSilverlightSDK
                     break;
                 default:
                     MyDrawObject.DrawMode = DrawMode.None;
-                    selectionGraphicslayer.ClearGraphics();
+                    selectionGraphicslayer.Graphics.Clear();
                     QueryDetailsDataGrid.ItemsSource = null;
                     ResultsDisplay.Visibility = Visibility.Collapsed;
                     break;
@@ -82,7 +82,7 @@ namespace ArcGISSilverlightSDK
         {
             ResultsDisplay.Visibility = Visibility.Collapsed;
             MyDrawObject.IsEnabled = false;
-            selectionGraphicslayer.ClearGraphics();
+            selectionGraphicslayer.Graphics.Clear();
 
             // Bind data grid to query results
             Binding resultFeaturesBinding = new Binding("LastResult.Features");

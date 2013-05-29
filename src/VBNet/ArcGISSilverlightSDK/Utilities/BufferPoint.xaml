@@ -25,6 +25,7 @@
             <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
             <TextBlock x:Name="InformationTextBlock" Text="Click on map to set a location. A buffer of 5 miles will be displayed." 
                        Width="200" TextAlignment="Left" Margin="30,20,25,30" TextWrapping="Wrap" />
+            <CheckBox Content="Geodesic" IsChecked="True" x:Name="chkGeodesic" Margin="30,60,25,30"/>
             
         </Grid>
 

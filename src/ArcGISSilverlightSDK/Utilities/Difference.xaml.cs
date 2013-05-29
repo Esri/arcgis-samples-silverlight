@@ -55,7 +55,7 @@ namespace ArcGISSilverlightSDK
         void GeometryService_DifferenceCompleted(object sender, GraphicsEventArgs e)
         {
             outputGraphicsLayer = MyMap.Layers["OutputGraphicsLayer"] as GraphicsLayer;
-            outputGraphicsLayer.ClearGraphics();
+            outputGraphicsLayer.Graphics.Clear();
             foreach (Graphic g in e.Results)
             {
                 if (g.Geometry is Polygon)
@@ -76,7 +76,7 @@ namespace ArcGISSilverlightSDK
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             GraphicsLayer outputGraphicsLayer = MyMap.Layers["OutputGraphicsLayer"] as GraphicsLayer;
-            outputGraphicsLayer.ClearGraphics();
+            outputGraphicsLayer.Graphics.Clear();
 
             ResetButton.IsEnabled = false;
         }

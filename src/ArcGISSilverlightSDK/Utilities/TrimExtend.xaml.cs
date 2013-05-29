@@ -43,7 +43,7 @@ namespace ArcGISSilverlightSDK
         {
             MyDrawObject.IsEnabled = false;
 
-            resultsLayer.ClearGraphics();
+            resultsLayer.Graphics.Clear();
 
             Polyline polyline = args.Geometry as Polyline;
             polyline.SpatialReference = MyMap.SpatialReference;

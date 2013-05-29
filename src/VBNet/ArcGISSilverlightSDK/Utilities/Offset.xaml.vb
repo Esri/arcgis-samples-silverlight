@@ -100,7 +100,7 @@ Imports ESRI.ArcGIS.Client.Geometry
     End Sub
 
     Private Sub GeometryService_OffsetCompleted(ByVal sender As Object, ByVal e As GraphicsEventArgs)
-      offsetGraphicsLayer.ClearGraphics()
+      offsetGraphicsLayer.Graphics.Clear()
       For Each g As Graphic In e.Results
         g.Symbol = TryCast(LayoutRoot.Resources("CyanFillSymbol"), Symbols.Symbol)
         offsetGraphicsLayer.Graphics.Add(g)

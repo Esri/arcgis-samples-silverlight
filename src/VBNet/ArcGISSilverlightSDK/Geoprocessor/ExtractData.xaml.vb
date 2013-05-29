@@ -41,7 +41,7 @@ Partial Public Class ExtractData
 
   End Sub
   Private Sub DrawPolygon_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-    _graphicsLayer.ClearGraphics()
+    _graphicsLayer.Graphics.Clear()
     If FreehandCheckBox.IsChecked.Value Then
       _drawObject.DrawMode = DrawMode.Freehand
     Else
@@ -72,7 +72,7 @@ Partial Public Class ExtractData
 
     If LayersList.SelectedItem Is Nothing Then
       MessageBox.Show("Please select layer(s) to extract")
-      TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer).ClearGraphics()
+      TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer).Graphics.Clear()
       Return
     End If
 
@@ -150,7 +150,7 @@ Partial Public Class ExtractData
 
 
   Private Sub ResetButton_Click(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
-    TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer).ClearGraphics()
+    TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer).Graphics.Clear()
     ProcessingTextBlock.Text = ""
     ProcessingTextBlock.Visibility = Visibility.Collapsed
     SaveFileButton.Visibility = Visibility.Collapsed

@@ -113,7 +113,7 @@ namespace ArcGISSilverlightSDK
 
       foreach (Layer layer in MyMap.Layers)
         if (layer is GraphicsLayer)
-          (layer as GraphicsLayer).ClearGraphics();
+          (layer as GraphicsLayer).Graphics.Clear();
         else if (layer is GPResultImageLayer)
           gpResultImageLayers.Add(layer);
       for (int i = 0; i < gpResultImageLayers.Count; i++)

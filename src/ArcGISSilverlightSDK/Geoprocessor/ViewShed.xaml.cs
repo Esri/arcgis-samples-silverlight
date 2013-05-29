@@ -67,7 +67,7 @@ namespace ArcGISSilverlightSDK
       {
         _geoprocessorTask.CancelAsync();
        
-        graphicsLayer.ClearGraphics();
+        graphicsLayer.Graphics.Clear();
 
         mapPoint.SpatialReference = new SpatialReference(102100);
 
@@ -130,7 +130,7 @@ namespace ArcGISSilverlightSDK
     private void RemoveLayers_Click(object sender, RoutedEventArgs e)
     {
       //remove all previous results
-      graphicsLayer.ClearGraphics();
+      graphicsLayer.Graphics.Clear();
 
       int idx = MyMap.Layers.Count - 1;
       while (idx > 1)

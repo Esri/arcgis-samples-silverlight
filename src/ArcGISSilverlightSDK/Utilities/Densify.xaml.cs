@@ -28,9 +28,9 @@ namespace ArcGISSilverlightSDK
         private void MyDrawObject_DrawBegin(object sender, EventArgs args)
         {
             GraphicsLayer graphicsLayerPolygon = MyMap.Layers["PolygonGraphicsLayer"] as GraphicsLayer;
-            graphicsLayerPolygon.ClearGraphics();
+            graphicsLayerPolygon.Graphics.Clear();
             GraphicsLayer graphicsLayerVertices = MyMap.Layers["VerticesGraphicsLayer"] as GraphicsLayer;
-            graphicsLayerVertices.ClearGraphics();
+            graphicsLayerVertices.Graphics.Clear();
         }
 
         private void MyDrawObject_DrawComplete(object sender, DrawEventArgs args)

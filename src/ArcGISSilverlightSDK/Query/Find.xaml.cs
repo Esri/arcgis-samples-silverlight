@@ -16,7 +16,7 @@ namespace ArcGISSilverlightSDK
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)
         {
             GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
 
             FindTask findTask = new FindTask("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer");
             findTask.Failed += FindTask_Failed;
@@ -67,7 +67,7 @@ namespace ArcGISSilverlightSDK
                 }
 
                 GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-                graphicsLayer.ClearGraphics();
+                graphicsLayer.Graphics.Clear();
                 graphicsLayer.Graphics.Add(graphic);
             }
         }

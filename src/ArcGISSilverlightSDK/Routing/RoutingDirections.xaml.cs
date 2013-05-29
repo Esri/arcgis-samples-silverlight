@@ -28,17 +28,17 @@ namespace ArcGISSilverlightSDK
                 ReturnDirections = true,
                 DirectionsLengthUnits = esriUnits.esriMiles,
                 Stops = _stops,
-                UseTimeWindows = false
+                UseTimeWindows = false,                
             };
 
             _routeTask =
-                new RouteTask("http://tasks.arcgisonline.com/ArcGIS/rest/services/NetworkAnalysis/ESRI_Route_NA/NAServer/Route");
+                new RouteTask("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/Route");
             _routeTask.SolveCompleted += routeTask_SolveCompleted;
             _routeTask.Failed += task_Failed;
 
             _locator =
-                new Locator("http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Address_NA/GeocodeServer");
-            _locator.AddressToLocationsCompleted += locator_AddressToLocationsCompleted;
+                new Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
+            _locator.FindCompleted += locator_FindCompleted;
             _locator.Failed += task_Failed;
         }
         
@@ -48,35 +48,34 @@ namespace ArcGISSilverlightSDK
             DirectionsStackPanel.Children.Clear();
             _stops.Clear();
 
-            (MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer).ClearGraphics();
+            (MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer).Graphics.Clear();
             _locator.CancelAsync();
             _routeTask.CancelAsync();
 
             //Geocode from address
-            _locator.AddressToLocationsAsync(ParseAddress(FromTextBox.Text), "from");
-
+            _locator.FindAsync(ParseSearchText(FromTextBox.Text), "from");
         }
 
-        void locator_AddressToLocationsCompleted(object sender, AddressToLocationsEventArgs e)
+        void locator_FindCompleted(object sender, LocatorFindEventArgs e)
         {
             GraphicsLayer graphicsLayer = (MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer);
-            if (e.Results.Count > 0)
+            if (e.Result != null)
             {
-                AddressCandidate address = e.Results[0];
-                Graphic graphicLocation = new Graphic() { Geometry = address.Location };
-                graphicLocation.Attributes.Add("address", address.Address);
-                graphicLocation.Attributes.Add("score", address.Score);
+                LocatorFindResult findResult = e.Result;
+                Graphic graphicLocation = findResult.Locations[0].Graphic;
+                graphicLocation.Geometry.SpatialReference = MyMap.SpatialReference;
+                graphicLocation.Attributes.Add("name", findResult.Locations[0].Name);
 
                 _stops.Add(graphicLocation);
                 if ((string)e.UserState == "from")
                 {
                     graphicLocation.Symbol = LayoutRoot.Resources["FromSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol;
                     //Geocode to address
-                    _locator.AddressToLocationsAsync(ParseAddress(ToTextBox.Text), "to");
+                    _locator.FindAsync(ParseSearchText(ToTextBox.Text), "to");
                 }
                 else
                 {
-                    graphicLocation.Symbol = LayoutRoot.Resources["ToSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol; 
+                    graphicLocation.Symbol = LayoutRoot.Resources["ToSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol;
                     //Get route between from and to
                     _routeParams.OutSpatialReference = MyMap.SpatialReference;
                     _routeTask.SolveAsync(_routeParams);
@@ -160,17 +159,17 @@ namespace ArcGISSilverlightSDK
             }
         }
 
-        private AddressToLocationsParameters ParseAddress(string address)
+        private LocatorFindParameters ParseSearchText(string searchText)
         {
-            string[] fromArray = address.Split(new char[] { ',' });
-            AddressToLocationsParameters fromAddress = new AddressToLocationsParameters();
-            fromAddress.OutFields.Add("Loc_name");
-            fromAddress.Address.Add("Address", fromArray[0]);
-            fromAddress.Address.Add("City", fromArray[1]);
-            fromAddress.Address.Add("State", fromArray[2]);
-            fromAddress.Address.Add("Zip", fromArray[3]);
-            fromAddress.Address.Add("Country", "USA");
-            return fromAddress;
+            LocatorFindParameters locatorFindParams = new LocatorFindParameters()
+            {
+                Text = searchText,
+                Location = MyMap.Extent.GetCenter(),
+                Distance = MyMap.Extent.Width / 2,
+                MaxLocations = 1,
+                OutSpatialReference = MyMap.SpatialReference
+            };
+            return locatorFindParams;
         }
 
         private string FormatDistance(double dist, string units)

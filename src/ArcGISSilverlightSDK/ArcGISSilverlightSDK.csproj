@@ -100,6 +100,9 @@
     <Compile Include="Graphics\AutoProjectGraphics.xaml.cs">
       <DependentUpon>AutoProjectGraphics.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Graphics\GeoRSS.xaml.cs">
+      <DependentUpon>GeoRSS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Graphics\SymbolRotation.xaml.cs">
       <DependentUpon>SymbolRotation.xaml</DependentUpon>
     </Compile>
@@ -289,6 +292,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Graphics\AutoProjectGraphics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphics\GeoRSS.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -967,9 +974,6 @@
     <Compile Include="Toolkit\OverviewMap.xaml.cs">
       <DependentUpon>OverviewMap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Graphics\GeoRSS.xaml.cs">
-      <DependentUpon>GeoRSS.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Toolkit\Scaleline.xaml.cs">
       <DependentUpon>Scaleline.xaml</DependentUpon>
     </Compile>
@@ -1444,12 +1448,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Toolkit\OverviewMap.xaml">
-      <SubType>Page</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Graphics\GeoRSS.xaml">
       <SubType>Page</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <Generator>MSBuild:Compile</Generator>

@@ -34,7 +34,7 @@ Imports ESRI.ArcGIS.Client.Tasks
     End Sub
 
     Private Sub ClearGraphicsButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-      graphicsLayer.ClearGraphics()
+        graphicsLayer.Graphics.Clear()
     End Sub
 
     Private Sub MyDrawObject_DrawComplete(ByVal sender As Object, ByVal args As ESRI.ArcGIS.Client.DrawEventArgs)

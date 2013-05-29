@@ -49,7 +49,7 @@ Partial Public Class ViewShed
     Else
       _geoprocessorTask.CancelAsync()
 
-      graphicsLayer.ClearGraphics()
+      graphicsLayer.Graphics.Clear()
 
       mapPoint.SpatialReference = New SpatialReference(102100)
 
@@ -100,7 +100,7 @@ Partial Public Class ViewShed
 
   Private Sub RemoveLayers_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
     'remove all previous results
-    graphicsLayer.ClearGraphics()
+    graphicsLayer.Graphics.Clear()
 
     Dim idx As Integer = MyMap.Layers.Count - 1
     Do While idx > 1

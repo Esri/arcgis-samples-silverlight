@@ -101,7 +101,7 @@ Partial Public Class ClipFeatures
 
         For Each layer As Layer In MyMap.Layers
             If TypeOf layer Is GraphicsLayer Then
-                TryCast(layer, GraphicsLayer).ClearGraphics()
+                TryCast(layer, GraphicsLayer).Graphics.Clear()
             ElseIf TypeOf layer Is GPResultImageLayer Then
                 gpResultImageLayers.Add(layer)
             End If

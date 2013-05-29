@@ -73,7 +73,7 @@ Imports ESRI.ArcGIS.Client.Tasks
     End Sub
 
     Private Sub ClearButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-      footprintsGraphicsLayer.ClearGraphics()
+      footprintsGraphicsLayer.Graphics.Clear()
     End Sub
 
   End Class

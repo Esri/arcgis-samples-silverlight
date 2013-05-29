@@ -36,7 +36,7 @@ namespace ArcGISSilverlightSDK
             identifyTask.ExecuteAsync(identifyParams);
 
             GraphicsLayer graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
             ESRI.ArcGIS.Client.Graphic graphic = new ESRI.ArcGIS.Client.Graphic()
             {
                 Geometry = clickPoint,

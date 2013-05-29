@@ -14,6 +14,11 @@
             <esri:ArcGISTiledMapServiceLayer 
                 Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
             <esri:GraphicsLayer ID="MyGraphicsLayer"/>
+            <esri:ElementLayer ID="MyElementLayer" >
+                <esri:ElementLayer.Children>
+                    <Image x:Name="MyOutputImage" Stretch="Fill" esri:ElementLayer.Envelope="0,0,1,1" />
+                </esri:ElementLayer.Children>
+            </esri:ElementLayer>
         </esri:Map>
 
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" >
@@ -24,35 +29,15 @@
             </Rectangle>
             <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,10,10,15" />
             <StackPanel Orientation="Vertical" Margin="30,20,20,30" >
-                <TextBlock Text="Enter width and height (in pixels) of a grid overlay and drag a box on the map to define grid extent.  A bitmap of average elevation values will be displayed in a separate panel." 
+                <TextBlock Text="Enter width and height (in pixels) of a grid overlay and drag a box on the map to define grid extent.  A bitmap of average elevation values will be displayed on the map." 
                            Width="200" TextAlignment="Left"  TextWrapping="Wrap" Margin="0,0,0,5"/>
                 <StackPanel Orientation="Horizontal" Margin="3">
                     <TextBlock Text="Width:" VerticalAlignment="Center" Margin="3"   />
                     <TextBox x:Name="WidthTextBox" Text="15" Width="26" />
                     <TextBlock Text="Height:" Margin="9,3,3,3" VerticalAlignment="Center"  />
-                    <TextBox x:Name="HeightTextBox"  Text="15" Width="26" />                
+                    <TextBox x:Name="HeightTextBox"  Text="15" Width="26" />
                 </StackPanel>
             </StackPanel>
-        </Grid>
-
-        <Grid x:Name="ElevationView" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Visibility="Collapsed" >
-            <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
-                <Rectangle.Effect>
-                    <DropShadowEffect/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <Rectangle Fill="#FFFFFFFF" Stroke="DarkGray" RadiusX="5" RadiusY="5" Margin="10,18,10,15" />
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="0,2,8,0" >
-                <Rectangle x:Name="SizeProfileImage" Stroke="Black" Fill="#00FFFFFF" Width="8" Height="4" Margin="0,0,5,0" 
-                           MouseLeftButtonDown="SizeProfileImage_MouseLeftButtonDown" ToolTipService.ToolTip="Resize Image" 
-                           Cursor="Hand"  />
-                <TextBlock x:Name="CloseProfileImage" Foreground="Black" Text="X" 
-                           MouseLeftButtonDown="CloseProfileImage_MouseLeftButtonDown" Cursor="Hand" 
-                           ToolTipService.ToolTip="Close" />
-            </StackPanel>
-            <TextBlock Text="Elevation Grid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,2,0,0" 
-                       FontWeight="Bold" Foreground="White" />
-            <Image x:Name="ElevationImage" Width="150" Height="150" Stretch="Fill" Margin="20,30,20,25" />
         </Grid>
 
     </Grid>

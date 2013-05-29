@@ -239,7 +239,7 @@ namespace ArcGISSilverlightSDK
             if (_featureSet != null && _featureSet.Features.Count > 0)
             {
                 // Clear previous graphic features
-                graphicsLayer.ClearGraphics();
+                graphicsLayer.Graphics.Clear();
 
                 for (int i = 0; i < _featureSet.Features.Count; i++)
                 {

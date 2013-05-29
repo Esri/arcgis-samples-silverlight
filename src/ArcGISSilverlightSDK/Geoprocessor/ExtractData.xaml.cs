@@ -49,7 +49,7 @@ namespace ArcGISSilverlightSDK
 
         private void DrawPolygon_Click(object sender, RoutedEventArgs e)
         {
-            _graphicsLayer.ClearGraphics();
+            _graphicsLayer.Graphics.Clear();
             if (FreehandCheckBox.IsChecked.Value)
                 _drawObject.DrawMode = DrawMode.Freehand;
             else
@@ -80,7 +80,7 @@ namespace ArcGISSilverlightSDK
             if (LayersList.SelectedItem == null)
             {
                 MessageBox.Show("Please select layer(s) to extract");
-                (MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer).ClearGraphics();
+                (MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer).Graphics.Clear();
                 return;
             }
 
@@ -167,7 +167,7 @@ namespace ArcGISSilverlightSDK
 
         private void ResetButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            (MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer).ClearGraphics();
+            (MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer).Graphics.Clear();
             ProcessingTextBlock.Text = "";
             ProcessingTextBlock.Visibility = Visibility.Collapsed;
             SaveFileButton.Visibility = Visibility.Collapsed;                    

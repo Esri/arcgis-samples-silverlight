@@ -66,7 +66,7 @@ namespace ArcGISSilverlightSDK
                     break;
                 default:
                     MyDrawObject.DrawMode = DrawMode.None;
-                    selectionGraphicslayer.ClearGraphics();
+                    selectionGraphicslayer.Graphics.Clear();
                     QueryDetailsDataGrid.ItemsSource = null;
                     ResultsDisplay.Visibility = Visibility.Collapsed;
                     break;
@@ -78,7 +78,7 @@ namespace ArcGISSilverlightSDK
         {
             ResultsDisplay.Visibility = Visibility.Collapsed;
             MyDrawObject.IsEnabled = false;
-            selectionGraphicslayer.ClearGraphics();
+            selectionGraphicslayer.Graphics.Clear();
 
             QueryTask queryTask = new QueryTask("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/5");
             queryTask.ExecuteCompleted += QueryTask_ExecuteCompleted;

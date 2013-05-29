@@ -72,7 +72,7 @@ namespace ArcGISSilverlightSDK
         private void MyDrawObject_DrawComplete(object sender, DrawEventArgs args)
         {
             MyDrawObject.IsEnabled = false;
-            offsetGraphicsLayer.ClearGraphics();
+            offsetGraphicsLayer.Graphics.Clear();
 
             ESRI.ArcGIS.Client.Geometry.MapPoint point = args.Geometry as ESRI.ArcGIS.Client.Geometry.MapPoint;
             point.SpatialReference = MyMap.SpatialReference;

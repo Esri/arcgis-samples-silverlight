@@ -72,18 +72,18 @@ Imports ESRI.ArcGIS.Client.Geometry
       AddHandler geometryService.GeneralizeCompleted, AddressOf GeometryService_GeneralizeCompleted
       AddHandler geometryService.Failed, AddressOf GeometryService_Failed
 
-      Dim generalizeParameters As New GeneralizeParameters() With
-          {
-              .DeviationUnit = LinearUnit.SurveyMile,
-              .MaxDeviation = 0.000001
-          }
+        Dim generalizeParameters As New GeneralizeParameters() With
+            {
+                .DeviationUnit = LinearUnit.SurveyMile,
+                .MaxDeviation = 10
+            }
 
       geometryService.GeneralizeAsync(New List(Of Graphic)(New Graphic() {originalGraphicsLayer.Graphics(0)}), generalizeParameters)
     End Sub
 
     Private Sub GeometryService_GeneralizeCompleted(ByVal sender As Object, ByVal e As GraphicsEventArgs)
       Dim generalizedGraphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("GeneralizedLineGraphicsLayer"), GraphicsLayer)
-      generalizedGraphicsLayer.ClearGraphics()
+      generalizedGraphicsLayer.Graphics.Clear()
 
       For Each g As Graphic In e.Results
         g.Symbol = TryCast(LayoutRoot.Resources("NewLineSymbol"), Symbols.Symbol)

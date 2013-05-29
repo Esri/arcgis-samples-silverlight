@@ -223,7 +223,7 @@ Imports ESRI.ArcGIS.Client.Tasks
             Dim brushList As List(Of SolidColorBrush) = ColorList(_colorShadeIndex)
             If Not _featureSet Is Nothing AndAlso _featureSet.Features.Count > 0 Then
                 ' Clear previous graphic features
-                graphicsLayer.ClearGraphics()
+                graphicsLayer.Graphics.Clear()
 
                 For i As Integer = 0 To _featureSet.Features.Count - 1
                     Dim graphicFeature As Graphic = _featureSet.Features(i)

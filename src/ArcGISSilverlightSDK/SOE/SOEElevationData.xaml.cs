@@ -16,8 +16,7 @@ namespace ArcGISSilverlightSDK
     public partial class SOEElevationData : UserControl
     {
         Draw myDrawObject;
-        WebClient webClient;
-        GraphicsLayer graphicsLayer;
+        WebClient webClient;        
         List<Color> colorRanges = new List<Color>(); 
 
         public SOEElevationData()
@@ -30,12 +29,9 @@ namespace ArcGISSilverlightSDK
                 IsEnabled = true
             };
             myDrawObject.DrawComplete += drawObject_DrawComplete;
-            myDrawObject.DrawBegin += drawObject_OnDrawBegin;
 
             webClient = new WebClient();
-            webClient.OpenReadCompleted += wc_OpenReadCompleted;
-
-            graphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
+            webClient.OpenReadCompleted += wc_OpenReadCompleted;          
 
             colorRanges.Add(Colors.Blue);
             colorRanges.Add(Colors.Green);
@@ -44,38 +40,19 @@ namespace ArcGISSilverlightSDK
             colorRanges.Add(Colors.Red);
         }
 
-        private void drawObject_OnDrawBegin(object sender, EventArgs args)
-        {
-            graphicsLayer.ClearGraphics();
-            ElevationView.Visibility = Visibility.Collapsed;
-        }
-
         void drawObject_DrawComplete(object sender, DrawEventArgs e)
         {
-            if (e.Geometry.Extent.Height == 0 | e.Geometry.Extent.Width == 0)
-            {
-                MessageBox.Show("Please click and drag a box to define an extent", "Error", MessageBoxButton.OK);
-                return;
-            }
-
-            myDrawObject.IsEnabled = false;
-
-            ESRI.ArcGIS.Client.Graphic graphic = new ESRI.ArcGIS.Client.Graphic()
-            {
-                Geometry = e.Geometry,
-                Symbol = LayoutRoot.Resources["DrawFillSymbol"] as Symbol
-            };
-            graphicsLayer.Graphics.Add(graphic);
+            myDrawObject.IsEnabled = false;     
 
             ESRI.ArcGIS.Client.Geometry.Envelope aoiEnvelope = e.Geometry as ESRI.ArcGIS.Client.Geometry.Envelope;
 
             string SOEurl = "http://sampleserver4.arcgisonline.com/ArcGIS/rest/services/Elevation/ESRI_Elevation_World/MapServer/exts/ElevationsSOE/ElevationLayers/1/GetElevationData?";
 
-            SOEurl += string.Format(System.Globalization.CultureInfo.InvariantCulture, "Extent={{\"xmin\" : {0}, \"ymin\" : {1}, \"xmax\" : {2}, \"ymax\" :{3},\"spatialReference\" : {{\"wkid\" : {4}}}}}&Rows={5}&Columns={6}&f=json",
+            SOEurl += string.Format("Extent={{\"xmin\" : {0}, \"ymin\" : {1}, \"xmax\" : {2}, \"ymax\" :{3},\"spatialReference\" : {{\"wkid\" : {4}}}}}&Rows={5}&Columns={6}&f=json",
                 aoiEnvelope.XMin, aoiEnvelope.YMin, aoiEnvelope.XMax, aoiEnvelope.YMax,
                 MyMap.SpatialReference.WKID, HeightTextBox.Text, WidthTextBox.Text);
 
-            webClient.OpenReadAsync(new Uri(SOEurl));
+            webClient.OpenReadAsync(new Uri(SOEurl), aoiEnvelope);
         }
 
         void wc_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
@@ -138,28 +115,19 @@ namespace ArcGISSilverlightSDK
                 }
             }
 
-            ElevationView.Visibility = System.Windows.Visibility.Visible;
-            ElevationImage.Source = writeableBitmapElevation;
             myDrawObject.IsEnabled = true;
+
+            ESRI.ArcGIS.Client.ElementLayer elementLayer = MyMap.Layers["MyElementLayer"] as ESRI.ArcGIS.Client.ElementLayer;
+            Image MyOutputImage = elementLayer.Children[0] as Image;
+            MyOutputImage.Source = writeableBitmapElevation;
+            MyOutputImage.SetValue(ESRI.ArcGIS.Client.ElementLayer.EnvelopeProperty, 
+                e.UserState as ESRI.ArcGIS.Client.Geometry.Envelope);
         }
 
         void SetPixel(WriteableBitmap bitmap, int row, int col, int alpha, int red, int green, int blue)
         {
             int index = row * bitmap.PixelWidth + col;
             bitmap.Pixels[index] = alpha << 24 | red << 16 | green << 8 | blue;
-        }
-
-        private void CloseProfileImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            ElevationView.Visibility = Visibility.Collapsed;
-        }
-
-        private void SizeProfileImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (ElevationImage.Width == 150)
-                ElevationImage.Width = ElevationImage.Height = 300;
-            else
-                ElevationImage.Width = ElevationImage.Height = 150;
         }
     }
 }

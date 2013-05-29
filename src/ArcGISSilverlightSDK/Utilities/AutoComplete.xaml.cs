@@ -88,7 +88,7 @@ namespace ArcGISSilverlightSDK
         void GeometryService_AutoCompleteCompleted(object sender, GraphicsEventArgs e)
         {
             GraphicsLayer graphicsLayer = MyMap.Layers["CompletedGraphicsLayer"] as GraphicsLayer;
-            graphicsLayer.ClearGraphics();
+            graphicsLayer.Graphics.Clear();
             
             foreach(Graphic g in e.Results)
             {
@@ -97,7 +97,7 @@ namespace ArcGISSilverlightSDK
             }
 
             if (e.Results.Count > 0)
-                (MyMap.Layers["ConnectDotsGraphicsLayer"] as GraphicsLayer).ClearGraphics();
+                (MyMap.Layers["ConnectDotsGraphicsLayer"] as GraphicsLayer).Graphics.Clear();
             
         }
 

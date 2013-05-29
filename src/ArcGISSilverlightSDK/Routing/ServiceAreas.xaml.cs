@@ -28,7 +28,7 @@ namespace ArcGISSilverlightSDK
             facilitiesGraphicsLayer = MyMap.Layers["MyFacilityGraphicsLayer"] as GraphicsLayer;
             barriersGraphicsLayer = MyMap.Layers["MyBarrierGraphicsLayer"] as GraphicsLayer;
 
-            myRouteTask = new RouteTask("http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Service%20Area");
+            myRouteTask = new RouteTask("http://sampleserver6.arcgisonline.com/arcgis/rest/services/NetworkAnalysis/SanDiego/NAServer/ServiceArea");
             myRouteTask.SolveServiceAreaCompleted += SolveServiceArea_Completed;
             myRouteTask.Failed += SolveServiceArea_Failed;
 
@@ -84,7 +84,9 @@ namespace ArcGISSilverlightSDK
                     RestrictionAttributes = string.IsNullOrEmpty(RestrictionAttributeNames3.Text) ? null : RestrictionAttributeNames3.Text.Split(','),
                     RestrictUTurns = GetRestrictUTurns (RestrictUTurns3.SelectionBoxItem.ToString()),
                     OutputGeometryPrecision = string.IsNullOrEmpty(OutputGeometryPrecision3.Text) ? 0 : double.Parse(OutputGeometryPrecision3.Text),
-                    OutputGeometryPrecisionUnits = GetUnits (OutputGeometryPrecisionUnits3.SelectionBoxItem.ToString().Trim())
+                    OutputGeometryPrecisionUnits = GetUnits (OutputGeometryPrecisionUnits3.SelectionBoxItem.ToString().Trim()),
+
+                    DoNotLocateOnRestrictedElements = true
                 };
 
                 if (myRouteTask.IsBusy)
@@ -162,7 +164,7 @@ namespace ArcGISSilverlightSDK
         {
             if (e.Action == Editor.EditAction.Add)
             {
-                e.Edits.ElementAt(0).Graphic.Attributes.Add("FacilityNumber",
+                e.Edits.ElementAt(0).Graphic.Attributes.Add("Facility",
                     (e.Edits.ElementAt(0).Layer as GraphicsLayer).Graphics.Count);
 
                 SolveButton.IsEnabled = true;
@@ -291,6 +293,15 @@ namespace ArcGISSilverlightSDK
                     break;
             }
             return result;
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Layer layer in MyMap.Layers)
+                if (layer is GraphicsLayer)
+                    (layer as GraphicsLayer).Graphics.Clear();
+
+            SolveButton.IsEnabled = false;
         }
     }
 }

@@ -139,8 +139,8 @@ namespace ArcGISSilverlightSDK
         private void Route_Complete(object sender, CalculateRouteCompletedEventArgs args)
         {
             myDrawObject.IsEnabled = true;
-            routeResultsGraphicsLayer.ClearGraphics();
-            waypointGraphicsLayer.ClearGraphics();
+            routeResultsGraphicsLayer.Graphics.Clear();
+            waypointGraphicsLayer.Graphics.Clear();
 
             StringBuilder directions = new StringBuilder();
 
@@ -203,8 +203,8 @@ namespace ArcGISSilverlightSDK
 
         private void ClearRouteButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            waypointGraphicsLayer.ClearGraphics();
-            routeResultsGraphicsLayer.ClearGraphics();
+            waypointGraphicsLayer.Graphics.Clear();
+            routeResultsGraphicsLayer.Graphics.Clear();
             DirectionsContentTextBlock.Text = "";
             DirectionsGrid.Visibility = System.Windows.Visibility.Collapsed;
         }

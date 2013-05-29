@@ -57,7 +57,7 @@ Imports ESRI.ArcGIS.Client.Geometry
 
     Private Sub GeometryService_DifferenceCompleted(ByVal sender As Object, ByVal e As GraphicsEventArgs)
       outputGraphicsLayer = TryCast(MyMap.Layers("OutputGraphicsLayer"), GraphicsLayer)
-      outputGraphicsLayer.ClearGraphics()
+      outputGraphicsLayer.Graphics.Clear()
       For Each g As Graphic In e.Results
         If TypeOf g.Geometry Is Polygon Then
           g.Symbol = TryCast(LayoutRoot.Resources("DifferenceFillSymbol"), Symbols.Symbol)
@@ -76,7 +76,7 @@ Imports ESRI.ArcGIS.Client.Geometry
 
     Private Sub ResetButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
       Dim outputGraphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("OutputGraphicsLayer"), GraphicsLayer)
-      outputGraphicsLayer.ClearGraphics()
+      outputGraphicsLayer.Graphics.Clear()
 
       ResetButton.IsEnabled = False
     End Sub

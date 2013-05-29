@@ -30,7 +30,7 @@ namespace ArcGISSilverlightSDK
         private void MyDrawObject_DrawBegin(object sender, EventArgs args)
         {
             if (graphicsLayer.Graphics.Count >= 2)            
-                graphicsLayer.ClearGraphics();
+                graphicsLayer.Graphics.Clear();
         }
 
         private void MyDrawObject_DrawComplete(object sender, DrawEventArgs args)

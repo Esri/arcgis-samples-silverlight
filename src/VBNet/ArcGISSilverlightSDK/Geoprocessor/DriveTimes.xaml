@@ -11,24 +11,19 @@
       <esri:SimpleFillSymbol x:Key="FillSymbol3" Fill="#779999FF" BorderBrush="#FF9999FF" BorderThickness="2"  />
     </Grid.Resources>
 
-    <esri:Map x:Name="MyMap" Background="White" Extent="-122.5009,37.741,-122.3721,37.8089" 
-            MouseClick="MyMap_MouseClick" >
-      <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer" />
-      <esri:GraphicsLayer ID="MyGraphicsLayer">
-        <esri:GraphicsLayer.MapTip>
-          <Grid Background="LightYellow">
-            <StackPanel Orientation="Vertical" Margin="5">
-              <TextBlock Text="{Binding [Info]}" HorizontalAlignment="Left" />
-              <TextBlock Text="{Binding [LatLon]}" HorizontalAlignment="Left" />
-            </StackPanel>
-            <Border BorderBrush="Black" BorderThickness="1" />
-          </Grid>
-        </esri:GraphicsLayer.MapTip>
-      </esri:GraphicsLayer>
-    </esri:Map>
+        <esri:Map x:Name="MyMap" MouseClick="MyMap_MouseClick" Extent="-13046432.965,3854870.095,-13036649.025,3859114.855">
+            <esri:ArcGISTiledMapServiceLayer
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+            <esri:GraphicsLayer ID="MyGraphicsLayer">
+                <esri:GraphicsLayer.MapTip>
+                    <Border Background="White" BorderBrush="Black" BorderThickness="1" CornerRadius="0">
+                        <TextBlock Text="{Binding [Name]}" HorizontalAlignment="Left" Margin="5" />
+                    </Border>
+                </esri:GraphicsLayer.MapTip>
+            </esri:GraphicsLayer>
+        </esri:Map>
 
-    <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,15,0" >
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,15,0" >
       <Rectangle Fill="#77919191" Stroke="Gray"  RadiusX="10" RadiusY="10" Margin="0,0,0,5" >
         <Rectangle.Effect>
           <DropShadowEffect/>

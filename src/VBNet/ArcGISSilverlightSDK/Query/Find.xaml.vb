@@ -13,7 +13,7 @@ Imports ESRI.ArcGIS.Client.Tasks
 
         Private Sub ExecuteButton_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
             Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-            graphicsLayer.ClearGraphics()
+            graphicsLayer.Graphics.Clear()
 
             Dim findTask As New FindTask("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer")
             AddHandler findTask.Failed, AddressOf FindTask_Failed
@@ -58,7 +58,7 @@ Imports ESRI.ArcGIS.Client.Tasks
                 End Select
 
                 Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-                graphicsLayer.ClearGraphics()
+                graphicsLayer.Graphics.Clear()
                 graphicsLayer.Graphics.Add(graphic)
             End If
         End Sub

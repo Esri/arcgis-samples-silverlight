@@ -42,7 +42,7 @@ Imports System.Collections.Generic
     Private Sub MyDrawObject_DrawComplete(ByVal sender As Object, ByVal args As DrawEventArgs)
       MyDrawObject.IsEnabled = False
 
-      resultsLayer.ClearGraphics()
+      resultsLayer.Graphics.Clear()
 
       Dim polyline As Polyline = TryCast(args.Geometry, Polyline)
       polyline.SpatialReference = MyMap.SpatialReference

@@ -51,7 +51,7 @@ Partial Public Class SpatialQuery
         MyDrawObject.DrawMode = DrawMode.Ellipse
       Case Else
         MyDrawObject.DrawMode = DrawMode.None
-        selectionGraphicslayer.ClearGraphics()
+        selectionGraphicslayer.Graphics.Clear()
         QueryDetailsDataGrid.ItemsSource = Nothing
         ResultsDisplay.Visibility = Visibility.Collapsed
     End Select
@@ -61,7 +61,7 @@ Partial Public Class SpatialQuery
   Private Sub MyDrawSurface_DrawComplete(ByVal sender As Object, ByVal args As ESRI.ArcGIS.Client.DrawEventArgs)
     ResultsDisplay.Visibility = Visibility.Collapsed
     MyDrawObject.IsEnabled = False
-    selectionGraphicslayer.ClearGraphics()
+    selectionGraphicslayer.Graphics.Clear()
 
     Dim queryTask As New QueryTask("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/5")
     AddHandler queryTask.ExecuteCompleted, AddressOf QueryTask_ExecuteCompleted

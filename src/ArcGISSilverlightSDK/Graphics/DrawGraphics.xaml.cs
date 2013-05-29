@@ -104,7 +104,7 @@ namespace ArcGISSilverlightSDK
           break;
         default:
           MyDrawObject.DrawMode = DrawMode.None;
-          graphicsLayer.ClearGraphics();
+          graphicsLayer.Graphics.Clear();
           break;
       }
       MyDrawObject.IsEnabled = (MyDrawObject.DrawMode != DrawMode.None);

@@ -14,7 +14,8 @@
 
         <esri:Map WrapAround="True" x:Name="MyMap" Extent="-9813504.6933477,5127140.45392125,-9812977.49431059,5127508.54492118">
             <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
-            <esri:FeatureLayer ID="ServiceConnections" GdbVersion="sde.DEFAULT" OutFields="*" AutoSave="False"                               
+            <esri:FeatureLayer ID="ServiceConnections" GdbVersion="sde.DEFAULT" OutFields="*" AutoSave="False"   
+                               Mode="OnDemand"
                                Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Water_Network/FeatureServer/7"/>
         </esri:Map>
 

@@ -92,7 +92,7 @@ Partial Public Class Intersect
   End Sub
 
   Private Sub GeometryService_IntersectCompleted(ByVal sender As Object, ByVal e As GraphicsEventArgs)
-    intersectGraphicsLayer.ClearGraphics()
+    intersectGraphicsLayer.Graphics.Clear()
 
     For Each g As Graphic In e.Results
       Dim symbol As New SimpleFillSymbol() With
@@ -118,7 +118,7 @@ Partial Public Class Intersect
   End Sub
 
   Private Sub Button_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-    intersectGraphicsLayer.ClearGraphics()
+    intersectGraphicsLayer.Graphics.Clear()
     MyDrawObject.IsEnabled = True
   End Sub
 

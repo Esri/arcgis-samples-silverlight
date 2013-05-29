@@ -101,7 +101,7 @@ Imports ESRI.ArcGIS.Client.Tasks
       End If
       Dim featureSet As FeatureSet = args.FeatureSet
       Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyGraphicsLayer"), GraphicsLayer)
-      graphicsLayer.ClearGraphics()
+      graphicsLayer.Graphics.Clear()
 
       If featureSet IsNot Nothing AndAlso featureSet.Features.Count > 0 Then
         For Each feature As Graphic In featureSet.Features

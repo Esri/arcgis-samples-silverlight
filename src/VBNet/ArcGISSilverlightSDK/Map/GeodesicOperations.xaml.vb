@@ -112,8 +112,8 @@ Partial Public Class GeodesicOperations
       MyDrawObject.IsEnabled = True
     Else
       MyDrawObject.IsEnabled = False
-      featureGraphicsLayer.ClearGraphics()
-      verticesGraphicsLayer.ClearGraphics()
+      featureGraphicsLayer.Graphics.Clear()
+      verticesGraphicsLayer.Graphics.Clear()
     End If
   End Sub
 End Class

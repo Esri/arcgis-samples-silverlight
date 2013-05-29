@@ -119,58 +119,58 @@ Partial Public Class BingRouting
 
 	Private Sub Route_Complete(ByVal sender As Object, ByVal args As CalculateRouteCompletedEventArgs)
 		myDrawObject.IsEnabled = True
-		routeResultsGraphicsLayer.ClearGraphics()
-		waypointGraphicsLayer.ClearGraphics()
+        routeResultsGraphicsLayer.Graphics.Clear()
+        waypointGraphicsLayer.Graphics.Clear()
 
-		Dim directions As New StringBuilder()
+        Dim directions As New StringBuilder()
 
-		Dim routeLegs As ObservableCollection(Of RouteLeg) = args.Result.Result.Legs
-		Dim numLegs As Integer = routeLegs.Count
-		Dim instructionCount As Integer = 0
-		For n As Integer = 0 To numLegs - 1
-			If (n Mod 2) = 0 Then
-				AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualStart.Longitude, routeLegs(n).ActualStart.Latitude)), MapPoint))
-				AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualEnd.Longitude, routeLegs(n).ActualEnd.Latitude)), MapPoint))
-			ElseIf n = (numLegs - 1) Then
-				AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualEnd.Longitude, routeLegs(n).ActualEnd.Latitude)), MapPoint))
-			End If
+        Dim routeLegs As ObservableCollection(Of RouteLeg) = args.Result.Result.Legs
+        Dim numLegs As Integer = routeLegs.Count
+        Dim instructionCount As Integer = 0
+        For n As Integer = 0 To numLegs - 1
+            If (n Mod 2) = 0 Then
+                AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualStart.Longitude, routeLegs(n).ActualStart.Latitude)), MapPoint))
+                AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualEnd.Longitude, routeLegs(n).ActualEnd.Latitude)), MapPoint))
+            ElseIf n = (numLegs - 1) Then
+                AddStopPoint(TryCast(mercator.FromGeographic(New MapPoint(routeLegs(n).ActualEnd.Longitude, routeLegs(n).ActualEnd.Latitude)), MapPoint))
+            End If
 
-			directions.Append(String.Format("--Leg #{0}--" & vbLf, n + 1))
+            directions.Append(String.Format("--Leg #{0}--" & vbLf, n + 1))
 
-			For Each item As ItineraryItem In routeLegs(n).Itinerary
-				instructionCount += 1
-				directions.Append(String.Format("{0}. {1}" & vbLf, instructionCount, item.Text))
-			Next item
-		Next n
+            For Each item As ItineraryItem In routeLegs(n).Itinerary
+                instructionCount += 1
+                directions.Append(String.Format("{0}. {1}" & vbLf, instructionCount, item.Text))
+            Next item
+        Next n
 
-		Dim regex As New Regex("<[/a-zA-Z:]*>", RegexOptions.IgnoreCase Or RegexOptions.Multiline)
+        Dim regex As New Regex("<[/a-zA-Z:]*>", RegexOptions.IgnoreCase Or RegexOptions.Multiline)
 
-		DirectionsContentTextBlock.Text = regex.Replace(directions.ToString(), String.Empty)
-		DirectionsGrid.Visibility = Visibility.Visible
+        DirectionsContentTextBlock.Text = regex.Replace(directions.ToString(), String.Empty)
+        DirectionsGrid.Visibility = Visibility.Visible
 
-		Dim routePath As RoutePath = args.Result.Result.RoutePath
+        Dim routePath As RoutePath = args.Result.Result.RoutePath
 
-		Dim line As New Polyline()
-		line.Paths.Add(New PointCollection())
+        Dim line As New Polyline()
+        line.Paths.Add(New PointCollection())
 
-		For Each location As ESRI.ArcGIS.Client.Bing.RouteService.Location In routePath.Points
-			line.Paths(0).Add(TryCast(mercator.FromGeographic(New MapPoint(location.Longitude, location.Latitude)), MapPoint))
-		Next location
+        For Each location As ESRI.ArcGIS.Client.Bing.RouteService.Location In routePath.Points
+            line.Paths(0).Add(TryCast(mercator.FromGeographic(New MapPoint(location.Longitude, location.Latitude)), MapPoint))
+        Next location
 
-		Dim graphic As New Graphic() With {.Geometry = line, .Symbol = TryCast(LayoutRoot.Resources("RoutePathSymbol"), Symbol)}
-		routeResultsGraphicsLayer.Graphics.Add(graphic)
-	End Sub
+        Dim graphic As New Graphic() With {.Geometry = line, .Symbol = TryCast(LayoutRoot.Resources("RoutePathSymbol"), Symbol)}
+        routeResultsGraphicsLayer.Graphics.Add(graphic)
+    End Sub
 
-	Private Sub AddStopPoint(ByVal mapPoint As MapPoint)
-		Dim graphic As New Graphic() With {.Geometry = mapPoint, .Symbol = TryCast(LayoutRoot.Resources("ResultStopSymbol"), Symbol)}
-		graphic.Attributes.Add("StopNumber", waypointGraphicsLayer.Graphics.Count + 1)
-		waypointGraphicsLayer.Graphics.Add(graphic)
-	End Sub
+    Private Sub AddStopPoint(ByVal mapPoint As MapPoint)
+        Dim graphic As New Graphic() With {.Geometry = mapPoint, .Symbol = TryCast(LayoutRoot.Resources("ResultStopSymbol"), Symbol)}
+        graphic.Attributes.Add("StopNumber", waypointGraphicsLayer.Graphics.Count + 1)
+        waypointGraphicsLayer.Graphics.Add(graphic)
+    End Sub
 
-	Private Sub ClearRouteButton_Click(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
-		waypointGraphicsLayer.ClearGraphics()
-		routeResultsGraphicsLayer.ClearGraphics()
-		DirectionsContentTextBlock.Text = ""
-		DirectionsGrid.Visibility = System.Windows.Visibility.Collapsed
-	End Sub
+    Private Sub ClearRouteButton_Click(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
+        waypointGraphicsLayer.Graphics.Clear()
+        routeResultsGraphicsLayer.Graphics.Clear()
+        DirectionsContentTextBlock.Text = ""
+        DirectionsGrid.Visibility = System.Windows.Visibility.Collapsed
+    End Sub
 End Class

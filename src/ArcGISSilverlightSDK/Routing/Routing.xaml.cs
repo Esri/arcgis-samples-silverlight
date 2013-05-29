@@ -58,10 +58,9 @@ namespace ArcGISSilverlightSDK
             
             Graphic lastRoute = routeResult.Route;
 
-            decimal totalTime = (decimal)lastRoute.Attributes["Total_Time"];
-            string tip = string.Format("{0} minutes", totalTime.ToString("#0.000"));
-            lastRoute.Attributes.Add("TIP", tip);
-
+            decimal totalTime = (decimal)lastRoute.Attributes["Total_TravelTime"];
+            TotalTimeTextBlock.Text = string.Format("Total time: {0} minutes", totalTime.ToString("#0.000"));
+  
             routeGraphicsLayer.Graphics.Add(lastRoute);
         }
     }

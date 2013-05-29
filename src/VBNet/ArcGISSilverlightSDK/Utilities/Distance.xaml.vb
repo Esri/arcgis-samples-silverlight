@@ -31,7 +31,7 @@ Imports ESRI.ArcGIS.Client.Geometry
 
     Private Sub MyDrawObject_DrawBegin(ByVal sender As Object, ByVal args As EventArgs)
       If graphicsLayer.Graphics.Count >= 2 Then
-        graphicsLayer.ClearGraphics()
+        graphicsLayer.Graphics.Clear()
       End If
     End Sub
 

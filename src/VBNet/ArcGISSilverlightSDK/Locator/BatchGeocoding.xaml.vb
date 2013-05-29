@@ -82,7 +82,7 @@ Partial Public Class BatchGeocoding
 
   Private Sub ResetList_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
     batchaddresses.Clear()
-    geocodedResults.ClearGraphics()
+    geocodedResults.Graphics.Clear()
   End Sub
 
   Private Sub GraphicsLayer_MouseLeftButtonDown(ByVal sender As Object, ByVal e As GraphicMouseButtonEventArgs)

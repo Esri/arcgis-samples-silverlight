@@ -71,7 +71,7 @@ Imports ESRI.ArcGIS.Client.Tasks
     End Sub
 
     Private Sub GeometryService_CutCompleted(ByVal sender As Object, ByVal e As CutEventArgs)
-      parcelGraphicsLayer.ClearGraphics()
+      parcelGraphicsLayer.Graphics.Clear()
 
       For Each g As Graphic In e.Results
         g.Symbol = TryCast(LayoutRoot.Resources("BlueFillSymbol"), Symbols.Symbol)
