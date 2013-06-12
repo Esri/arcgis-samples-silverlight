@@ -1524,7 +1524,7 @@
             <Button x:Name="downloadSDK"  Visibility="Collapsed" Style="{StaticResource SDKButtonStyle}" 
                 VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="White"
                 Margin="0,12,25,0" Foreground="White" >
-                <HyperlinkButton x:Name="ZipHyperlink" Foreground="White" Content=" Download SDK " 
+                <HyperlinkButton x:Name="ZipHyperlink" Foreground="White" Content=" Download Samples " 
                                      HorizontalAlignment="Center" VerticalAlignment="Center" 
                                      Style="{StaticResource GalleryHyperlinkButton}"  FontSize="11" />
             </Button>

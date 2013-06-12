@@ -38,12 +38,13 @@ namespace ArcGISSilverlightSDK
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             // Hide banner when hosted on resource center
-            Uri sampleHelpTopicUri = new Uri(HtmlPage.Document.DocumentUri, "../concepts/index.html#/Interactive_SDK_samples/01660000000v000000/");
-            if (sampleHelpTopicUri.Host.Contains("arcgis.com") || sampleHelpTopicUri.Host.Contains("esri.com"))
+            Uri sampleHelpTopicUri = new Uri(HtmlPage.Document.DocumentUri, "https://github.com/Esri/arcgis-samples-silverlight");
+            if (Application.Current.Host.Source.Host.Contains("arcgis.com") || 
+                Application.Current.Host.Source.Host.Contains("esri.com"))
                 LayoutRoot.RowDefinitions[0].Height = new GridLength(0);
 
             // Enable download link if on arcgis.com
-            if (sampleHelpTopicUri.Host.Contains("arcgis.com"))
+            if (Application.Current.Host.Source.Host.Contains("arcgis.com"))
             {
                 ZipHyperlink.NavigateUri = sampleHelpTopicUri;
                 ZipHyperlink.TargetName = "_parent";

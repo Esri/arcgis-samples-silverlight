@@ -1,3 +1,5 @@
 ﻿This sample demonstrates simple use of the RouteTask.  To use the sample, click points on the map.  As new points are added, routes between the new point and the last point are calculated and displayed on the map.
 
 In the code-behind, a RouteTask is used to calculate the route between the clicked points.  The route geometry contained in the task results is then simply added to a GraphicsLayer in the map.
+
+Note, the network analysis service used in this sample will only function within the San Diego, California region.  See the ArcGIS Online Network Analysis services at http://route.arcgis.com for more comprehensive coverage. 
