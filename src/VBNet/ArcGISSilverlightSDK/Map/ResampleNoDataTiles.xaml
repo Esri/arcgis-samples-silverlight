@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
     <Grid>
-        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-6790806.757,1574125.843,-6781414.174,1579090.210">
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="4806085.897,-1324118.206,4845221.655,-1307197.989">
             <esri:ArcGISTiledMapServiceLayer ID="TiledLayerResampled"
                 Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
                 TileLoaded="ArcGISTiledMapServiceLayer_TileLoaded"
