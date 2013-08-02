@@ -793,10 +793,10 @@
     <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Input.Toolkit">
-      <HintPath>..\..\..\..\..\..\..\depfiles\sharedlibs\SilverlightToolkit\v5.0\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\applications\depfiles\sharedlibs\SilverlightToolkit\v5.0\System.Windows.Controls.Input.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Controls.Toolkit">
-      <HintPath>..\..\..\..\..\..\..\depfiles\sharedlibs\SilverlightToolkit\v5.0\System.Windows.Controls.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\applications\depfiles\sharedlibs\SilverlightToolkit\v5.0\System.Windows.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Interactivity">
       <HintPath>..\..\..\..\..\..\..\depfiles\sharedlibs\ExpressionSDK\Silverlight\v5.0\System.Windows.Interactivity.dll</HintPath>
