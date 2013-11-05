@@ -74,10 +74,15 @@ namespace ArcGISSilverlightSDK
             
             _locatorTask.FindAsync(locatorFindParams);
         }
-  
-        private void GraphicsLayer_MouseLeftButtonDown(object sender, GraphicMouseButtonEventArgs e)
+
+        private void GraphicsLayer_MouseEnter(object sender, GraphicMouseEventArgs e)
         {
-            e.Graphic.Selected = !e.Graphic.Selected;
+            e.Graphic.Select();
+        }
+
+        private void GraphicsLayer_MouseLeave(object sender, GraphicMouseEventArgs e)
+        {
+            e.Graphic.UnSelect();
         }
     }
 }

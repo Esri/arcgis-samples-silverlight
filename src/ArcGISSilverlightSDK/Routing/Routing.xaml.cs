@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using ESRI.ArcGIS.Client;
 using ESRI.ArcGIS.Client.Tasks;
@@ -17,7 +18,7 @@ namespace ArcGISSilverlightSDK
 
             stopsGraphicsLayer = MyMap.Layers["MyStopsGraphicsLayer"] as GraphicsLayer;
             routeGraphicsLayer = MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer;
-            routeTask = LayoutRoot.Resources["MyRouteTask"] as RouteTask;
+            routeTask = LayoutRoot.Resources["MyRouteTask"] as RouteTask;            
         }
 
         private void MyMap_MouseClick(object sender, ESRI.ArcGIS.Client.Map.MouseEventArgs e)
@@ -34,7 +35,7 @@ namespace ArcGISSilverlightSDK
                     stopsGraphicsLayer.Graphics.RemoveAt(stopsGraphicsLayer.Graphics.Count - 1);
                 }
                 routeTask.SolveAsync(new RouteParameters() { Stops = stopsGraphicsLayer, 
-                    UseTimeWindows = false, OutSpatialReference = MyMap.SpatialReference });
+                    UseTimeWindows = false, OutSpatialReference = MyMap.SpatialReference});
             }
         }
 
@@ -59,7 +60,13 @@ namespace ArcGISSilverlightSDK
             Graphic lastRoute = routeResult.Route;
 
             decimal totalTime = (decimal)lastRoute.Attributes["Total_TravelTime"];
-            TotalTimeTextBlock.Text = string.Format("Total time: {0} minutes", totalTime.ToString("#0.000"));
+            TimeSpan totalTimeSpan = TimeSpan.FromMinutes(Decimal.ToDouble(totalTime));            
+            TotalTimeTextBlock.Text = totalTimeSpan.Minutes.ToString();
+
+            decimal totalDistance = (decimal)lastRoute.Attributes["Shape_Length"];
+            // convert meters into miles
+            double totalDistanceMiles = Decimal.ToDouble(totalDistance) * 0.0006213700922;
+            TotalDistanceTextBlock.Text = totalDistanceMiles.ToString("#0.0");
   
             routeGraphicsLayer.Graphics.Add(lastRoute);
         }

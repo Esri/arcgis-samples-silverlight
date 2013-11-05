@@ -34,7 +34,7 @@ namespace ArcGISSilverlightSDK
 
         private void MyMap_MouseClick(object sender, ESRI.ArcGIS.Client.Map.MouseEventArgs e)
         {
-            Locator locatorTask = new Locator("http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Streets_US_10/GeocodeServer");
+            Locator locatorTask = new Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
             locatorTask.LocationToAddressCompleted += LocatorTask_LocationToAddressCompleted;
             locatorTask.Failed += LocatorTask_Failed;
 
@@ -50,13 +50,13 @@ namespace ArcGISSilverlightSDK
 
             Graphic graphic = new Graphic()
             {
-                Symbol = LayoutRoot.Resources["DefaultMarkerSymbol"] as ESRI.ArcGIS.Client.Symbols.Symbol,
                 Geometry = args.UserState as MapPoint                
             };
 
+            // Parameter names of address candidates may differ between geocode services
             string latlon = String.Format("{0}, {1}", address.Location.X, address.Location.Y);
-            string address1 = attributes["Street"].ToString();
-            string address2 = String.Format("{0}, {1} {2}", attributes["City"], attributes["State"], attributes["ZIP"]);
+            string address1 = attributes["Address"].ToString();
+            string address2 = String.Format("{0}, {1} {2}", attributes["City"], attributes["Region"], attributes["Postal"]);
 
             graphic.Attributes.Add("LatLon", latlon);
             graphic.Attributes.Add("Address1", address1);
@@ -67,7 +67,17 @@ namespace ArcGISSilverlightSDK
 
         private void LocatorTask_Failed(object sender, TaskFailedEventArgs e)
         {
-            MessageBox.Show("Unable to determine an address. Try selecting a location closer to a street.");
+            MessageBox.Show("Unable to find an address. Try selecting a location closer to a street.");
+        }
+
+        private void GraphicsLayer_MouseEnter(object sender, GraphicMouseEventArgs e)
+        {
+            e.Graphic.Select();
+        }
+
+        private void GraphicsLayer_MouseLeave(object sender, GraphicMouseEventArgs e)
+        {
+            e.Graphic.UnSelect();
         }
     }
 }

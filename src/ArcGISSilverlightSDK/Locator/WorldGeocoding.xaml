@@ -11,58 +11,58 @@
             <RowDefinition Height="3" />
             <RowDefinition Height="150" />
         </Grid.RowDefinitions>
-        
+
         <Grid.Resources>
-            <esri:MarkerSymbol x:Key="SelectMarkerSymbol" OffsetX="0" OffsetY="24">
-                <esri:MarkerSymbol.ControlTemplate>
-                    <ControlTemplate>
-                        <Ellipse x:Name="Element" Width="24" Height="24" >
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="/Assets/Images/pin-red-36x36.png"/>
-                            </Ellipse.Fill>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="SelectionStates">
-                                    <VisualState x:Name="Unselected" />
-                                    <VisualState x:Name="Selected">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames  Storyboard.TargetName="Element" 
+            <esri:SimpleRenderer x:Key="MySelectionRenderer">
+                <esri:SimpleRenderer.Symbol>
+                    <esri:MarkerSymbol OffsetX="12" OffsetY="12">
+                        <esri:MarkerSymbol.ControlTemplate>
+                            <ControlTemplate>
+                                <Ellipse x:Name="Element" Width="24" Height="24" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/Assets/images/x-24x24.png"/>
+                                    </Ellipse.Fill>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="SelectionStates">
+                                            <VisualState x:Name="Unselected" />
+                                            <VisualState x:Name="Selected">
+                                                <Storyboard>
+                                                    <ObjectAnimationUsingKeyFrames  Storyboard.TargetName="Element" 
 												Storyboard.TargetProperty="(Ellipse.Fill).(ImageBrush.ImageSource)"
 												Duration="0">
-                                                <DiscreteObjectKeyFrame KeyTime="0">
-                                                    <DiscreteObjectKeyFrame.Value>
-                                                        <BitmapImage UriSource="/Assets/Images/pin-yellow-36x36.png" />
-                                                    </DiscreteObjectKeyFrame.Value>
-                                                </DiscreteObjectKeyFrame>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                        </Ellipse>
-                    </ControlTemplate>
-                </esri:MarkerSymbol.ControlTemplate>
-            </esri:MarkerSymbol>
-            <esri:SimpleRenderer x:Key="MySelectionRenderer" Symbol="{StaticResource SelectMarkerSymbol }"/>
+                                                        <DiscreteObjectKeyFrame KeyTime="0">
+                                                            <DiscreteObjectKeyFrame.Value>
+                                                                <BitmapImage UriSource="/Assets/images/x-24x24-yellow.png" />
+                                                            </DiscreteObjectKeyFrame.Value>
+                                                        </DiscreteObjectKeyFrame>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Ellipse>
+                            </ControlTemplate>
+                        </esri:MarkerSymbol.ControlTemplate>
+                    </esri:MarkerSymbol>
+                </esri:SimpleRenderer.Symbol>
+            </esri:SimpleRenderer>
             <esri:SimpleRenderer x:Key="MySimpleRenderer">
                 <esri:SimpleRenderer.Symbol>
                     <esri:PictureMarkerSymbol Source="/Assets/Images/point-16x16.png" OffsetX="8" OffsetY="8" />
-                </esri:SimpleRenderer.Symbol>                
-            </esri:SimpleRenderer>            
+                </esri:SimpleRenderer.Symbol>
+            </esri:SimpleRenderer>
         </Grid.Resources>
 
-        <esri:Map x:Name="MyMap" WrapAround="True" Extent="2636359.040,4573160.312,2646142.979,4578315.528" Grid.Row="0">
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="1390380.096,5145654.383,1392826.081,5146966.798" Grid.Row="0">
             <esri:ArcGISTiledMapServiceLayer 
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
             <esri:GraphicsLayer ID="SearchOriginGraphicsLayer" Renderer="{StaticResource MySimpleRenderer}" />
             <esri:GraphicsLayer ID="FindResultLocationsGraphicsLayer" Renderer="{StaticResource MySelectionRenderer}" 
-                                MouseLeftButtonDown="GraphicsLayer_MouseLeftButtonDown">
+                                MouseEnter="GraphicsLayer_MouseEnter" MouseLeave="GraphicsLayer_MouseLeave">
                 <esri:GraphicsLayer.MapTip>
-                    <Border Background="White" esri:GraphicsLayer.MapTipAutoPosition="True" BorderBrush="Black" 
+                    <Border Background="White" esri:GraphicsLayer.MapTipAutoPosition="True" BorderBrush="Black" CornerRadius="2" 
                             BorderThickness="1">
-                        <StackPanel Orientation="Vertical" Margin="5" >
-                            <TextBlock Text="{Binding [PlaceName]}" HorizontalAlignment="Left" />
-                            <TextBlock Text="{Binding [City]}" HorizontalAlignment="Left" />
-                        </StackPanel>
+                        <TextBlock Text="{Binding [PlaceName]}" FontSize="18" HorizontalAlignment="Center" Margin="5" />
                     </Border>
                 </esri:GraphicsLayer.MapTip>
             </esri:GraphicsLayer>
@@ -80,7 +80,7 @@
                 <DropShadowEffect />
             </Border.Effect>
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="SearchTextBox" Width="150" Margin="5" MaxLength="60" Text="Starbucks" 
+                <TextBox x:Name="SearchTextBox" Width="150" Margin="5" MaxLength="60" Text="Pizza" 
                          AcceptsReturn="True"/>
                 <Button Content="Search" Margin="5" Click="FindButton_Click"
                         HorizontalAlignment="Center" Width="100" Height="25" />

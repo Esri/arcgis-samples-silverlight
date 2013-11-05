@@ -25,7 +25,7 @@
 			<esri:SimpleFillSymbol x:Key="TransparentFillSymbol" BorderBrush="#22000000" BorderThickness="1" Fill="#01000000" />
 		</Grid.Resources>
 
-		<MediaElement x:Name="BearVideo" Source="http://serverapps.esri.com/media/bear.wmv" AutoPlay="True"
+		<MediaElement x:Name="BearVideo" Source="http://serverapps102.esri.com/media/bear.wmv" AutoPlay="True"
                 IsHitTestVisible="False" IsMuted="True" MediaEnded="State_Media_MediaEnded" Width="0" Height="0" />
 
 		<Grid x:Name="MediaGrid" />
