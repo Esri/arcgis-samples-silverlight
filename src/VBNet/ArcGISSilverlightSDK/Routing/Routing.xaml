@@ -40,9 +40,18 @@
 
         <Border Width="Auto" HorizontalAlignment="Right" Background="White" VerticalAlignment="Top" Margin="10" 
                 BorderBrush="Black" BorderThickness="1">
-            <TextBlock x:Name="TotalTimeTextBlock" Margin="5" FontSize="20"
-                    HorizontalAlignment="Left" VerticalAlignment="Center" Text="Total Time: 0 minutes " 
-                           TextWrapping="Wrap" />
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <TextBlock Margin="3" FontSize="16" >
+                    <Run>Total time:</Run>
+                    <Run x:Name="TotalTimeTextBlock" >0</Run>
+                    <Run>mins</Run>
+                </TextBlock>
+                <TextBlock Margin="3,0,3,3" FontSize="16">
+                    <Run>Total distance:</Run>
+                    <Run x:Name="TotalDistanceTextBlock" >0</Run>
+                    <Run>mi</Run>
+                </TextBlock>
+            </StackPanel>
         </Border>
 
     </Grid>

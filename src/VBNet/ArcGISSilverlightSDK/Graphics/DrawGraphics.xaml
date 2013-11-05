@@ -118,69 +118,68 @@
         <esri:Map WrapAround="True" x:Name="MyMap" Extent="-15000000,2000000,-7000000,8000000">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
                       Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
-            <esri:GraphicsLayer ID="MyGraphicsLayer" MouseLeftButtonUp="GraphicsLayer_MouseLeftButtonUp" />
+            <esri:GraphicsLayer ID="MyGraphicsLayer" MouseLeftButtonDown="GraphicsLayer_MouseLeftButtonUp" />
         </esri:Map>
 
-        <Border Background="#DD919191" BorderThickness="1" CornerRadius="5"
+        <Border Background="White" BorderThickness="1" CornerRadius="1"
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Margin="10" BorderBrush="Black">
             <Border.Effect>
                 <DropShadowEffect/>
             </Border.Effect>
-            <Grid Margin="10" Background="White">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel x:Name="MyStackPanel" Orientation="Horizontal">
-                        <Button Tag="DrawPoint" Margin="5" Click="Tool_Click" 
+
+            <StackPanel Orientation="Vertical">
+                <StackPanel x:Name="MyStackPanel" Orientation="Horizontal">
+                    <Button Tag="DrawPoint" Margin="5" Click="Tool_Click" 
                                 ToolTipService.ToolTip="Add a point">
-                            <Image Source="/Assets/images/DrawPoint.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawPolyline" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawPoint.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawPolyline" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a polyline">
-                            <Image Source="/Assets/images/DrawPolyline.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawlineSegment" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawPolyline.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawlineSegment" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a Line Segment">
-                            <Image Source="/Assets/images/DrawLineSegment.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawPolygon" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawLineSegment.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawPolygon" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a polygon">
-                            <Image Source="/Assets/images/DrawPolygon.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawRectangle" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawPolygon.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawRectangle" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a rectangle">
-                            <Image Source="/Assets/images/DrawRectangle.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawFreehand" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawRectangle.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawFreehand" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a freehand line">
-                            <Image Source="/Assets/images/DrawFreehand.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawArrow" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawFreehand.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawArrow" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add an arrow">
-                            <Image Source="/Assets/images/DrawArrow.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawTriangle" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawArrow.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawTriangle" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a triangle">
-                            <Image Source="/Assets/images/DrawTriangle.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawCircle" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawTriangle.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawCircle" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add a circle">
-                            <Image Source="/Assets/images/DrawCircle.png" Margin="2" />
-                        </Button>
-                        <Button Tag="DrawEllipse" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawCircle.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawEllipse" Margin="5" Click="Tool_Click"
                                 ToolTipService.ToolTip="Add an ellipse">
-                            <Image Source="/Assets/images/DrawEllipse.png" Margin="2" />
-                        </Button>
-                        <Button Tag="ClearStopDraw" Margin="5" Click="Tool_Click"
+                        <Image Source="/Assets/images/DrawEllipse.png" Margin="2" />
+                    </Button>
+                    <Button Tag="ClearStopDraw" Margin="5" Click="Tool_Click"
                                 Style="{x:Null}"
                                 ToolTipService.ToolTip="Clear graphics">
-                            <Image Source="/Assets/images/StopDraw.png" Margin="2" />
-                        </Button>
-                    </StackPanel>
-
-                    <CheckBox x:Name="EnableEditVerticesScaleRotate" Content="Click on geometry to edit" 
-                          IsChecked="False" Foreground="Black" FontWeight="Bold" Margin="10,5,5,5" />
+                        <Image Source="/Assets/images/StopDraw.png" Margin="2" />
+                    </Button>
                 </StackPanel>
-            </Grid>
+                <CheckBox x:Name="EnableEditVerticesScaleRotate" Content="Click on geometry to edit" 
+                          IsChecked="False" Foreground="Black" FontWeight="Bold" Margin="10,5,5,5" />
+            </StackPanel>
+
         </Border>
     </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ Imports System.Windows.Controls
 Imports ESRI.ArcGIS.Client
 Imports ESRI.ArcGIS.Client.Tasks
 Imports ESRI.ArcGIS.Client.Symbols
+Imports System
 
 
 Partial Public Class Routing
@@ -54,8 +55,12 @@ Partial Public Class Routing
         Dim lastRoute As Graphic = routeResult.Route
 
         Dim totalTime As Decimal = CDec(lastRoute.Attributes("Total_TravelTime"))
-        TotalTimeTextBlock.Text = String.Format("Total time: {0} minutes", totalTime.ToString("#0.000"))
+        Dim totalTimeSpan As TimeSpan = TimeSpan.FromMinutes(Decimal.ToDouble(totalTime))
+        TotalTimeTextBlock.Text = totalTimeSpan.Minutes.ToString()
 
+        Dim totalDistance As Decimal = CDec(lastRoute.Attributes("Shape_Length"))
+        Dim totalDistanceMiles As Double = Decimal.ToDouble(totalDistance) * 0.0006213700922
+        TotalDistanceTextBlock.Text = totalDistanceMiles.ToString("#0.0")
 
         routeGraphicsLayer.Graphics.Add(lastRoute)
     End Sub

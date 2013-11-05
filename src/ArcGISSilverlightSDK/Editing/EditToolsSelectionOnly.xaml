@@ -16,7 +16,7 @@
 
         <esri:Map x:Name="MyMap" Background="White" WrapAround="True" Extent="-13279585.9811197,4010136.34579502,-12786146.5545795,4280849.94238526">
 
-            <esri:ArcGISTiledMapServiceLayer Url="https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"/>
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer"/>
 
             <esri:ArcGISDynamicMapServiceLayer DisableClientCaching="True" ID="WildFireDynamic" VisibleLayers="2"
                                                Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/MapServer"/>

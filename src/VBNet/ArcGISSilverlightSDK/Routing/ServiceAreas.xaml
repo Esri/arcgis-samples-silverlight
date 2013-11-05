@@ -87,7 +87,7 @@
 
                 <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="1">
                     <ScrollViewer MinHeight="150" BorderThickness="0" Padding="0">
-                        <Grid Background="Transparent" Width="328" Margin="2" VerticalAlignment="Center" IsHitTestVisible="False">
+                        <Grid Background="Transparent" Width="328" Margin="2" VerticalAlignment="Center">
                             <Grid.Resources>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="VerticalAlignment" Value="Center" />

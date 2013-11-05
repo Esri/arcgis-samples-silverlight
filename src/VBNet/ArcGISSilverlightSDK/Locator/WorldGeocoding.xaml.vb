@@ -58,7 +58,11 @@ Partial Public Class WorldGeocoding
         _locatorTask.FindAsync(locatorFindParams)
     End Sub
 
-    Private Sub GraphicsLayer_MouseLeftButtonDown(ByVal sender As Object, ByVal e As GraphicMouseButtonEventArgs)
-        e.Graphic.Selected = Not e.Graphic.Selected
+    Private Sub GraphicsLayer_MouseEnter(sender As Object, e As GraphicMouseEventArgs)
+        e.Graphic.Select()
+    End Sub
+
+    Private Sub GraphicsLayer_MouseLeave(sender As Object, e As GraphicMouseEventArgs)
+        e.Graphic.UnSelect()
     End Sub
 End Class

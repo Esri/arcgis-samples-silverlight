@@ -942,6 +942,14 @@
         <desc>Assets/Description/BatchGeocoding.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
+      <item>
+        <id>World Geocode Service</id>
+        <xaml>ArcGISSilverlightSDK.WorldGeocoding</xaml>
+        <source>Assets/Source/WorldGeocoding.xaml</source>
+        <code>Assets/Source/WorldGeocoding.xaml.vb.txt</code>
+        <desc>Assets/Description/WorldGeocoding.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
     </items>
   </Category>
   <Category>

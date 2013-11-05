@@ -5,12 +5,12 @@
 
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.Resources>
-            <esri:SimpleMarkerSymbol x:Key="mag2to3" Color="#FF0A57FC" Size="12" Style="Triangle" />
-            <esri:SimpleMarkerSymbol x:Key="mag3to4" Color="#FF1CA2A3" Size="12" Style="Triangle" />
+            <esri:SimpleMarkerSymbol x:Key="mag2to3" Color="#FF0A57FC" Size="8" Style="Triangle" />
+            <esri:SimpleMarkerSymbol x:Key="mag3to4" Color="#FF1CA2A3" Size="10" Style="Triangle" />
             <esri:SimpleMarkerSymbol x:Key="mag4to5" Color="#FF60AD12" Size="12" Style="Triangle" />
-            <esri:SimpleMarkerSymbol x:Key="mag5to6" Color="#FFFFFE0A" Size="12" Style="Triangle" />
-            <esri:SimpleMarkerSymbol x:Key="mag6to7" Color="#FFFDA208" Size="12" Style="Triangle" />
-            <esri:SimpleMarkerSymbol x:Key="mag7to8" Color="#FFFB5107" Size="12" Style="Triangle" />
+            <esri:SimpleMarkerSymbol x:Key="mag5to6" Color="#FFFFFE0A" Size="14" Style="Triangle" />
+            <esri:SimpleMarkerSymbol x:Key="mag6to7" Color="#FFFDA208" Size="16" Style="Triangle" />
+            <esri:SimpleMarkerSymbol x:Key="mag7to8" Color="#FFFB5107" Size="18" Style="Triangle" />
             <esri:ClassBreaksRenderer x:Key="MyClassBreaksRenderer" Field="Magnitude" >
                 <esri:ClassBreaksRenderer.Classes>
                     <esri:ClassBreakInfo MinimumValue="2" MaximumValue="3" Symbol="{StaticResource mag2to3}" />
@@ -25,7 +25,7 @@
 
         <esri:Map WrapAround="True">
             <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/arcgis/rest/services/world_topo_map/MapServer" />
-            <esri:CsvLayer Url="http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-M2.5.txt" 
+            <esri:CsvLayer Url="http://earthquake.usgs.gov/earthquakes/feed/csv/1.0/day" 
                            Renderer="{StaticResource MyClassBreaksRenderer}">
                 <esri:CsvLayer.MapTip>
                     <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,15,15" Background="White">

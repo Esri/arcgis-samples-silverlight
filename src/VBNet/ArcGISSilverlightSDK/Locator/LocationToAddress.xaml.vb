@@ -25,7 +25,7 @@ Imports ESRI.ArcGIS.Client.Geometry
         End Sub
 
         Private Sub MyMap_MouseClick(ByVal sender As Object, ByVal e As ESRI.ArcGIS.Client.Map.MouseEventArgs)
-            Dim locatorTask As New Locator("http://tasks.arcgisonline.com/ArcGIS/rest/services/Locators/TA_Streets_US/GeocodeServer")
+        Dim locatorTask As New Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer")
             AddHandler locatorTask.LocationToAddressCompleted, AddressOf LocatorTask_LocationToAddressCompleted
             AddHandler locatorTask.Failed, AddressOf LocatorTask_Failed
 
@@ -41,8 +41,8 @@ Imports ESRI.ArcGIS.Client.Geometry
             Dim graphic As New Graphic() With {.Symbol = TryCast(LayoutRoot.Resources("DefaultMarkerSymbol"), ESRI.ArcGIS.Client.Symbols.Symbol), .Geometry = TryCast(args.UserState, MapPoint)}
 
             Dim latlon As String = String.Format("{0}, {1}", address.Location.X, address.Location.Y)
-            Dim address1 As String = attributes("Street").ToString()
-            Dim address2 As String = String.Format("{0}, {1} {2}", attributes("City"), attributes("State"), attributes("ZIP"))
+        Dim address1 As String = attributes("Address").ToString()
+        Dim address2 As String = String.Format("{0}, {1} {2}", attributes("City"), attributes("Region"), attributes("Postal"))
 
             graphic.Attributes.Add("LatLon", latlon)
             graphic.Attributes.Add("Address1", address1)
@@ -54,5 +54,13 @@ Imports ESRI.ArcGIS.Client.Geometry
         Private Sub LocatorTask_Failed(ByVal sender As Object, ByVal e As TaskFailedEventArgs)
             MessageBox.Show("Unable to determine an address. Try selecting a location closer to a street.")
         End Sub
-    End Class
+
+    Private Sub GraphicsLayer_MouseEnter(sender As Object, e As GraphicMouseEventArgs)
+        e.Graphic.Select()
+    End Sub
+
+    Private Sub GraphicsLayer_MouseLeave(sender As Object, e As GraphicMouseEventArgs)
+        e.Graphic.UnSelect()
+    End Sub
+End Class
 
