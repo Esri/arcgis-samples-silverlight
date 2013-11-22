@@ -15,7 +15,7 @@
                     Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
             <esri:FeatureLayer ID="StatesFeatureLayer" OutFields="*" DisplayName="USA Census - States"
                     Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/dynamicLayer" 
-                               Initialized="FeatureLayer_Initialized">
+                               Initialized="FeatureLayer_Initialized" UpdateCompleted="FeatureLayer_UpdateCompleted">
                 <esri:FeatureLayer.Source>
                     <esri:LayerMapSource MapLayerID="3"/>
                 </esri:FeatureLayer.Source>

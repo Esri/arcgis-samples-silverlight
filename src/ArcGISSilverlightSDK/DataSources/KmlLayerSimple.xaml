@@ -4,11 +4,11 @@
     xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
     <Grid x:Name="LayoutRoot" >
 
-        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-13590990.488,4497810.554,-13589848.710,4498400.552">
+        <esri:Map x:Name="MyMap" WrapAround="True" Extent="-14743403.165,1460643.375,-4724648.994,6745377.340">
             <esri:ArcGISTiledMapServiceLayer 
                 Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
 
-            <esri:KmlLayer ID="KmlLayer" Url="http://kml-samples.googlecode.com/svn/trunk/KML_Samples.kml"                       
+            <esri:KmlLayer ID="KmlLayer" Url="http://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesKML.kmz"                       
                            ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
         </esri:Map>
     </Grid>

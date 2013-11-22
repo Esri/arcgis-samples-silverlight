@@ -20,16 +20,16 @@
         <SolidColorBrush x:Key="HoverBrush" Color="#FFFFFDFD" />
         <SolidColorBrush x:Key="GlyphBrush" Color="#FFFFFDFD" />
         <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#FF787878" />
-		<Color x:Key="GreenTextColor">#FF0F5082</Color> 
-		<SolidColorBrush x:Key="GreenColorBrush" Color="#FF0F5082" /> 
+		<Color x:Key="GreenTextColor">#FF782185</Color> 
+		<SolidColorBrush x:Key="GreenColorBrush" Color="#FF782285" /> 
 
         <LinearGradientBrush x:Key="PanelGradient" EndPoint="354,0" StartPoint="0,0" MappingMode="Absolute">
             <LinearGradientBrush.RelativeTransform>
                 <CompositeTransform CenterY="0.5" CenterX="0.5"/>
             </LinearGradientBrush.RelativeTransform>
             <GradientStop Color="#FF008D17" Offset="0"/>
-            <GradientStop Color="#FF0F5082" Offset="1"/>
-            <GradientStop Color="#FF4B8CB9" Offset="0.004"/>
+            <GradientStop Color="#FF782285" Offset="1"/>
+            <GradientStop Color="#FF7C4E85" Offset="0.004"/>
         </LinearGradientBrush>
 
         <LinearGradientBrush x:Name="ExpanderGradient" EndPoint="0.5,1" StartPoint="0.5,0">
@@ -67,8 +67,8 @@
 		
 		 <LinearGradientBrush x:Key="GreenSelectedBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFACB9C5"/>
-            <GradientStop Color="#FF0F5082" Offset="1"/>
-            <GradientStop Color="#FF82BEEB"/>
+            <GradientStop Color="#FF785085" Offset="1"/>
+            <GradientStop Color="#FF802E90"/>
         </LinearGradientBrush>
 		
         <!--TabItem-->

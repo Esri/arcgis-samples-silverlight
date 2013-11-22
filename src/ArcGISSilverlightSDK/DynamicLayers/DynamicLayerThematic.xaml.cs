@@ -37,8 +37,7 @@ namespace ArcGISSilverlightSDK
                 ClassificationFieldCombo.ItemsSource = intandDoublefields;
                 ClassificationFieldCombo.SelectedIndex = 1;
                 NormalizationFieldCombo.ItemsSource = intandDoublefields;
-                NormalizationFieldCombo.SelectedIndex = -1;
-                RenderButton.IsEnabled = true;
+                NormalizationFieldCombo.SelectedIndex = -1;                
             }
         }
 
@@ -160,6 +159,11 @@ namespace ArcGISSilverlightSDK
         {
             NormalizationType normType = (NormalizationType)(sender as ComboBox).SelectedItem;
             NormalizationFieldCombo.IsEnabled = (normType == NormalizationType.Field) ? true : false;
+        }
+
+        private void FeatureLayer_UpdateCompleted(object sender, EventArgs e)
+        {
+            RenderButton.IsEnabled = true;
         }
     }
 }
