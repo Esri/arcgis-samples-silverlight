@@ -1441,7 +1441,7 @@
         </Grid.RowDefinitions>
 
         <!-- Side Panel-->
-        <Border x:Name="sideBar" Background="{StaticResource PanelGradient}" Grid.Row="1" Grid.Column="0" Margin="5,5,5,15" BorderBrush="#FF323232" BorderThickness="1"  Opacity="1"  >
+        <Border x:Name="sideBar" Background="{StaticResource PanelGradient}" Grid.Row="1" Grid.Column="0" Margin="5" BorderBrush="#FF323232" BorderThickness="1"  Opacity="1"  >
             <Border.Effect>
                 <DropShadowEffect/>
             </Border.Effect>
@@ -1459,7 +1459,7 @@
             VerticalAlignment="Stretch" Background="{x:Null}" Width="5" BorderBrush="DarkGray" Foreground="#FF212121"  />
 
         <!-- Main Panel -->
-        <Border Grid.Row="1" Grid.Column="1" Margin="5,5,5,15" BorderBrush="#FF323232" BorderThickness="1"
+        <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderBrush="#FF323232" BorderThickness="1"
                 Background="{StaticResource PanelGradient}" Opacity="1" >
             <Border.Effect>
                 <DropShadowEffect/>
@@ -1513,7 +1513,7 @@
         </Border>
 
         <TextBlock x:Name="SampleCaption"  FontSize="8" Foreground="{StaticResource GlyphBrush}" Grid.Row="1" Grid.Column="1" 
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2,2,2,20" 
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2,2,2,10" 
                    Text="ArcGIS API for Silverlight" />
 
         <StackPanel  Grid.Row="1" Grid.Column="1" Canvas.ZIndex="10" Orientation="Horizontal" HorizontalAlignment="Right" 
