@@ -28,8 +28,8 @@
                 <CompositeTransform CenterY="0.5" CenterX="0.5"/>
             </LinearGradientBrush.RelativeTransform>
             <GradientStop Color="#FF008D17" Offset="0"/>
-            <GradientStop Color="#FF782285" Offset="1"/>
-            <GradientStop Color="#FF7C4E85" Offset="0.004"/>
+            <GradientStop Color="#FF802E90" Offset="1"/>
+            <GradientStop Color="#FF7A2688"/>
         </LinearGradientBrush>
 
         <LinearGradientBrush x:Name="ExpanderGradient" EndPoint="0.5,1" StartPoint="0.5,0">
