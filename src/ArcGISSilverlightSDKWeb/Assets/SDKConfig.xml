@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArcGISSilverlightSDK>
-  <Category>
+  <!--<Category>
     <name>What's New</name>
     <icon>Assets/images/globe-16x16.png</icon>
     <items>
@@ -65,7 +65,7 @@
         <keywords>WebClient,json,WebRequest</keywords>
       </item>
     </items>
-  </Category>
+  </Category>-->
   <Category>
     <name>Mapping</name>
     <icon>Assets/images/globe-16x16.png</icon>

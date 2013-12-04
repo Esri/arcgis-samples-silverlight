@@ -1441,16 +1441,14 @@
         </Grid.RowDefinitions>
 
         <!-- Side Panel-->
-        <Border x:Name="sideBar" Background="{StaticResource PanelGradient}" Grid.Row="1" Grid.Column="0" Margin="5" BorderBrush="#FF323232" BorderThickness="1"  Opacity="1"  >
-            <Border.Effect>
-                <DropShadowEffect/>
-            </Border.Effect>
-            <ScrollViewer x:Name="ListScroller" Margin="10,16,10,5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  
+        <Border x:Name="sideBar" Background="White" Grid.Row="1" Grid.Column="0" Margin="5" BorderBrush="{StaticResource PanelGradient}" BorderThickness="1,30,1,1"  Opacity="1"  >
+
+            <ScrollViewer x:Name="ListScroller" Margin="5,5,10,5" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"  
                           BorderBrush="Transparent" BorderThickness="0"  Style="{StaticResource SDKScrollViewerStyle}" >
                 <StackPanel x:Name="ListOfSamples" Orientation="Vertical" />
             </ScrollViewer>
         </Border>
-        <TextBlock FontSize="11" Margin="27,12,0,0" Grid.Row="1" Grid.Column="0" Width="250" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF9F9F9" >
+        <TextBlock FontSize="11" Margin="25,14,0,0" Grid.Row="1" Grid.Column="0" Width="250" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF9F9F9" >
                 <TextBlock.Text>What do you want to explore?</TextBlock.Text>
         </TextBlock>
 
@@ -1459,13 +1457,11 @@
             VerticalAlignment="Stretch" Background="{x:Null}" Width="5" BorderBrush="DarkGray" Foreground="#FF212121"  />
 
         <!-- Main Panel -->
-        <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderBrush="#FF323232" BorderThickness="1"
+        <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderBrush="{StaticResource PanelGradient}" BorderThickness="0"
                 Background="{StaticResource PanelGradient}" Opacity="1" >
-            <Border.Effect>
-                <DropShadowEffect/>
-            </Border.Effect>
-            <basics:TabControl x:Name="tabPanel" Background="{x:Null}" BorderBrush="{x:Null}"  
-            SelectionChanged="tabPanel_SelectionChanged" Margin="5,5,5,15" BorderThickness="1,1,1,1"  >
+   
+            <basics:TabControl x:Name="tabPanel" Background="White" BorderBrush="{StaticResource PanelGradient}"  
+            SelectionChanged="tabPanel_SelectionChanged" Margin="1,6,1,1" BorderThickness="0,5,0,0" Padding="0"  >
                 <basics:TabControl.Resources>
 					
 					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="codeBackgroundBrush">
@@ -1512,10 +1508,6 @@
             </basics:TabControl>
         </Border>
 
-        <TextBlock x:Name="SampleCaption"  FontSize="8" Foreground="{StaticResource GlyphBrush}" Grid.Row="1" Grid.Column="1" 
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2,2,2,10" 
-                   Text="ArcGIS API for Silverlight" />
-
         <StackPanel  Grid.Row="1" Grid.Column="1" Canvas.ZIndex="10" Orientation="Horizontal" HorizontalAlignment="Right" 
                      Margin="0,0,10,0" >
             <Button x:Name="copyToClipboard" Style="{StaticResource SDKButtonStyle}" BorderBrush="White" 
@@ -1532,7 +1524,7 @@
 
         <!-- Top Panel -->
         <Rectangle x:Name="TopRectangle" Margin="5,10,5,5" Stroke="#FF323232" Grid.ColumnSpan="2" Grid.Row="0" 
-					Fill="{StaticResource GreenColorBrush}" IsHitTestVisible="False"/>
+				   Fill="{StaticResource GreenColorBrush}" IsHitTestVisible="False"/>
 
         <TextBlock x:Name="TopText" Margin="30,26,8,-8" RenderTransformOrigin="0.5,0.5" FontSize="24" FontStyle="Normal" FontWeight="Bold" 
                    MouseRightButtonUp="TopText_MouseRightButtonUp" MouseRightButtonDown="TopText_MouseRightButtonDown"

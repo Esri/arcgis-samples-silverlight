@@ -237,7 +237,6 @@ namespace ArcGISSilverlightSDK
 
                 _control = System.Activator.CreateInstance(t) as UserControl;
                 tabSample.Content = _control;
-                SampleCaption.Text = item.ID;
             }
 
             HtmlPage.Window.Invoke("setParentHash", new object[] { item.XAML.Split('.')[1] });
