@@ -9,6 +9,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArcGISSilverlightSDKWeb", "
 		SccAuxPath = ""
 		SccLocalPath = ""
 		SccProvider = ""
+		Frontpage = "false"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
 		Debug.AspNetCompiler.VirtualPath = "/ArcGISSilverlightSDKWeb"
 		Debug.AspNetCompiler.PhysicalPath = "ArcGISSilverlightSDKWeb\"
@@ -29,6 +30,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArcGISSilverlightSDKWeb", "
 		VWDVirtualPath = "/"
 		DefaultWebSiteLanguage = "Visual C#"
 		ProjOutputReferences = "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}||false;"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E5D05969-DD43-4854-A4A8-045E27A46F1F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Global
