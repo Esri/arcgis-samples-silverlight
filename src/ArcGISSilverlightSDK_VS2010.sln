@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcGISSilverlightSDK", "ArcGISSilverlightSDK\ArcGISSilverlightSDK.csproj", "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcGISSilverlightSDK_VS2010", "ArcGISSilverlightSDK\ArcGISSilverlightSDK_VS2010.csproj", "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArcGISSilverlightSDKWeb", "ArcGISSilverlightSDKWeb\", "{847E0BBD-5C26-427C-9DF1-97FFB5E00E66}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -29,13 +29,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ArcGISSilverlightSDKWeb", "
 		VWDVirtualPath = "/"
 		DefaultWebSiteLanguage = "Visual C#"
 		ProjOutputReferences = "{C17D52B1-8A98-4DC2-A3B9-3A601B9A0356}||false;"
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0FE6FC8E-A04F-4303-8663-FBB1BF87C473}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Global
