@@ -1776,16 +1776,8 @@
       for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source\" %25%25I in (*.xaml.vb.txt) do (del "%25%25I")
       for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source" %25%25I in (*.xaml.vb) do (rename "%25%25I"  "%25%25~nI%25%25~xI.txt")
     </PostBuildEvent>
-    <PreBuildEvent>IF "%25VS110COMNTOOLS%25"=="" (
-  call "%25VS100COMNTOOLS%25vsvars32.bat"
-  echo "VS2010 command line tools"
-) ELSE (
- call "%25VS110COMNTOOLS%25vsvars32.bat"
- echo "VS2012 command line tools"
-)
-
-rem devenv $(SolutionDir)VBNet\ArcGISSilverlightSDK_VBNet.sln /rebuild debug
-</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
