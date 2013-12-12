@@ -26,6 +26,7 @@ Note, references to the Microsoft Async assemblies have been removed from the sa
 7. Run the application. 
 
 Visual Studio 2012/2013 (includes support for Express for Web editions)
+
 1. Fork and then clone the repo or download the .zip file.
 2. Two Visual Studio solutions are included. One with CSharp code (ArcGISSilverlightSDK.sln), and the other with VB.NET code
 (ArcGISSilverlightSDK_VBNet.sln).  Each solution contains two projects, a Silverlight project and a web host application. In Visual Studio, open 
@@ -49,7 +50,7 @@ This is expected. The Microsoft Async Nuget package requires a second build to c
  - [Download (requires ArcGIS Developer account)](https://developers.arcgis.com/en/silverlight/?download=ArcGISAPI32forSilverlight.exe)
  - [Nuget](http://www.nuget.org/packages/ArcGISSilverlight-All/)
 * Blend SDK for Silverlight 5
- - Included with Blend for Visual Studio 2012 and Blend for Visual Studio 2013
+ - Included with Blend for Visual Studio 2012 and Blend for Visual Studio 2013.  Blend is included with [Visual Studio 2012/2013](http://www.visualstudio.com/)
  - Portion of Blend SDK for Silverlight 5 included with [ArcGIS API for Silverlight - Behaviors package](http://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)
 * Silverlight 5 Toolkit
  - [Download on CodePlex](http://silverlight.codeplex.com/)
