@@ -35,7 +35,7 @@ the CSharp or VB.NET solution.
 right-click and select the "Set as Start Page" option.    
 5. Clean and build the solution.  The solution references Nuget packages to retrieve the following dependencies:
  - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (Blend SDK for Silverlight included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
-  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
+ - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
  - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)
 Note, the following error will be returned when the samples project is built the first time.    
 "The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see
@@ -46,23 +46,23 @@ This is expected. The Microsoft Async Nuget package requires a second build to c
 ## Requirements
 
 * ArcGIS API for Silverlight (see [system requirements](https://developers.arcgis.com/en/silverlight/guide/system-requirements.htm))
-- [Download (requires ArcGIS Developer account)](https://developers.arcgis.com/en/silverlight/?download=ArcGISAPI32forSilverlight.exe)
-- [Nuget](http://www.nuget.org/packages/ArcGISSilverlight-All/)
+ - [Download (requires ArcGIS Developer account)](https://developers.arcgis.com/en/silverlight/?download=ArcGISAPI32forSilverlight.exe)
+ - [Nuget](http://www.nuget.org/packages/ArcGISSilverlight-All/)
 * Blend SDK for Silverlight 5
-- Included with Blend for Visual Studio 2012 and Blend for Visual Studio 2013
-- Portion of Blend SDK for Silverlight 5 included with [ArcGIS API for Silverlight - Behaviors package](http://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)
+ - Included with Blend for Visual Studio 2012 and Blend for Visual Studio 2013
+ - Portion of Blend SDK for Silverlight 5 included with [ArcGIS API for Silverlight - Behaviors package](http://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)
 * Silverlight 5 Toolkit
-- [Download on CodePlex](http://silverlight.codeplex.com/)
-- [Nuget (Core and Input)](http://www.nuget.org/packages/SilverlightToolkit-Input/)  
+ - [Download on CodePlex](http://silverlight.codeplex.com/)
+ - [Nuget (Core and Input)](http://www.nuget.org/packages/SilverlightToolkit-Input/)  
 * Microsoft Async (only available via Nuget)
-- [Nuget](http://www.nuget.org/packages/Microsoft.Bcl.Async/)
+ - [Nuget](http://www.nuget.org/packages/Microsoft.Bcl.Async/)
 * Nuget 2.7+ 
-- [Visual Studio extension](http://docs.nuget.org/docs/start-here/installing-nuget)
+ - [Visual Studio extension](http://docs.nuget.org/docs/start-here/installing-nuget)
 
 ## Resources
 
 * [ArcGIS API for Silverlight Resource Center](https://developers.arcgis.com/en/silverlight)
-* [ArcGIS API for Silverlight download (requires ArcGIS Developer account)]https://developers.arcgis.com/en/silverlight/?download=ArcGISAPI32forSilverlight.exe)
+* [ArcGIS API for Silverlight download (requires ArcGIS Developer account)](https://developers.arcgis.com/en/silverlight/?download=ArcGISAPI32forSilverlight.exe)
 
 ## Issues
 
