@@ -1702,5 +1702,8 @@ for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source\" %25%25I in (*.xam
 for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source\" %25%25I in (*.xaml.vb) do (rename "%25%25I"  "%25%25~nI%25%25~xI.txt")
 </PostBuildEvent>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>nuget.exe restore $(SolutionPath)
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>
