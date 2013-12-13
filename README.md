@@ -8,7 +8,7 @@ This project contains the C# and VB source code for the ArcGIS API for Silverlig
 
 
 ## Instructions 
-Visual Studio 2010 (includes support for Web Developer Express edition)
+####Visual Studio 2010 (includes support for Web Developer Express edition)
 
 1. Fork and then clone the repo or download the .zip file.
 2. Assure that Visual Studio 2010 is capable of building Silverlight 5 projects.  See the ArcGIS API for Silverlight [system requirements](https://developers.arcgis.com/en/silverlight/guide/system-requirements.htm) for details.  
@@ -19,13 +19,13 @@ the CSharp or VB.NET solution.
 5. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default_VS2010.htm 
 page, right-click and select the "Set as Start Page" option.    
 6. Clean and build the solution.  The solution references Nuget packages to retrieve the following dependencies:
- - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (Blend SDK for Silverlight included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
+ - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (portion of Blend SDK for Silverlight 5 included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
- - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)
-Note, references to the Microsoft Async assemblies have been removed from the samples project for Visual Studio 2010.  Use of Microsofty Async functionality with Silverlight 5 requires Visual Studio 2012 or greater.  Samples that reference the task async pattern are not available in Visual Studio 2010.  
+ - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)  
+   References to the Microsoft Async assemblies have been removed from the samples project for Visual Studio 2010.  Use of Microsoft Async functionality with Silverlight 5 requires Visual Studio 2012 or greater.  Samples that reference the task async pattern are not available in Visual Studio 2010.  
 7. Run the application. 
 
-Visual Studio 2012/2013 (includes support for Express for Web editions)
+####Visual Studio 2012/2013 (includes support for Express for Web editions)
 
 1. Fork and then clone the repo or download the .zip file.
 2. Two Visual Studio solutions are included. One with CSharp code (ArcGISSilverlightSDK.sln), and the other with VB.NET code
@@ -35,12 +35,12 @@ the CSharp or VB.NET solution.
 4. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default.htm page,
 right-click and select the "Set as Start Page" option.    
 5. Clean and build the solution.  The solution references Nuget packages to retrieve the following dependencies:
- - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (Blend SDK for Silverlight included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
+ - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (portion of Blend SDK for Silverlight 5 included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
- - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)
-Note, the following error will be returned when the samples project is built the first time.    
-"The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see
-http://go.microsoft.com/fwlink/?LinkID=317568." 
+ - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)  
+   The following error will be returned when the samples project is built the first time.    
+_"The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see
+http://go.microsoft.com/fwlink/?LinkID=317568."_ 
 This is expected. The Microsoft Async Nuget package requires a second build to complete successfully. The VB must be closed and reopened for the second build to complete successfully.      
 6. Run the application.  
 
