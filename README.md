@@ -12,9 +12,9 @@ This project contains the C# and VB source code for the ArcGIS API for Silverlig
 
 1. Fork and then clone the repo or download the .zip file.
 2. Assure that Visual Studio 2010 is capable of building Silverlight 5 projects.  See the ArcGIS API for Silverlight [system requirements](https://developers.arcgis.com/en/silverlight/guide/system-requirements.htm) for details.  
-3. Two Visual Studio 2010 solutions are included. One with CSharp code (ArcGISSilverlightSDK_VS2010.sln), and the other with VB.NET code
+3. Two Visual Studio 2010 solutions are included. One with C# code (ArcGISSilverlightSDK_VS2010.sln), and the other with VB code
 (ArcGISSilverlightSDK_VBNet_VS2010.sln).  Each solution contains two projects, a Silverlight project and a web host application. In Visual Studio, open 
-the CSharp or VB.NET solution.
+the C# or VB solution.
 4. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
 5. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default_VS2010.htm 
 page, right-click and select the "Set as Start Page" option.    
@@ -22,15 +22,15 @@ page, right-click and select the "Set as Start Page" option.
  - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (portion of Blend SDK for Silverlight 5 included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
  - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)  
-   References to the Microsoft Async assemblies have been removed from the samples project for Visual Studio 2010.  Use of Microsoft Async functionality with Silverlight 5 requires Visual Studio 2012 or greater.  Samples that reference the task async pattern are not available in Visual Studio 2010.  
+   References to the Microsoft Async assemblies have been removed from the samples project for Visual Studio 2010.  Use of Microsoft Async functionality with Silverlight 5 requires Visual Studio 2012 or greater.  Samples that reference the [task async pattern](http://msdn.microsoft.com/async) are not available in Visual Studio 2010.  
 7. Run the application. 
 
 ####Visual Studio 2012/2013 (includes support for Express for Web editions)
 
 1. Fork and then clone the repo or download the .zip file.
-2. Two Visual Studio solutions are included. One with CSharp code (ArcGISSilverlightSDK.sln), and the other with VB.NET code
+2. Two Visual Studio solutions are included. One with C# code (ArcGISSilverlightSDK.sln), and the other with VB code
 (ArcGISSilverlightSDK_VBNet.sln).  Each solution contains two projects, a Silverlight project and a web host application. In Visual Studio, open 
-the CSharp or VB.NET solution.
+the C# or VB solution.
 3. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
 4. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default.htm page,
 right-click and select the "Set as Start Page" option.    
