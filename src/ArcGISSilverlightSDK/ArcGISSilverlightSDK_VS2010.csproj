@@ -1754,6 +1754,6 @@
       for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source\" %25%25I in (*.xaml.vb.txt) do (del "%25%25I")
       for /R "$(SolutionDir)\ArcGISSilverlightSDKWeb\Assets\Source" %25%25I in (*.xaml.vb) do (rename "%25%25I"  "%25%25~nI%25%25~xI.txt")
     </PostBuildEvent>
-    <PreBuildEvent>nuget.exe restore $(SolutionPath)</PreBuildEvent>
+    <PreBuildEvent>"$(SolutionDir).nuget\nuget.exe" restore "$(SolutionPath)"</PreBuildEvent>
   </PropertyGroup>
 </Project>
