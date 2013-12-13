@@ -15,10 +15,10 @@ This project contains the C# and VB source code for the ArcGIS API for Silverlig
 3. Two Visual Studio 2010 solutions are included. One with C# code (ArcGISSilverlightSDK_VS2010.sln), and the other with VB code
 (ArcGISSilverlightSDK_VBNet_VS2010.sln).  Each solution contains two projects, a Silverlight project and a web host application. In Visual Studio, open 
 the C# or VB solution.
-4. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
+4. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, you may need to [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
 5. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default_VS2010.htm 
 page, right-click and select the "Set as Start Page" option.    
-6. Clean and build the solution.  The solution references Nuget packages to retrieve the following dependencies:
+6. Clean and build the solution.  The Silverlight project contains a pre-build event that restores Nuget packages for the following dependencies:
  - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (portion of Blend SDK for Silverlight 5 included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
  - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)  
@@ -31,17 +31,13 @@ page, right-click and select the "Set as Start Page" option.
 2. Two Visual Studio solutions are included. One with C# code (ArcGISSilverlightSDK.sln), and the other with VB code
 (ArcGISSilverlightSDK_VBNet.sln).  Each solution contains two projects, a Silverlight project and a web host application. In Visual Studio, open 
 the C# or VB solution.
-3. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
+3. Colorized text in the XAML and code-behind views is generated using logic in the SyntaxHighlighting.dll included with the Silverlight project under the Support folder. Since the assembly is included with the source code on GitHub, you may need to [unblock it](http://go.microsoft.com/fwlink/?LinkId=179545) before building and running the application. 
 4. In the Solution Explorer, right-click the c:...\ArcGISSilverlightSDKWeb\ project and select "Set as StartUp Project".  Select the Default.htm page,
 right-click and select the "Set as Start Page" option.    
-5. Clean and build the solution.  The solution references Nuget packages to retrieve the following dependencies:
+5. Clean and build the solution.  The Silverlight project contains a pre-build event that restores Nuget packages for the following dependencies:  
  - [ArcGIS API for Silverlight](https://www.nuget.org/packages/ArcGISSilverlight-All/) (portion of Blend SDK for Silverlight 5 included with [Behaviors package](https://www.nuget.org/packages/ArcGISSilverlight-Behaviors/)) 
  - [Silverlight 5 Toolkit](https://www.nuget.org/packages/SilverlightToolkit-Input/) (includes Core and Input packages)
- - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)  
-   The following error will be returned when the samples project is built the first time.    
-_"The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see
-http://go.microsoft.com/fwlink/?LinkID=317568."_ 
-This is expected. The Microsoft Async Nuget package requires a second build to complete successfully. The VB must be closed and reopened for the second build to complete successfully.      
+ - [Microsoft Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)           
 6. Run the application.  
 
 ## Requirements
