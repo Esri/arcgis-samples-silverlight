@@ -30,7 +30,7 @@
         </Grid.Resources>
 
         <esri:Map x:Name="MyMap" Background="White" Extent="-8579772.281817337,4705977.618327605,8569147.534885714,4710095.663226462">
-            <esri:ArcGISTiledMapServiceLayer Url="http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
             <esri:ArcGISDynamicMapServiceLayer Url="http://sampleserver4.arcgisonline.com/ArcGIS/rest/services/HomelandSecurity/Incident_Data_Extraction/MapServer"/>
             <esri:GraphicsLayer ID="MyGraphicsLayer" Renderer="{StaticResource MyGraphicsRenderer}"/>
         </esri:Map>

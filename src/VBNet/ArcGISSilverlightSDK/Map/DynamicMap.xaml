@@ -6,7 +6,7 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" >
             <esri:ArcGISDynamicMapServiceLayer ID="MyLayer"
-                 Url="http://maverick.arcgis.com/ArcGIS/rest/services/World_WGS84/MapServer"
+                 Url="http://serverapps10.esri.com/ArcGIS/rest/services/World_WGS84/MapServer"
                 VisibleLayers="1,2" />
         </esri:Map>
 

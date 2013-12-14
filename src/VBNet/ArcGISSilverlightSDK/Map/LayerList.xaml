@@ -8,7 +8,7 @@
 			<esri:ArcGISTiledMapServiceLayer ID="ShadedRelief" 
                     Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer"/>
 			<esri:ArcGISDynamicMapServiceLayer ID="California" Opacity="0.4" VisibleLayers="8,10"
-                    Url="http://maverick.arcgis.com/ArcGIS/rest/services/California/MapServer" />
+                    Url="http://serverapps10.esri.com/ArcGIS/rest/services/California/MapServer" />
 			<esri:FeatureLayer ID="Earthquakes" Mode="OnDemand"
                     Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer/0" />
 		</esri:Map>

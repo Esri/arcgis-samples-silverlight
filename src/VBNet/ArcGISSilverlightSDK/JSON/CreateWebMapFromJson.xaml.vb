@@ -29,7 +29,7 @@ Partial Public Class CreateWebMapFromJson
           " ""visibility"": true" & ControlChars.CrLf & " }" & ControlChars.CrLf & " ]," & ControlChars.CrLf &
           "  ""title"": ""World_Terrain_Base""" & ControlChars.CrLf & " }," & ControlChars.CrLf & " ""operationalLayers"": [" & ControlChars.CrLf &
           "   {" & ControlChars.CrLf & " ""itemId"": ""204d94c9b1374de9a21574c9efa31164""," & ControlChars.CrLf & " ""opacity"": 0.75," & ControlChars.CrLf &
-          "     ""title"": ""Soil Survey Map""," & ControlChars.CrLf & " ""url"": ""http://server.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer""," & ControlChars.CrLf &
+          "     ""title"": ""Soil Survey Map""," & ControlChars.CrLf & " ""url"": ""http://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer""," & ControlChars.CrLf &
           "  ""visibility"": true" & ControlChars.CrLf & " }" & ControlChars.CrLf & " ]," & ControlChars.CrLf & "  ""version"": ""1.1""}"
 
         JsonTextBox.Text = jsonInput

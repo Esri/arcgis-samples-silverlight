@@ -39,7 +39,7 @@ namespace ArcGISSilverlightSDK
         ""itemId"": ""204d94c9b1374de9a21574c9efa31164"",
         ""opacity"": 0.75,
         ""title"": ""Soil Survey Map"",
-        ""url"": ""http://server.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer"",
+        ""url"": ""http://services.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer"",
         ""visibility"": true
     }
     ],

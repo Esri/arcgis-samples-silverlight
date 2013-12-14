@@ -20,7 +20,7 @@
 
         <esri:Map x:Name="MyMap">
             <esri:ArcGISTiledMapServiceLayer
-                    Url="http://maverick.arcgis.com/ArcGIS/rest/services/World_Mollweide/MapServer" />
+                    Url="http://serverapps10.esri.com/ArcGIS/rest/services/World_Mollweide/MapServer" />
 
             <esri:GeoRssLayer ID="MyGeoRssLayer"
                               ProjectionService="{StaticResource GeomSvc}"

@@ -9,7 +9,7 @@
     <Grid x:Name="LayoutRoot" Background="White">
 
         <esri:Map Name="MyMap" Extent="-10929488.234,4525208.388,-10906776.553,4535252.104">
-            <esri:ArcGISTiledMapServiceLayer Url="http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
             <esri:ArcGISDynamicMapServiceLayer Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSFields/MapServer" />
             <esri:FeatureLayer Mode="OnDemand" Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Petroleum/KSWells/MapServer/0"
                                DisableClientCaching="True" />
