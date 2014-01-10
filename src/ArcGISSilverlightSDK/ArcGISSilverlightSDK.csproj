@@ -84,6 +84,9 @@
     <Compile Include="DataSources\OSMTileServers.xaml.cs">
       <DependentUpon>OSMTileServers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DynamicLayers\DynamicLayerLabeling.xaml.cs">
+      <DependentUpon>DynamicLayerLabeling.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editing\EditToolsGeometry.xaml.cs">
       <DependentUpon>EditToolsGeometry.xaml</DependentUpon>
     </Compile>
@@ -93,8 +96,18 @@
     <Compile Include="Extras\ArcGISWebClientSimple.xaml.cs">
       <DependentUpon>ArcGISWebClientSimple.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extras\CustomParameters.xaml.cs">
+      <DependentUpon>CustomParameters.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Extras\GenerateFeatures.xaml.cs">
       <DependentUpon>GenerateFeatures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extras\WebRequestFiltering.xaml.cs">
+      <DependentUpon>WebRequestFiltering.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Geoprocessor\ElevationProfile.xaml.cs">
+      <DependentUpon>ElevationProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Geoprocessor\ExtractData.xaml.cs">
       <DependentUpon>ExtractData.xaml</DependentUpon>
@@ -104,6 +117,12 @@
     </Compile>
     <Compile Include="Graphics\GeoRSS.xaml.cs">
       <DependentUpon>GeoRSS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphics\MarkerSymbolAngle.xaml.cs">
+      <DependentUpon>MarkerSymbolAngle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphics\RendererRotation.xaml.cs">
+      <DependentUpon>RendererRotation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Graphics\SymbolRotation.xaml.cs">
       <DependentUpon>SymbolRotation.xaml</DependentUpon>
@@ -148,6 +167,9 @@
     <Compile Include="Map\LayerTransitions.xaml.cs">
       <DependentUpon>LayerTransitions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Map\WebTiledLayers.xaml.cs">
+      <DependentUpon>WebTiledLayers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Portal\BasemapSwitcher.xaml.cs">
       <DependentUpon>BasemapSwitcher.xaml</DependentUpon>
     </Compile>
@@ -160,8 +182,17 @@
     <Compile Include="Portal\PortalSpatialSearch.xaml.cs">
       <DependentUpon>PortalSpatialSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Query\BufferQueryTaskAsync.xaml.cs">
+      <DependentUpon>BufferQueryTaskAsync.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Routing\RoutingDirectionsTaskAsync.xaml.cs">
+      <DependentUpon>RoutingDirectionsTaskAsync.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Toolkit\LegendKmlWms.xaml.cs">
       <DependentUpon>LegendKmlWms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\IntersectTaskAsync.xaml.cs">
+      <DependentUpon>IntersectTaskAsync.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebMaps\LoadSecureWebMap.xaml.cs">
       <DependentUpon>LoadSecureWebMap.xaml</DependentUpon>
@@ -189,6 +220,9 @@
     </Compile>
     <Compile Include="WebMaps\WebMapTiledServicePopups.xaml.cs">
       <DependentUpon>WebMapTiledServicePopups.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebMaps\WebMapViewModelToMapMVVM.xaml.cs">
+      <DependentUpon>WebMapViewModelToMapMVVM.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebMaps\WebMapWMS.xaml.cs">
       <DependentUpon>WebMapWMS.xaml</DependentUpon>
@@ -273,6 +307,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DynamicLayers\DynamicLayerLabeling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Editing\EditToolsGeometry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,9 +323,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Extras\CustomParameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Extras\GenerateFeatures.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Extras\WebRequestFiltering.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Geoprocessor\ElevationProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Geoprocessor\ExtractData.xaml">
       <SubType>Designer</SubType>
@@ -300,6 +350,14 @@
     <Page Include="Graphics\GeoRSS.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphics\MarkerSymbolAngle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphics\RendererRotation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Graphics\SymbolRotation.xaml">
       <SubType>Designer</SubType>
@@ -357,6 +415,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Map\WebTiledLayers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Portal\BasemapSwitcher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,9 +435,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Query\BufferQueryTaskAsync.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Routing\RoutingDirectionsTaskAsync.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Toolkit\LegendKmlWms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Utilities\IntersectTaskAsync.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WebMaps\LoadSecureWebMap.xaml">
       <SubType>Designer</SubType>
@@ -410,6 +484,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WebMaps\WebMapTiledServicePopups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WebMaps\WebMapViewModelToMapMVVM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -571,6 +649,9 @@
     <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\packages\SilverlightToolkit-DataViz.4.2010.4\lib\sl4\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SilverlightToolkit-Input.4.2010.4\lib\sl4\System.Windows.Controls.Input.Toolkit.dll</HintPath>

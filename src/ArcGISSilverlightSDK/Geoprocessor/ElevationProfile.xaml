@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.ElevationProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+
+        <Grid.Resources>
+            <esri:SimpleRenderer x:Name="LineRenderer">
+                <esri:SimpleLineSymbol Color="Green" Width="3" Style="Solid" />
+            </esri:SimpleRenderer>
+            <esri:SimpleRenderer x:Name="PointRenderer">
+                <esri:SimpleMarkerSymbol Size="28" Color="Red">
+                    <esri:MarkerSymbol.ControlTemplate>
+                        <ControlTemplate>
+                            <Grid Width="{Binding Symbol.Size}" Height="{Binding Symbol.Size}" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Height="3" Fill="{Binding Symbol.Color}" VerticalAlignment="Center" />
+                                <Rectangle Width="3" Fill="{Binding Symbol.Color}" HorizontalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </esri:MarkerSymbol.ControlTemplate>
+                </esri:SimpleMarkerSymbol>
+            </esri:SimpleRenderer>           
+            
+            <Style TargetType="toolkit:LineDataPoint" x:Key="CustomLineDataPointStyle">
+                <Setter Property="Background" Value="Green" />
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="10"/>
+                <Setter Property="Width" Value="10" />
+                <Setter Property="Height" Value="10" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="toolkit:LineDataPoint">
+                            <Grid x:Name="Root" Opacity="0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.75"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>                             
+                                    <VisualStateGroup x:Name="RevealStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Shown">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="1"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Hidden">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentControl Content="{TemplateBinding FormattedDependentValue}" />
+                                            <TextBlock Text=" m altitude" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentControl Content="{TemplateBinding FormattedIndependentValue}" />
+                                            <TextBlock Text=" km from start" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </ToolTipService.ToolTip>
+                                <Ellipse Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" Opacity="0"/>
+                                <Ellipse x:Name="MouseOverHighlight" Fill="Red" Opacity="0" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <esri:Map WrapAround="True" x:Name="MyMap" Extent="-13069000,4010700,-12990000,4044000">
+            <esri:ArcGISTiledMapServiceLayer 
+                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
+            <esri:GraphicsLayer ID="LineGraphicsLayer" Renderer="{StaticResource LineRenderer}"/>
+            <esri:GraphicsLayer ID="PointGraphicsLayer" Renderer="{StaticResource PointRenderer}"/>
+        </esri:Map>
+
+        <Border Background="White" BorderThickness="1" CornerRadius="1"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Width="200"
+                Margin="10" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Draw line for elevation profile and hover on chart for position, altitude and distance" 
+                           Margin="5" TextWrapping="Wrap" />
+                <StackPanel x:Name="MyStackPanel" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Tag="DrawPolyline" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Add a polyline">
+                        <Image Source="/Assets/images/DrawPolyline.png" Margin="2" />
+                    </Button>
+                    <Button Tag="DrawFreehand" Margin="5" Click="Tool_Click"
+                                ToolTipService.ToolTip="Add a freehand line">
+                        <Image Source="/Assets/images/DrawFreehand.png" Margin="2" />
+                    </Button>
+                    <Button Tag="ClearStopDraw" Margin="5" Click="Tool_Click"
+                            ToolTipService.ToolTip="Clear graphics">
+                        <Image Source="/Assets/images/StopDraw.png" Margin="2" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="ChartContainer" BorderBrush="Black" BorderThickness="1" Background="White" VerticalAlignment="Bottom" MaxWidth="800"
+                Margin="15,10" Visibility="Collapsed">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="330"/>
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <toolkit:Chart x:Name="ElevationChart" Title="Elevation Profile" BorderThickness="0" Grid.Row="0" MouseMove="ElevationChart_MouseMove">
+                    <toolkit:Chart.Series>
+                        <toolkit:LineSeries DataPointStyle="{StaticResource CustomLineDataPointStyle}" IsSelectionEnabled="True"
+                                            IndependentValueBinding="{Binding M}"
+                                            DependentValueBinding="{Binding Z}" />
+                    </toolkit:Chart.Series>
+                    <toolkit:Chart.Axes>
+                        <toolkit:LinearAxis Title="Distance (km)" Orientation="X" />
+                        <toolkit:LinearAxis Title="Elevation (m)" Orientation="Y" ShowGridLines="True" />
+                    </toolkit:Chart.Axes>
+                    <toolkit:Chart.LegendStyle>
+                        <Style TargetType="FrameworkElement">
+                            <Setter Property="Width" Value="0" />
+                        </Style>
+                    </toolkit:Chart.LegendStyle>
+                </toolkit:Chart>
+
+                <TextBlock x:Name="lblDistance" Text="Distance (km)" HorizontalAlignment="Center" 
+                           Grid.Row="1" />
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

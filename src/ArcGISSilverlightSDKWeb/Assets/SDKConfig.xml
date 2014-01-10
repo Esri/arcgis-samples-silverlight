@@ -1,71 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArcGISSilverlightSDK>
-  <!--<Category>
+  <Category>
     <name>What's New</name>
     <icon>Assets/images/globe-16x16.png</icon>
     <items>
       <item>
-        <id>CSV Layer</id>
-        <xaml>ArcGISSilverlightSDK.CSVLayerSimple</xaml>
-        <source>Assets/Source/CSVLayerSimple.xaml</source>
-        <code>Assets/Source/CSVLayerSimple.xaml.cs.txt</code>
-        <codevb>Assets/Source/CSVLayerSimple.xaml.vb.txt</codevb>
-        <desc>Assets/Description/CSVLayerSimple.txt</desc>
+        <id>Query with a Buffer - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.BufferQueryTaskAsync</xaml>
+        <source>Assets/Source/BufferQueryTaskAsync.xaml</source>
+        <code>Assets/Source/BufferQueryTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/BufferQueryTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/BufferQueryTaskAsync.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>CSVLayer</keywords>
+        <keywords>Buffer,Query,Task,Async</keywords>
       </item>
       <item>
-        <id>OpenStreetMap Tile Servers</id>
-        <xaml>ArcGISSilverlightSDK.OSMTileServers</xaml>
-        <source>Assets/Source/OSMTileServers.xaml</source>
-        <code>Assets/Source/OSMTileServers.xaml.cs.txt</code>
-        <codevb>Assets/Source/OSMTileServers.xaml.vb.txt</codevb>
-        <desc>Assets/Description/OSMTileServers.txt</desc>
+        <id>Driving Directions - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.RoutingDirectionsTaskAsync</xaml>
+        <source>Assets/Source/RoutingDirectionsTaskAsync.xaml</source>
+        <code>Assets/Source/RoutingDirectionsTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/RoutingDirectionsTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/RoutingDirectionsTaskAsync.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>OpenStreeMapLayer,TileServerList</keywords>
+        <keywords>Route,Locator,Geocode,Task,Async</keywords>
       </item>
       <item>
-        <id>Create Features from Shapefile</id>
-        <xaml>ArcGISSilverlightSDK.GenerateFeatures</xaml>
-        <source>Assets/Source/GenerateFeatures.xaml</source>
-        <code>Assets/Source/GenerateFeatures.xaml.cs.txt</code>
-        <codevb>Assets/Source/GenerateFeatures.xaml.vb.txt</codevb>
-        <desc>Assets/Description/GenerateFeatures.txt</desc>
+        <id>Intersect - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.IntersectTaskAsync</xaml>
+        <source>Assets/Source/IntersectTaskAsync.xaml</source>
+        <code>Assets/Source/IntersectTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/IntersectTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/IntersectTaskAsync.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>ArcGISWebClient,Portal</keywords>
+        <keywords>Intersect,Simplify,Query,Task,Async</keywords>
       </item>
       <item>
-        <id>World Geocoding Service</id>
-        <xaml>ArcGISSilverlightSDK.WorldGeocoding</xaml>
-        <source>Assets/Source/WorldGeocoding.xaml</source>
-        <code>Assets/Source/WorldGeocoding.xaml.cs.txt</code>
-        <codevb>Assets/Source/WorldGeocoding.xaml.vb.txt</codevb>
-        <desc>Assets/Description/WorldGeocoding.txt</desc>
+        <id>WebMapViewModel - MVVM</id>
+        <xaml>ArcGISSilverlightSDK.WebMapViewModelToMapMVVM</xaml>
+        <source>Assets/Source/WebMapViewModelToMapMVVM.xaml</source>
+        <code>Assets/Source/WebMapViewModelToMapMVVM.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebMapViewModelToMapMVVM.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebMapViewModelToMapMVVM.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>world,geocoding,service</keywords>
+        <keywords>WebMap,MVVM</keywords>
       </item>
       <item>
-        <id>Geometry To\From JSON</id>
-        <xaml>ArcGISSilverlightSDK.GeometryJson</xaml>
-        <source>Assets/Source/GeometryJson.xaml</source>
-        <code>Assets/Source/GeometryJson.xaml.cs.txt</code>
-        <codevb>Assets/Source/GeometryJson.xaml.vb.txt</codevb>
-        <desc>Assets/Description/GeometryJson.txt</desc>
+        <id>WebTiledLayer</id>
+        <xaml>ArcGISSilverlightSDK.WebTiledLayers</xaml>
+        <source>Assets/Source/WebTiledLayers.xaml</source>
+        <code>Assets/Source/WebTiledLayers.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebTiledLayers.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebTiledLayers.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>geometry,json</keywords>
+        <keywords>WebTiledLayer</keywords>
       </item>
       <item>
-        <id>ArcGISWebClient</id>
-        <xaml>ArcGISSilverlightSDK.ArcGISWebClientSimple</xaml>
-        <source>Assets/Source/ArcGISWebClientSimple.xaml</source>
-        <code>Assets/Source/ArcGISWebClientSimple.xaml.cs.txt</code>
-        <codevb>Assets/Source/ArcGISWebClientSimple.xaml.vb.txt</codevb>
-        <desc>Assets/Description/ArcGISWebClientSimple.txt</desc>
+        <id>Dynamic Layer Labeling</id>
+        <xaml>ArcGISSilverlightSDK.DynamicLayerLabeling</xaml>
+        <source>Assets/Source/DynamicLayerLabeling.xaml</source>
+        <code>Assets/Source/DynamicLayerLabeling.xaml.cs.txt</code>
+        <codevb>Assets/Source/DynamicLayerLabeling.xaml.vb.txt</codevb>
+        <desc>Assets/Description/DynamicLayerLabeling.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>WebClient,json,WebRequest</keywords>
+        <keywords>Dynamic,Layer,Label</keywords>
+      </item>
+      <item>
+        <id>Renderer Rotation</id>
+        <xaml>ArcGISSilverlightSDK.RendererRotation</xaml>
+        <source>Assets/Source/RendererRotation.xaml</source>
+        <code>Assets/Source/RendererRotation.xaml.cs.txt</code>
+        <codevb>Assets/Source/RendererRotation.xaml.vb.txt</codevb>
+        <desc>Assets/Description/RendererRotation.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Renderer,Rotation,Angle</keywords>
+      </item>
+      <item>
+        <id>Marker Symbol Angle</id>
+        <xaml>ArcGISSilverlightSDK.MarkerSymbolAngle</xaml>
+        <source>Assets/Source/MarkerSymbolAngle.xaml</source>
+        <code>Assets/Source/MarkerSymbolAngle.xaml.cs.txt</code>
+        <codevb>Assets/Source/MarkerSymbolAngle.xaml.vb.txt</codevb>
+        <desc>Assets/Description/MarkerSymbolAngle.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>MarkerSymbol,Angle</keywords>
+      </item>      
+      <item>
+        <id>Elevation Profile</id>
+        <xaml>ArcGISSilverlightSDK.ElevationProfile</xaml>
+        <source>Assets/Source/ElevationProfile.xaml</source>
+        <code>Assets/Source/ElevationProfile.xaml.cs.txt</code>
+        <codevb>Assets/Source/ElevationProfile.xaml.vb.txt</codevb>
+        <desc>Assets/Description/ElevationProfile.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>GP,Elevation,Task,Async,Chart</keywords>
+      </item>
+      <item>
+        <id>Web Request Filtering</id>
+        <xaml>ArcGISSilverlightSDK.WebRequestFiltering</xaml>
+        <source>Assets/Source/WebRequestFiltering.xaml</source>
+        <code>Assets/Source/WebRequestFiltering.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebRequestFiltering.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebRequestFiltering.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>WebRequest,RegisterPrefix</keywords>
       </item>
     </items>
-  </Category>-->
+  </Category>
   <Category>
     <name>Mapping</name>
     <icon>Assets/images/globe-16x16.png</icon>
@@ -239,6 +279,16 @@
         <desc>Assets/Description/AddLayerDynamically.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>ExtentChanged,ExtentChanging,Layers,Add</keywords>
+      </item>
+      <item>
+        <id>WebTiledLayer</id>
+        <xaml>ArcGISSilverlightSDK.WebTiledLayers</xaml>
+        <source>Assets/Source/WebTiledLayers.xaml</source>
+        <code>Assets/Source/WebTiledLayers.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebTiledLayers.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebTiledLayers.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>WebTiledLayer</keywords>
       </item>
       <item>
         <id>Element Layer</id>
@@ -694,6 +744,16 @@
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>DynamicLayer,GenerateRenderer,Thematic,ClassBreaksDefinition</keywords>
       </item>
+      <item>
+        <id>Dynamic Layer Labeling</id>
+        <xaml>ArcGISSilverlightSDK.DynamicLayerLabeling</xaml>
+        <source>Assets/Source/DynamicLayerLabeling.xaml</source>
+        <code>Assets/Source/DynamicLayerLabeling.xaml.cs.txt</code>
+        <codevb>Assets/Source/DynamicLayerLabeling.xaml.vb.txt</codevb>
+        <desc>Assets/Description/DynamicLayerLabeling.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Dynamic,Layer,Label</keywords>
+      </item>
     </items>
   </Category>
   <Category>
@@ -739,16 +799,6 @@
         <desc>Assets/Description/CustomSymbols.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>GraphicsLayer,Symbol,ControlTemplate,VisualStateManager,StoryBoard,Brush,RenderTransform,MouseOver</keywords>
-      </item>
-      <item>
-        <id>Symbol rotation</id>
-        <xaml>ArcGISSilverlightSDK.SymbolRotation</xaml>
-        <source>Assets/Source/SymbolRotation.xaml</source>
-        <code>Assets/Source/SymbolRotation.xaml.cs.txt</code>
-        <codevb>Assets/Source/SymbolRotation.xaml.vb.txt</codevb>
-        <desc>Assets/Description/SymbolRotation.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords></keywords>
       </item>
       <item>
         <id>Selections</id>
@@ -819,6 +869,26 @@
         <desc>Assets/Description/Thematic_Interactive.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>Legend,Thematic,EqualInterval,Quantile,QueryTask,UpdateLayout</keywords>
+      </item>
+      <item>
+        <id>Renderer Rotation</id>
+        <xaml>ArcGISSilverlightSDK.RendererRotation</xaml>
+        <source>Assets/Source/RendererRotation.xaml</source>
+        <code>Assets/Source/RendererRotation.xaml.cs.txt</code>
+        <codevb>Assets/Source/RendererRotation.xaml.vb.txt</codevb>
+        <desc>Assets/Description/RendererRotation.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Renderer,Rotation,Angle</keywords>
+      </item>
+      <item>
+        <id>Marker Symbol Angle</id>
+        <xaml>ArcGISSilverlightSDK.MarkerSymbolAngle</xaml>
+        <source>Assets/Source/MarkerSymbolAngle.xaml</source>
+        <code>Assets/Source/MarkerSymbolAngle.xaml.cs.txt</code>
+        <codevb>Assets/Source/MarkerSymbolAngle.xaml.vb.txt</codevb>
+        <desc>Assets/Description/MarkerSymbolAngle.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>MarkerSymbol,Angle</keywords>
       </item>
       <item>
         <id>Show GeoRSS Feed</id>
@@ -935,6 +1005,16 @@
         <desc>Assets/Description/BufferQuery.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>Buffer,GeometryService,QueryTask,CancelAsync,SetZIndex,OutSpatialReference</keywords>
+      </item>
+      <item>
+        <id>Query with a Buffer - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.BufferQueryTaskAsync</xaml>
+        <source>Assets/Source/BufferQueryTaskAsync.xaml</source>
+        <code>Assets/Source/BufferQueryTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/BufferQueryTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/BufferQueryTaskAsync.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Buffer,Query,Task,Async</keywords>
       </item>
       <item>
         <id>Query with Order By Field</id>
@@ -1317,6 +1397,16 @@
         <keywords>RouteTask,Locator,AddressToLocations,GraphicsLayer,RouteResult,RowDefinition,ColumnDefinition,AddressToLocationsParameters,ZoomTo,TimeSpan,Expand,Directions</keywords>
       </item>
       <item>
+        <id>Driving Directions - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.RoutingDirectionsTaskAsync</xaml>
+        <source>Assets/Source/RoutingDirectionsTaskAsync.xaml</source>
+        <code>Assets/Source/RoutingDirectionsTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/RoutingDirectionsTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/RoutingDirectionsTaskAsync.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Route,Locator,Geocode,Task,Async</keywords>
+      </item>
+      <item>
         <id>Closest Facility</id>
         <xaml>ArcGISSilverlightSDK.ClosestFacility</xaml>
         <source>Assets/Source/ClosestFacility.xaml</source>
@@ -1391,6 +1481,16 @@
         <desc>Assets/Description/ExtractData.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>Geoprocessor,GraphicsLayer,SubmitJob,JobCompleted,GPFeatureRecordSetLayer,GetResultDataCompleted,DispatcherTimer,Editor</keywords>
+      </item>
+      <item>
+        <id>Elevation Profile</id>
+        <xaml>ArcGISSilverlightSDK.ElevationProfile</xaml>
+        <source>Assets/Source/ElevationProfile.xaml</source>
+        <code>Assets/Source/ElevationProfile.xaml.cs.txt</code>
+        <codevb>Assets/Source/ElevationProfile.xaml.vb.txt</codevb>
+        <desc>Assets/Description/ElevationProfile.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>GP,Elevation,Task,Async,Chart</keywords>
       </item>
     </items>
   </Category>
@@ -1497,6 +1597,16 @@
         <desc>Assets/Description/Intersect.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>Intersect,GeometryService,Draw,GraphicsLayer,QueryTask,Simplify</keywords>
+      </item>
+      <item>
+        <id>Intersect - Task Async</id>
+        <xaml>ArcGISSilverlightSDK.IntersectTaskAsync</xaml>
+        <source>Assets/Source/IntersectTaskAsync.xaml</source>
+        <code>Assets/Source/IntersectTaskAsync.xaml.cs.txt</code>
+        <codevb>Assets/Source/IntersectTaskAsync.xaml.vb.txt</codevb>
+        <desc>Assets/Description/IntersectTaskAsync.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>Intersect,Simplify,Query,Task,Async</keywords>
       </item>
       <item>
         <id>Label Points</id>
@@ -1763,6 +1873,16 @@
         <keywords>WebMap,Document,GetMap</keywords>
       </item>
       <item>
+        <id>WebMapViewModel - MVVM</id>
+        <xaml>ArcGISSilverlightSDK.WebMapViewModelToMapMVVM</xaml>
+        <source>Assets/Source/WebMapViewModelToMapMVVM.xaml</source>
+        <code>Assets/Source/WebMapViewModelToMapMVVM.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebMapViewModelToMapMVVM.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebMapViewModelToMapMVVM.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>WebMap,MVVM</keywords>
+      </item>
+      <item>
         <id>Load WebMap Dynamically</id>
         <xaml>ArcGISSilverlightSDK.LoadWebMapDynamically</xaml>
         <source>Assets/Source/LoadWebMapDynamically.xaml</source>
@@ -1780,7 +1900,7 @@
         <codevb>Assets/Source/LoadSecureWebMap.xaml.vb.txt</codevb>
         <desc>Assets/Description/LoadSecureWebMap.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
-        <keywords>WebMap,Document,GetMap,Dynamic,Token,Secure</keywords>
+        <keywords>WebMap,Secure</keywords>
       </item>
       <item>
         <id>Load WebMap with Proxy</id>
@@ -1947,7 +2067,7 @@
         <desc>Assets/Description/BasemapSwitcher.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>Portal, WebMapData, Document</keywords>
-      </item> 
+      </item>
     </items>
   </Category>
   <Category>
@@ -2035,7 +2155,7 @@
         <desc>Assets/Description/GenerateFeatures.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>ArcGISWebClient,Portal</keywords>
-      </item>      
+      </item>
       <item>
         <id>ArcGISWebClient</id>
         <xaml>ArcGISSilverlightSDK.ArcGISWebClientSimple</xaml>
@@ -2045,6 +2165,16 @@
         <desc>Assets/Description/ArcGISWebClientSimple.txt</desc>
         <icon>Assets/images/small_bullet.png</icon>
         <keywords>WebClient,json,WebRequest</keywords>
+      </item>
+      <item>
+        <id>Web Request Filtering</id>
+        <xaml>ArcGISSilverlightSDK.WebRequestFiltering</xaml>
+        <source>Assets/Source/WebRequestFiltering.xaml</source>
+        <code>Assets/Source/WebRequestFiltering.xaml.cs.txt</code>
+        <codevb>Assets/Source/WebRequestFiltering.xaml.vb.txt</codevb>
+        <desc>Assets/Description/WebRequestFiltering.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+        <keywords>WebRequest,RegisterPrefix</keywords>
       </item>
     </items>
   </Category>

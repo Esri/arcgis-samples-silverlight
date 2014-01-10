@@ -17,7 +17,7 @@ namespace ArcGISSilverlightSDK
 
         private void LoadWebMapButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            IdentityManager.Current.GenerateCredentialAsync("https://www.arcgis.com", 
+            IdentityManager.Current.GenerateCredentialAsync("https://www.arcgis.com/sharing", 
                 UsernameTextBox.Text, PasswordTextBox.Password,
                   (credential, ex) =>
                   {

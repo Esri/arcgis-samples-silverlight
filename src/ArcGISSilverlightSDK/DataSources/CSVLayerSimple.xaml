@@ -24,7 +24,7 @@
         </Grid.Resources>
         
         <esri:Map WrapAround="True">
-            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/arcgis/rest/services/world_topo_map/MapServer" />
+            <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer" />
             <esri:CsvLayer Url="http://earthquake.usgs.gov/earthquakes/feed/csv/1.0/day" 
                            Renderer="{StaticResource MyClassBreaksRenderer}">
                 <esri:CsvLayer.MapTip>

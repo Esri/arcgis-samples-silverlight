@@ -153,10 +153,7 @@ namespace ArcGISSilverlightSDK
         private void StackPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (_directionsFeatureSet != null)
-            {
-                GraphicsLayer graphicsLayer = MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer;
                 MyMap.ZoomTo(Expand(_directionsFeatureSet.Extent));
-            }
         }
 
         private LocatorFindParameters ParseSearchText(string searchText)
