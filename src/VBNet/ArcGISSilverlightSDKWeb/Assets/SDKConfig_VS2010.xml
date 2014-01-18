@@ -1,52 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArcGISSilverlightSDK>
-   <Category>
+  <Category>
     <name>What's New</name>
-     <icon>Assets/images/globe-16x16.png</icon>
+    <icon>Assets/images/globe-16x16.png</icon>
     <items>
-     <item>
-        <id>CSV Layer</id>
-        <xaml>ArcGISSilverlightSDK.CSVLayerSimple</xaml>
-        <source>Assets/Source/CSVLayerSimple.xaml</source>
-        <code>Assets/Source/CSVLayerSimple.xaml.vb.txt</code>
+      <item>
+        <id>WebTiledLayer</id>
+        <xaml>ArcGISSilverlightSDK.WebTiledLayers</xaml>
+        <source>Assets/Source/WebTiledLayers.xaml</source>
+        <code>Assets/Source/WebTiledLayers.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
-        <id>OpenStreetMap Tile Servers</id>
-        <xaml>ArcGISSilverlightSDK.OSMTileServers</xaml>
-        <source>Assets/Source/OSMTileServers.xaml</source>
-        <code>Assets/Source/OSMTileServers.xaml.vb.txt</code>
+        <id>Dynamic Layer Labeling</id>
+        <xaml>ArcGISSilverlightSDK.DynamicLayerLabeling</xaml>
+        <source>Assets/Source/DynamicLayerLabeling.xaml</source>
+        <code>Assets/Source/DynamicLayerLabeling.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
-        <id>Create Features from Shapefile</id>
-        <xaml>ArcGISSilverlightSDK.GenerateFeatures</xaml>
-        <source>Assets/Source/GenerateFeatures.xaml</source>
-        <code>Assets/Source/GenerateFeatures.xaml.vb.txt</code>
+        <id>Renderer Rotation</id>
+        <xaml>ArcGISSilverlightSDK.RendererRotation</xaml>
+        <source>Assets/Source/RendererRotation.xaml</source>
+        <code>Assets/Source/RendererRotation.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
-        <id>World Geocoding Service</id>
-        <xaml>ArcGISSilverlightSDK.WorldGeocoding</xaml>
-        <source>Assets/Source/WorldGeocoding.xaml</source>
-        <code>Assets/Source/WorldGeocoding.xaml.vb.txt</code>
-        <desc>Assets/Description/WorldGeocoding.txt</desc>
+        <id>Marker Symbol Angle</id>
+        <xaml>ArcGISSilverlightSDK.MarkerSymbolAngle</xaml>
+        <source>Assets/Source/MarkerSymbolAngle.xaml</source>
+        <code>Assets/Source/MarkerSymbolAngle.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
-        <id>Geometry To\From JSON</id>
-        <xaml>ArcGISSilverlightSDK.GeometryJson</xaml>
-        <source>Assets/Source/GeometryJson.xaml</source>
-        <code>Assets/Source/GeometryJson.xaml.vb.txt</code>
-        <desc>Assets/Description/GeometryJson.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-      </item>
-      <item>
-        <id>ArcGISWebClient</id>
-        <xaml>ArcGISSilverlightSDK.ArcGISWebClientSimple</xaml>
-        <source>Assets/Source/ArcGISWebClientSimple.xaml</source>
-        <code>Assets/Source/ArcGISWebClientSimple.xaml.vb.txt</code>
-        <desc>Assets/Description/ArcGISWebClientSimple.txt</desc>
+        <id>Web Request Filtering</id>
+        <xaml>ArcGISSilverlightSDK.WebRequestFiltering</xaml>
+        <source>Assets/Source/WebRequestFiltering.xaml</source>
+        <code>Assets/Source/WebRequestFiltering.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
     </items>
@@ -178,6 +168,13 @@
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
+        <id>WebTiledLayer</id>
+        <xaml>ArcGISSilverlightSDK.WebTiledLayers</xaml>
+        <source>Assets/Source/WebTiledLayers.xaml</source>
+        <code>Assets/Source/WebTiledLayers.xaml.vb.txt</code>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
+      <item>
         <id>Element Layer</id>
         <xaml>ArcGISSilverlightSDK.ElementLayer</xaml>
         <source>Assets/Source/ElementLayer.xaml</source>
@@ -289,6 +286,13 @@
         <source>Assets/Source/DynamicLayerThematic.xaml</source>
         <code>Assets/Source/DynamicLayerThematic.xaml.vb.txt</code>
         <desc>Assets/Description/DynamicLayerThematic.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
+      <item>
+        <id>Dynamic Layer Labeling</id>
+        <xaml>ArcGISSilverlightSDK.DynamicLayerLabeling</xaml>
+        <source>Assets/Source/DynamicLayerLabeling.xaml</source>
+        <code>Assets/Source/DynamicLayerLabeling.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
     </items>
@@ -606,6 +610,20 @@
         <xaml>ArcGISSilverlightSDK.Thematic_Interactive</xaml>
         <source>Assets/Source/Thematic_Interactive.xaml</source>
         <code>Assets/Source/Thematic_Interactive.xaml.vb.txt</code>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
+      <item>
+        <id>Renderer Rotation</id>
+        <xaml>ArcGISSilverlightSDK.RendererRotation</xaml>
+        <source>Assets/Source/RendererRotation.xaml</source>
+        <code>Assets/Source/RendererRotation.xaml.vb.txt</code>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
+      <item>
+        <id>Marker Symbol Angle</id>
+        <xaml>ArcGISSilverlightSDK.MarkerSymbolAngle</xaml>
+        <source>Assets/Source/MarkerSymbolAngle.xaml</source>
+        <code>Assets/Source/MarkerSymbolAngle.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
       <item>
@@ -1529,6 +1547,13 @@
         <source>Assets/Source/ArcGISWebClientSimple.xaml</source>
         <code>Assets/Source/ArcGISWebClientSimple.xaml.vb.txt</code>
         <desc>Assets/Description/ArcGISWebClientSimple.txt</desc>
+        <icon>Assets/images/small_bullet.png</icon>
+      </item>
+      <item>
+        <id>Web Request Filtering</id>
+        <xaml>ArcGISSilverlightSDK.WebRequestFiltering</xaml>
+        <source>Assets/Source/WebRequestFiltering.xaml</source>
+        <code>Assets/Source/WebRequestFiltering.xaml.vb.txt</code>
         <icon>Assets/images/small_bullet.png</icon>
       </item>
     </items>

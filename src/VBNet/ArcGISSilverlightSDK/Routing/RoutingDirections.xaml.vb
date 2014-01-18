@@ -150,7 +150,6 @@ Partial Public Class RoutingDirections
 
     Private Sub StackPanel_MouseLeftButtonDown(ByVal sender As Object, ByVal e As MouseButtonEventArgs)
         If _directionsFeatureSet IsNot Nothing Then
-            Dim graphicsLayer As GraphicsLayer = TryCast(MyMap.Layers("MyRouteGraphicsLayer"), GraphicsLayer)
             MyMap.ZoomTo(Expand(_directionsFeatureSet.Extent))
         End If
     End Sub

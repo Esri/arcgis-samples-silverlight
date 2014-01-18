@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.MarkerSymbolAngle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <esri:PictureMarkerSymbol x:Key="MyAngleSymbol"  Width="64" Height="64" OffsetX="32" OffsetY="32" 
+                                      Source="/Assets/images/arrowup-32.x32.png"
+                                      AngleAlignment="Map"                                     
+                                      Angle="{Binding Value, ElementName=GraphicAngleSlider}" />
+            <esri:SimpleRenderer x:Key="MySimpleRendererWithAngleSymbol" Symbol="{StaticResource MyAngleSymbol}" />
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Rotation="{Binding Value, ElementName=RotateMapSlider}"  Extent="-13068956.951,4010706.916,-12990685.434,4044068.546" >
+            <esri:ArcGISTiledMapServiceLayer
+				    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+            <esri:GraphicsLayer ID="MyGraphicsLayer" Renderer="{StaticResource MySimpleRendererWithAngleSymbol}">
+                <esri:GraphicsLayer.Graphics>
+                    <esri:Graphic>
+                        <esri:MapPoint X="-13029821.1925" Y="4027387.731">
+                            <esri:Geometry.SpatialReference >
+                                <esri:SpatialReference WKID="102100" />
+                            </esri:Geometry.SpatialReference>
+                        </esri:MapPoint>
+                    </esri:Graphic>
+                </esri:GraphicsLayer.Graphics>
+            </esri:GraphicsLayer>
+        </esri:Map>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Background="White" HorizontalAlignment="Right" MinWidth="190"
+                VerticalAlignment="Top" Margin="10" Padding="5">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="30" />
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Align graphic angle to:" Height="20" Grid.Row="0" />
+                <RadioButton GroupName="AngleAlign" IsChecked="true" Content="Map" Tag="Map" Height="20" Grid.Row="1" 
+                             Click="RadioButton_Click" />
+                <RadioButton GroupName="AngleAlign" Content="Screen" Tag="Screen" Height="20" Grid.Row="2"  
+                             Click="RadioButton_Click"/>
+
+                <TextBlock Text="Rotate map:" VerticalAlignment="Bottom" Grid.Row="3" />
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <Slider x:Name="RotateMapSlider" Height="30" Value="0" Width="100" Minimum="0" Maximum="360" />
+                    <TextBlock HorizontalAlignment="Center" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0">
+                            <Run Text="{Binding Value, Mode=OneWay, ElementName=RotateMapSlider, StringFormat=\{0\:N0\}}" />
+                            <Run Text=" degrees" />
+                    </TextBlock>
+                </StackPanel>
+
+                <TextBlock Text="Set graphic angle:" VerticalAlignment="Bottom" Grid.Row="5"/>
+                <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <Slider x:Name="GraphicAngleSlider" Height="30" Value="0" Width="100" Minimum="0" Maximum="360" />
+                    <TextBlock HorizontalAlignment="Center" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0">                            
+                            <Run Text="{Binding Value, Mode=OneWay, ElementName=GraphicAngleSlider, StringFormat=\{0\:N0\}}" />
+                            <Run Text=" degrees" />
+                    </TextBlock>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

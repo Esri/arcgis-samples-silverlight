@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ArcGISSilverlightSDK.RendererRotation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <esri:ClassBreaksRenderer x:Key="RotationClassBreaksRenderer" Field="WIND_SPEED"
+                                      RotationType="Geographic" RotationExpression="[WIND_DIRECT]">
+                <esri:ClassBreakInfo MinimumValue="1" MaximumValue="20">
+                    <esri:PictureMarkerSymbol AngleAlignment="Map" Width="12" Height="12" OffsetX="6" OffsetY="6" Source="/Assets/images/arrowdown-32.x32.png" />
+                </esri:ClassBreakInfo>
+                <esri:ClassBreakInfo MinimumValue="20" MaximumValue="40">
+                    <esri:PictureMarkerSymbol AngleAlignment="Map" Width="18" Height="18" OffsetX="9" OffsetY="9" Source="/Assets/images/arrowdown-32.x32.png" />
+                </esri:ClassBreakInfo>
+                <esri:ClassBreakInfo MinimumValue="40" MaximumValue="300">
+                    <esri:PictureMarkerSymbol AngleAlignment="Map" Width="24" Height="24" OffsetX="12" OffsetY="12" Source="/Assets/images/arrowdown-32.x32.png" />
+                </esri:ClassBreakInfo>
+            </esri:ClassBreaksRenderer>
+        </Grid.Resources>
+
+        <esri:Map x:Name="MyMap" Extent="-10720000,4757000,-9468000,5419000">
+            <esri:ArcGISTiledMapServiceLayer 
+				Url="http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer" />
+            <esri:FeatureLayer ID="WindDirection" Url="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/PublicSafety/PublicSafetyFeedSample/MapServer/0" 
+                               Mode="OnDemand" 
+                               Renderer="{StaticResource RotationClassBreaksRenderer}"
+                               OutFields="STATION_NAME, WIND_DIRECT" 
+                               Where="WIND_DIRECT > 0" >
+                <esri:FeatureLayer.MapTip>
+                    <Border BorderBrush="Black" BorderThickness="1" Background="White">
+                        <Border.Effect>
+                            <DropShadowEffect />
+                        </Border.Effect>
+                        <StackPanel Margin="3">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Station: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding [STATION_NAME]}" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Wind Direction: "  />
+                                <TextBlock Text="{Binding [WIND_DIRECT]}" />
+                                <TextBlock Text=" deg" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Wind Speed: "  />
+                                <TextBlock Text="{Binding [WIND_SPEED]}" />
+                                <TextBlock Text=" mph" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </esri:FeatureLayer.MapTip>
+            </esri:FeatureLayer>
+        </esri:Map>
+    </Grid>
+</UserControl>
