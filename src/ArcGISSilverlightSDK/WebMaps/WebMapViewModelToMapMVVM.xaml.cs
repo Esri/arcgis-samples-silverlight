@@ -83,7 +83,7 @@ namespace ArcGISSilverlightSDK
             var extent = e.NewValue as Envelope;
             if (map == null || extent == null)
                 return;
-            map.Extent = extent;
+            map.ZoomTo(extent);
         }
     }
 }

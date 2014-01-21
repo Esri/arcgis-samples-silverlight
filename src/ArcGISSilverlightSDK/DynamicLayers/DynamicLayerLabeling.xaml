@@ -51,7 +51,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Label Placement:  " Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
-                <ComboBox x:Name="cboPlacement" Width="110" Grid.Column="1" SelectionChanged="cboPlacement_SelectionChanged_1" SelectedIndex="0">
+                <ComboBox x:Name="cboPlacement" Width="110" Grid.Column="1" SelectionChanged="cboPlacement_SelectionChanged" SelectedIndex="0">
                     <ComboBoxItem Content="Above Center"/>
                     <ComboBoxItem Content="Above Left"/>
                     <ComboBoxItem Content="Above Right"/>

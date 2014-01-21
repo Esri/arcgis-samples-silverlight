@@ -10,7 +10,7 @@ namespace ArcGISSilverlightSDK
             InitializeComponent();
         }
 
-        private void cboPlacement_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void cboPlacement_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (MyMap == null) return;
 
