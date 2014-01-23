@@ -63,8 +63,7 @@ local.properties
 .builds
 *.dotCover
 
-## TODO: If you have NuGet Package Restore enabled, uncomment this
-#packages/
+packages/
 
 # Visual C++ cache files
 ipch/
@@ -161,3 +160,7 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# Project specific
+*.xap
+src/ArcGISSilverlightSDKWeb/Assets/Source/
