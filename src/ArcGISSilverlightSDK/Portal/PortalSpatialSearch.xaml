@@ -130,7 +130,7 @@
         <esri:Map Grid.Column="0" x:Name="MyMap" WrapAround="True" 
                    Extent="-10827200,3228880,-10292800,3604400">
             <esri:ArcGISTiledMapServiceLayer
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
             <esri:GraphicsLayer ID="MyGraphicsLayer" Renderer="{StaticResource MyGraphicsLayerRenderer}" 
                                 MouseLeftButtonUp="GraphicsLayer_MouseLeftButtonUp"
                                 PropertyChanged="GraphicsLayer_PropertyChanged"/>

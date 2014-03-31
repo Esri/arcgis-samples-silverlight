@@ -9,7 +9,7 @@
                 Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
             <esri:WmsLayer ID="OtherWMSLayer"                      
                            Url="http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi"                     
-                           ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx"                     
+                           ProxyUrl="https://serverapps102.esri.com/SilverlightDemos/ProxyPage/proxy.ashx"                     
                            SkipGetCapabilities="False"                     
                            Layers="nexrad-n0r" 
                            Version="1.1.1" 

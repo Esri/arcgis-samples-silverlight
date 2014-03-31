@@ -21,7 +21,7 @@ namespace ArcGISSilverlightSDK
             InitializeComponent();
 
             // Search public web maps on www.arcgis.com
-            arcgisPortal = new ArcGISPortal() { Url = "http://www.arcgis.com/sharing/rest" };
+            arcgisPortal = new ArcGISPortal() { Url = "https://www.arcgis.com/sharing/rest" };
             webmapGraphicsLayer = MyMap.Layers["MyGraphicsLayer"] as GraphicsLayer;
         }
 

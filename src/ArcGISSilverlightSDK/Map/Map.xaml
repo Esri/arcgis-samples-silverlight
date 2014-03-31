@@ -6,7 +6,7 @@
 
         <esri:Map WrapAround="True" x:Name="MyMap">            
             <esri:ArcGISTiledMapServiceLayer ID="MyLayer"
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
         </esri:Map>
 
     </Grid>
