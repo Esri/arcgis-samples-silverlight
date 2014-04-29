@@ -14,7 +14,7 @@ namespace ArcGISSilverlightSDK
 {
     public partial class PortalSearch : UserControl
     {
-        private const string DEFAULT_SERVER_URL = "http://www.arcgis.com/sharing/rest";
+        private const string DEFAULT_SERVER_URL = "https://www.arcgis.com/sharing/rest";
         private const string DEFAULT_TOKEN_URL = "https://www.arcgis.com/sharing/generateToken";
 
         ArcGISPortal portal = new ArcGISPortal() { Url = DEFAULT_SERVER_URL };

@@ -8,9 +8,9 @@
             <!--MapQuest Tile Servers-->
             <esri:OpenStreetMapLayer ID="OSMLayer">
                 <esri:OpenStreetMapLayer.TileServers>
-                    <sys:String>http://otile1.mqcdn.com/tiles/1.0.0/osm</sys:String>
-                    <sys:String>http://otile2.mqcdn.com/tiles/1.0.0/osm</sys:String>
-                    <sys:String>http://otile3.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                    <sys:String>https://otile1.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                    <sys:String>https://otile2.mqcdn.com/tiles/1.0.0/osm</sys:String>
+                    <sys:String>https://otile3.mqcdn.com/tiles/1.0.0/osm</sys:String>
                 </esri:OpenStreetMapLayer.TileServers>
             </esri:OpenStreetMapLayer>
         </esri:Map>

@@ -13,7 +13,7 @@
 
         <esri:Map x:Name="MyMap" Extent="-15000000,2000000,-7000000,8000000" WrapAround="True" Grid.Column="0">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                      Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
         </esri:Map>
 
         <Grid Margin="5" Grid.Column="1" Background="White" VerticalAlignment="Stretch">

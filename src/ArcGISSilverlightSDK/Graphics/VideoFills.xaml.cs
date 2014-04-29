@@ -79,7 +79,7 @@ namespace ArcGISSilverlightSDK
 
             MediaElement stateMediaElement = new MediaElement()
             {
-                Source = new Uri(String.Format("http://serverapps102.esri.com/media/{0}_small.wmv", stateName), UriKind.Absolute),
+                Source = new Uri(String.Format("https://serverapps102.esri.com/media/{0}_small.wmv", stateName), UriKind.Absolute),
                 Stretch = Stretch.None,
                 AutoPlay = true,
                 IsMuted = true,

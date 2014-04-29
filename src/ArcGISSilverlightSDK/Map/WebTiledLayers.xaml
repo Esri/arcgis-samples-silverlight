@@ -6,7 +6,7 @@
     <Grid x:Name="LayoutRoot">
 
         <esri:Map x:Name="MyMap" Extent="-9840712.566,5094828.570,-9684169.532,5187877.291">
-            <esri:WebTiledLayer ID="MyWebTiledLayer" TemplateUrl="http://serverapps102.esri.com/silverlightdemos/proxypage/proxy.ashx?http://{subDomain}.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{level}/{row}/{col}"
+            <esri:WebTiledLayer ID="MyWebTiledLayer" TemplateUrl="https://serverapps102.esri.com/silverlightdemos/proxypage/proxy.ashx?https://{subDomain}.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{level}/{row}/{col}"
                                 SubDomains="server, services" CopyrightText="National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC" 
                                 />
         </esri:Map>

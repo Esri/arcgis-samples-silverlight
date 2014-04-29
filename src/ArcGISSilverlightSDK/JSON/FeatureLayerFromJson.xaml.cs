@@ -60,7 +60,7 @@ namespace ArcGISSilverlightSDK
             ""description"": """",
             ""symbol"": {
               ""type"": ""esriPMS"",
-              ""url"": ""http://static.arcgis.com/images/Symbols/Basic/GreenStickpin.png"",
+              ""url"": ""https://static.arcgis.com/images/Symbols/Basic/GreenStickpin.png"",
               ""contentType"": ""image/png"",
               ""width"": 24,
               ""height"": 24,
@@ -73,7 +73,7 @@ namespace ArcGISSilverlightSDK
             ""label"": ""Pushpin"",
             ""symbol"": {
               ""type"": ""esriPMS"",
-              ""url"": ""http://static.arcgis.com/images/Symbols/Basic/GreenShinyPin.png"",
+              ""url"": ""https://static.arcgis.com/images/Symbols/Basic/GreenShinyPin.png"",
               ""contentType"": ""image/png"",
               ""width"": 24,
               ""height"": 24,
@@ -180,7 +180,7 @@ namespace ArcGISSilverlightSDK
           ""xoffset"": 12,
           ""yoffset"": 12,
           ""type"": ""esriPMS"",
-          ""url"": ""http://static.arcgis.com/images/Symbols/Basic/GreenFlag.png"",
+          ""url"": ""https://static.arcgis.com/images/Symbols/Basic/GreenFlag.png"",
           ""width"": 24,
           ""height"": 24
         }
@@ -204,7 +204,7 @@ namespace ArcGISSilverlightSDK
           ""xoffset"": 12,
           ""yoffset"": 12,
           ""type"": ""esriPMS"",
-          ""url"": ""http://static.arcgis.com/images/Symbols/Basic/RedFlag.png"",
+          ""url"": ""https://static.arcgis.com/images/Symbols/Basic/RedFlag.png"",
           ""width"": 24,
           ""height"": 24
         }

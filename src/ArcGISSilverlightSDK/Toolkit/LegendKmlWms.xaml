@@ -7,12 +7,12 @@
         <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,2000000,-7000000,8000000">
             <esri:ArcGISTiledMapServiceLayer ID="TopoLayer"
                     Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"/>
-            <esri:WmsLayer ID="WMS" Url="http://imsref.cr.usgs.gov/wmsconnector/com.esri.wms.Esrimap/USGS_EDC_LandCover_NLCD2006"                     
-                           ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
+            <esri:WmsLayer ID="WMS" Url="http://imsref.cr.usgs.gov/wmsconnector/com.esri.wms.Esrimap/USGS_EDC_LandCover_NLCD2006"     
+                           ProxyUrl="https://serverapps102.esri.com/SilverlightDemos/ProxyPage/proxy.ashx"/>
             <esri:KmlLayer ID="KML" Url="http://earthquake.usgs.gov/earthquakes/catalogs/eqs7day-depth.kmz"
+                           ProxyUrl="https://serverapps102.esri.com/SilverlightDemos/ProxyPage/proxy.ashx"
                            VisibleLayers="Earthquakes,Earthquakes/*" 
-                           RefreshInterval="00:01:00"
-                           ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
+                           RefreshInterval="00:01:00"/>
         </esri:Map>
 
         <esri:MapProgressBar x:Name="MyProgressBar" 

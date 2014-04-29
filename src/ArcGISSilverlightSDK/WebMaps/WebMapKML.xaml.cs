@@ -16,7 +16,6 @@ namespace ArcGISSilverlightSDK
 
             Document webMap = new Document();
             webMap.GetMapCompleted += webMap_GetMapCompleted;
-            webMap.ProxyUrl = "http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx";
             webMap.GetMapAsync("d2cb7cac8b1947c7b57ed8edd6b045bb");
         }
 

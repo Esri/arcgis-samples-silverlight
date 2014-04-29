@@ -6,13 +6,13 @@
 
         <esri:Map x:Name="MyMap" Extent="-121,32,-113,36">
                 <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
 
                 <esri:ElementLayer ID="MyMediaLayer" >
                     <esri:ElementLayer.Children>
                         <!-- MediaElement source can define relative path from the perspective of the xap file. -->
                         <MediaElement xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-                                Source="http://serverapps102.esri.com/media/scec-shakeout-simulation-rt.wmv"
+                                Source="https://serverapps102.esri.com/media/scec-shakeout-simulation-rt.wmv"
                                 IsMuted="True" Stretch="Fill" MediaEnded="Media_MediaEnded"
                                 esri:ElementLayer.Envelope="-120.309183241879,32.3360853442552,-114.543827787924,35.579097787105">
                             <MediaElement.RenderTransform>

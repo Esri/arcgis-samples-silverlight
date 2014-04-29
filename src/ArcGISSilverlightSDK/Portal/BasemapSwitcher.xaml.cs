@@ -34,7 +34,7 @@ namespace ArcGISSilverlightSDK
         {
             // Initialize a portal to get the query to return web maps in the basemap gallery
             ArcGISPortal portal = new ArcGISPortal();
-            portal.InitializeAsync("http://www.arcgis.com/sharing/rest", (s, e) =>
+            portal.InitializeAsync("https://www.arcgis.com/sharing/rest", (s, e) =>
             {
                 if (portal.ArcGISPortalInfo != null)
                 {

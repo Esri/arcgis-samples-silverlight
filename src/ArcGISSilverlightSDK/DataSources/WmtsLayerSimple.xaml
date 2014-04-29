@@ -6,7 +6,8 @@
 
         <esri:Map WrapAround="True" Name="MyMap" Extent="-20037508.343,-8861125.013,20037508.343,8861125.013">
             <esri:WmtsLayer ServiceMode="RESTful" 
-                  Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS" />
+                  Url="https://sampleserver6.arcgisonline.com/arcgis/rest/services/WorldTimeZones/MapServer/WMTS" 
+                            ProxyUrl="https://serverapps102.esri.com/SilverlightDemos/ProxyPage/proxy.ashx"  />
         </esri:Map>
 
     </Grid>

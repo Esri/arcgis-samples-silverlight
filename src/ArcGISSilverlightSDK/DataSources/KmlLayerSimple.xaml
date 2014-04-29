@@ -6,10 +6,10 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" Extent="-14743403.165,1460643.375,-4724648.994,6745377.340">
             <esri:ArcGISTiledMapServiceLayer 
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
 
-            <esri:KmlLayer ID="KmlLayer" Url="http://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesKML.kmz"                       
-                           ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
+            <esri:KmlLayer ID="KmlLayer" Url="https://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesKML.kmz"                       
+                           ProxyUrl="https://serverapps102.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
         </esri:Map>
     </Grid>
 </UserControl>
