@@ -24,7 +24,7 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True">
             <esri:ArcGISTiledMapServiceLayer
-        		Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+        		Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
             <esri:GraphicsLayer ID="GeodesicResultGraphicsLayer" />
             <esri:GraphicsLayer ID="VerticesGraphicsLayer" />
         </esri:Map>

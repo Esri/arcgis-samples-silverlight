@@ -6,11 +6,11 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" Extent="-15000000,3600000,-11000000,5300000" Background="White">
             <esri:ArcGISTiledMapServiceLayer ID="Shaded Relief Basemap" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer"/>
             <esri:ArcGISDynamicMapServiceLayer ID="California" Opacity="0.4" VisibleLayers="8,10"
-                    Url="http://serverapps10.esri.com/ArcGIS/rest/services/California/MapServer" />
+                    Url="https://serverapps10.esri.com/ArcGIS/rest/services/California/MapServer" />
             <esri:FeatureLayer ID="Earthquakes" Mode="OnDemand"
-                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer/0" />
+                    Url="https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/EarthquakesFromLastSevenDays/MapServer/0" />
         </esri:Map>
 
         <Border Background="#77919191" BorderThickness="1"

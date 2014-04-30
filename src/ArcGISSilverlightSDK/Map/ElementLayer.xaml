@@ -6,7 +6,7 @@
 
         <esri:Map x:Name="MyMap">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer"/>
 
             <esri:ElementLayer>
                 <esri:ElementLayer.Children>

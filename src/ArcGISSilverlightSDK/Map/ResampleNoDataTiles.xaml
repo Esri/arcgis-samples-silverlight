@@ -5,11 +5,11 @@
     <Grid>
         <esri:Map x:Name="MyMap" WrapAround="True" Extent="4806085.897,-1324118.206,4845221.655,-1307197.989">
             <esri:ArcGISTiledMapServiceLayer ID="TiledLayerResampled"
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
                 TileLoaded="ArcGISTiledMapServiceLayer_TileLoaded"
                 />
             <esri:ArcGISTiledMapServiceLayer ID="TiledLayerNoData" Visible="False"
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
                 />
         </esri:Map>
         <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Padding="5" Background="White" 

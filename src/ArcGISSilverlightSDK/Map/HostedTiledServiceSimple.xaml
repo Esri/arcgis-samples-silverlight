@@ -5,9 +5,9 @@
     <Grid x:Name="LayoutRoot">
         <esri:Map x:Name="MyMap" WrapAround="True" >
             <esri:ArcGISTiledMapServiceLayer 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
             <esri:ArcGISTiledMapServiceLayer 
-                    Url="http://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/WorldTimeZones/MapServer" />
+                    Url="https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/WorldTimeZones/MapServer" />
         </esri:Map>
     </Grid>
 </UserControl>

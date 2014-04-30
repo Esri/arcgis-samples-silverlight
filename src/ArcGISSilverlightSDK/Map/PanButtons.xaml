@@ -8,7 +8,7 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" Background="White" Extent="99000,6000000,2170000,7120000" RenderTransformOrigin="0.5,0.5">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                      Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                      Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
             <esri:Map.RenderTransform>
                 <ScaleTransform ScaleX="0.94" ScaleY="0.9" />
             </esri:Map.RenderTransform>

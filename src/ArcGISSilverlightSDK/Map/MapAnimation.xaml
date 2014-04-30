@@ -6,7 +6,7 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" ZoomDuration="0:00:00" PanDuration="0:00:00">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
         </esri:Map>
 
         <Border Background="White" BorderThickness="1"

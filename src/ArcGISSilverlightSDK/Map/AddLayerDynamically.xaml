@@ -15,7 +15,7 @@
                 <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="Enter url to an ArcGIS Server tiled map service" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
                     <TextBlock Text="Url: " TextAlignment="Right" VerticalAlignment="Center" />
-                    <TextBox x:Name="UrlTextBox" Text="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" Width="550"/>
+                    <TextBox x:Name="UrlTextBox" Text="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" Width="550"/>
                 </StackPanel>
                 <Button x:Name="AddLayerButton" Content="Add Layer" Width="100" Margin="0,5,0,0" HorizontalAlignment="Center" Click="AddLayerButton_Click" />
             </StackPanel>

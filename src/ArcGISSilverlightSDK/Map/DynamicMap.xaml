@@ -7,7 +7,7 @@
         <esri:Map x:Name="MyMap" WrapAround="True" 
                   Extent="-12387666.9930794,3775019.32005654,-12309395.4761154,3818219.62318802">
             <esri:ArcGISDynamicMapServiceLayer ID="MyLayer"
-                Url="http://serverapps101.esri.com/arcgis/rest/services/USAStreetMap/MapServer"
+                Url="https://serverapps101.esri.com/arcgis/rest/services/USAStreetMap/MapServer"
                  />
         </esri:Map>
 

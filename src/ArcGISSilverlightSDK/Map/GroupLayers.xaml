@@ -8,19 +8,19 @@
     <Grid x:Name="LayoutRoot" Background="White">        
         <esri:Map x:Name="MyMap" Extent="-9270700.60701385,5247434.47612114,-9266497.14128696,5250070.4730108">
             <esri:ArcGISTiledMapServiceLayer ID="Street Map" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"/>
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"/>
 
             <esri:GroupLayer ID="Bloomfield Hills">
                 <esri:ArcGISDynamicMapServiceLayer ID="Parcels" 
-                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/Parcels/MapServer" />
+                    Url="https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/Parcels/MapServer" />
 
                 <esri:GroupLayer ID="Landuse Planning">
                     <esri:FeatureLayer ID="Points of Interest" Mode="OnDemand" 
-                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/0" />
+                    Url="https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/0" />
                     <esri:FeatureLayer ID="Linear Features" Mode="OnDemand" Visible="False"
-                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/1" />
+                    Url="https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/1" />
                     <esri:FeatureLayer ID="Planning Areas" Mode="OnDemand" Visible="False"
-                    Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/2" />
+                    Url="https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/BloomfieldHillsMichigan/LandusePlanning/MapServer/2" />
                 </esri:GroupLayer>
             </esri:GroupLayer>
 

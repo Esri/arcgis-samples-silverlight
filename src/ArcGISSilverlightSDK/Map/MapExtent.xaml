@@ -6,7 +6,7 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" ExtentChanged="MyMap_ExtentChanged" ExtentChanging="MyMap_ExtentChanged">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
         </esri:Map>
 
         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" >

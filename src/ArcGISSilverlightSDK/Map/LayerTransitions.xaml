@@ -5,15 +5,15 @@
     <Grid x:Name="LayoutRoot" Background="White">
         <esri:Map x:Name="MyMap" WrapAround="True">
             <esri:ArcGISTiledMapServiceLayer ID="Streets" Visible="True" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
             <esri:ArcGISTiledMapServiceLayer ID="Topo" Visible="False"
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
             <esri:ArcGISTiledMapServiceLayer ID="Imagery" Visible="False"
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" />
             <esri:ArcGISTiledMapServiceLayer ID="Oceans" Visible="False"
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer" />
             <esri:ArcGISTiledMapServiceLayer ID="NatGeo" Visible="False"
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer" />
         </esri:Map>
         <Border HorizontalAlignment="Right" VerticalAlignment="Top" Padding="5" Margin="10"
                 Background="White">

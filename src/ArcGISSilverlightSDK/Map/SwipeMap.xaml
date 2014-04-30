@@ -6,12 +6,12 @@
 
         <esri:Map x:Name="BelowMap" Visibility="Collapsed" WrapAround="True" >
             <esri:ArcGISTiledMapServiceLayer 
-                        Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_Imagery_World_2D/MapServer"/>
+                        Url="https://services.arcgisonline.com/ArcGIS/rest/services/ESRI_Imagery_World_2D/MapServer"/>
         </esri:Map>
 
         <esri:Map x:Name="AboveMap" WrapAround="True" ExtentChanging="AboveMap_ExtentChanging">
             <esri:ArcGISTiledMapServiceLayer
-                        Url="http://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
+                        Url="https://services.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer"/>
         </esri:Map>
 
         <Canvas x:Name="rootCanvas" SizeChanged="canvas_SizeChanged">            

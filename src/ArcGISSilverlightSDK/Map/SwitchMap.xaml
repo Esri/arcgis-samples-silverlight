@@ -6,21 +6,21 @@
 
         <esri:Map x:Name="MyMap" WrapAround="True" Loaded="MyMap_Loaded">
             <esri:ArcGISTiledMapServiceLayer ID="AGOLayer" Visible="True" 
-                    Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                    Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
         </esri:Map>
 
         <Grid HorizontalAlignment="Right" Background="#CC919191" VerticalAlignment="Top" Margin="10" >            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent" Margin="5">
                 <RadioButton x:Name="StreetsRadioButton" 
-                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
+                         Tag="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
                          IsChecked="true" Margin="5,0,0,0" Foreground="White"
                          GroupName="Layers" Content="Streets" Click="RadioButton_Click"/>
                 <RadioButton x:Name="TopoRadioButton" 
-                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" 
+                         Tag="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" 
                          Margin="5,0,0,0" Foreground="White" 
                          GroupName="Layers" Content="Topo" Click="RadioButton_Click"/>
                 <RadioButton x:Name="ImageryRadioButton" 
-                         Tag="http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" 
+                         Tag="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer" 
                          Margin="5,0,0,0" Foreground="White" 
                          GroupName="Layers" Content="Imagery" Click="RadioButton_Click"/>
             </StackPanel>

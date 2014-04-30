@@ -31,7 +31,7 @@
 
         <esri:Map WrapAround="True" Style="{StaticResource MyMapStyle}" >
             <esri:ArcGISTiledMapServiceLayer 
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
+                Url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
         </esri:Map>
 
         <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5" >
