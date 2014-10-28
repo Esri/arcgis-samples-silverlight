@@ -108,7 +108,7 @@
                   TimeExtent="{Binding ElementName=MyTimeSlider, Path=Value, Mode=OneWay}">
             <esri:ArcGISTiledMapServiceLayer Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" />
 
-            <esri:FeatureLayer ID="MyHurricaneFeatureLayer" Url="http://servicesbeta.esri.com/ArcGIS/rest/services/Hurricanes/Hurricanes/MapServer/0"
+            <esri:FeatureLayer ID="MyHurricaneFeatureLayer" Url="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Hurricanes/MapServer/0"
                                OutFields="EVENTID,WINDSPEED"
                                Renderer="{StaticResource MyTemporalRenderer}" 
                                Initialized="FeatureLayer_Initialized"/>
