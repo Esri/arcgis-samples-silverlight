@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -48,7 +49,7 @@ namespace ArcGISSilverlightSDK
 
             string SOEurl = "http://sampleserver4.arcgisonline.com/ArcGIS/rest/services/Elevation/ESRI_Elevation_World/MapServer/exts/ElevationsSOE/ElevationLayers/1/GetElevationData?";
 
-            SOEurl += string.Format("Extent={{\"xmin\" : {0}, \"ymin\" : {1}, \"xmax\" : {2}, \"ymax\" :{3},\"spatialReference\" : {{\"wkid\" : {4}}}}}&Rows={5}&Columns={6}&f=json",
+            SOEurl += string.Format(CultureInfo.InvariantCulture, "Extent={{\"xmin\" : {0}, \"ymin\" : {1}, \"xmax\" : {2}, \"ymax\" :{3},\"spatialReference\" : {{\"wkid\" : {4}}}}}&Rows={5}&Columns={6}&f=json",
                 aoiEnvelope.XMin, aoiEnvelope.YMin, aoiEnvelope.XMax, aoiEnvelope.YMax,
                 MyMap.SpatialReference.WKID, HeightTextBox.Text, WidthTextBox.Text);
 
