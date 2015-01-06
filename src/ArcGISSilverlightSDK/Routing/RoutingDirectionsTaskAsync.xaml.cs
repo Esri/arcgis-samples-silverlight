@@ -54,6 +54,9 @@ namespace ArcGISSilverlightSDK
                 _stops.Clear();
                 _routeGraphicsLayer.Graphics.Clear();
 
+
+                _activeSegmentGraphic = null;
+
                 //Geocode from address
                 LocatorTaskFindResult fromAddress = await _locator.FindTaskAsync(ParseSearchText(FromTextBox.Text), _cts.Token);
                 // if no result?

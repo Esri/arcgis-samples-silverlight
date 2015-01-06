@@ -16,6 +16,7 @@ namespace ArcGISSilverlightSDK
         GraphicsLayer graphicsLayer;
         List<FillSymbol> bufferSymbols;
         MapPoint inputPoint;
+        string descText;
 
         public DriveTimes()
         {
@@ -32,19 +33,18 @@ namespace ArcGISSilverlightSDK
             _geoprocessorTask.StatusUpdated += GeoprocessorTask_StatusUpdated;
             _geoprocessorTask.GetResultDataCompleted += GeoprocessorTask_GetResultDataCompleted;
             _geoprocessorTask.Failed += GeoprocessorTask_Failed;
+
+            descText = InformationText.Text;
         }
 
         private void MyMap_MouseClick(object sender, ESRI.ArcGIS.Client.Map.MouseEventArgs e)
-        {           
-            if (jobid != null)
-            {
-                inputPoint = e.MapPoint;
-                _geoprocessorTask.CancelJobAsync(jobid);               
-            }
-            else
+        {
+            
+            //Submit a new job only when the previous is completed
+            if (jobid == null)
             {
                 inputPoint = null;
-                SubmitJob(e.MapPoint);               
+                SubmitJob(e.MapPoint);
             }
         }
 
@@ -65,11 +65,18 @@ namespace ArcGISSilverlightSDK
             parameters.Add(new GPString("Break_Values", "1 2 3"));
             parameters.Add(new GPString("Break_Units", "Minutes"));
 
-            _geoprocessorTask.SubmitJobAsync(parameters);           
+            _geoprocessorTask.SubmitJobAsync(parameters);
+
+            InformationText.Text += "\n\nProcessing";
         }
 
         void GeoprocessorTask_StatusUpdated(object sender, JobInfoEventArgs e)
         {
+            if(InformationText.Text.Length > 102)
+                InformationText.Text = descText + "\n\nProcessing";
+            else
+                InformationText.Text += ".";
+
             jobid = e.JobInfo.JobStatus == esriJobStatus.esriJobCancelled ||
                 e.JobInfo.JobStatus == esriJobStatus.esriJobDeleted ||
                 e.JobInfo.JobStatus == esriJobStatus.esriJobFailed
@@ -84,8 +91,13 @@ namespace ArcGISSilverlightSDK
         private void GeoprocessorTask_JobCompleted(object sender, JobInfoEventArgs e)
         {
             jobid = null;
+
+            InformationText.Text = descText;
+
             if (e.JobInfo.JobStatus == esriJobStatus.esriJobSucceeded)
                 _geoprocessorTask.GetResultDataAsync(e.JobInfo.JobId, "ServiceAreas");
+            if (e.JobInfo.JobStatus == esriJobStatus.esriJobFailed)
+                MessageBox.Show("Geoprocessing service failed! Check the Geoproccessing Parameters.");
         }
 
         void GeoprocessorTask_GetResultDataCompleted(object sender, GPParameterEventArgs e)
@@ -105,6 +117,8 @@ namespace ArcGISSilverlightSDK
 
         private void GeoprocessorTask_Failed(object sender, TaskFailedEventArgs e)
         {
+            InformationText.Text = descText;
+            jobid = null;
             MessageBox.Show("Geoprocessing service failed: " + e.Error);
         }
     }

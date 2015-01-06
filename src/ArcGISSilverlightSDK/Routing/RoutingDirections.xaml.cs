@@ -41,12 +41,13 @@ namespace ArcGISSilverlightSDK
             _locator.FindCompleted += locator_FindCompleted;
             _locator.Failed += task_Failed;
         }
-        
+
         private void GetDirections_Click(object sender, RoutedEventArgs e)
         {
             //Reset
             DirectionsStackPanel.Children.Clear();
             _stops.Clear();
+            _activeSegmentGraphic = null;
 
             (MyMap.Layers["MyRouteGraphicsLayer"] as GraphicsLayer).Graphics.Clear();
             _locator.CancelAsync();
