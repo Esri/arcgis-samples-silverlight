@@ -8,7 +8,7 @@
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer"
                     Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"/>
             <esri:FeatureLayer ID="MyFeatureLayer"
-                    Url="http://services.arcgis.com/pmcEyn9tLWCoX7Dm/ArcGIS/rest/services/United_States_Nuclear_Missile_Silos/FeatureServer/0"
+                    Url="https://services.arcgis.com/pmcEyn9tLWCoX7Dm/ArcGIS/rest/services/United_States_Nuclear_Missile_Silos/FeatureServer/0"
                     OutFields="Name">
                 <esri:FeatureLayer.MapTip>
                     <Border CornerRadius="5" BorderBrush="Black" BorderThickness="1" Background="White">
