@@ -9,7 +9,7 @@
                 Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer" />
 
             <esri:KmlLayer ID="KmlLayer" Url="http://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesKML.kmz"                       
-                           ProxyUrl="http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx" />
+                           ProxyUrl="http://serverapps102.esri.com/resourceproxy/net/proxy.ashx" />
         </esri:Map>
     </Grid>
 </UserControl>

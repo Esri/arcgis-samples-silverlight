@@ -6,10 +6,10 @@
 
         <esri:Map x:Name="MyMap"  WrapAround="True">
             <esri:ArcGISTiledMapServiceLayer ID="StreetMapLayer" 
-                Url="http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer" 
+                Url="http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer" 
                 InitializationFailed="Layer_InitializationFailed" />
             <esri:ArcGISDynamicMapServiceLayer ID="DynamicLayer" 
-                Url="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Earthquakes/RecentEarthquakesRendered/MapServer"
+                Url="http://maps1.arcgisonline.com/ArcGIS/rest/services/USGS_Earthquake_Faults/MapServer"
                 InitializationFailed="Layer_InitializationFailed" />
         </esri:Map>
 
