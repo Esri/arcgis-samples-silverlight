@@ -49,7 +49,7 @@ namespace ArcGISSilverlightSDK
       Geoprocessor geoprocessorTask = new Geoprocessor("http://serverapps10.esri.com/ArcGIS/rest/services/" +
           "SamplesNET/USA_Data_ClipTools/GPServer/ClipCounties");
 
-      //geoprocessorTask.ProxyURL = "http://servicesbeta3.esri.com/SilverlightDemos/ProxyPage/proxy.ashx";
+      //geoprocessorTask.ProxyURL = "http://serverapps102.esri.com/resourceproxy/net/proxy.ashx";
 
       geoprocessorTask.UpdateDelay = 5000;
       geoprocessorTask.JobCompleted += GeoprocessorTask_JobCompleted;

@@ -1,62 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArcGISSilverlightSDK>
   <Category>
-    <name>What's New</name>
-    <icon>Assets/images/globe-16x16.png</icon>
-    <items>
-      <item>
-        <id>WebTiledLayer</id>
-        <xaml>ArcGISSilverlightSDK.WebTiledLayers</xaml>
-        <source>Assets/Source/WebTiledLayers.xaml</source>
-        <code>Assets/Source/WebTiledLayers.xaml.cs.txt</code>
-        <codevb>Assets/Source/WebTiledLayers.xaml.vb.txt</codevb>
-        <desc>Assets/Description/WebTiledLayers.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords>WebTiledLayer</keywords>
-      </item>
-      <item>
-        <id>Dynamic Layer Labeling</id>
-        <xaml>ArcGISSilverlightSDK.DynamicLayerLabeling</xaml>
-        <source>Assets/Source/DynamicLayerLabeling.xaml</source>
-        <code>Assets/Source/DynamicLayerLabeling.xaml.cs.txt</code>
-        <codevb>Assets/Source/DynamicLayerLabeling.xaml.vb.txt</codevb>
-        <desc>Assets/Description/DynamicLayerLabeling.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords>Dynamic,Layer,Label</keywords>
-      </item>
-      <item>
-        <id>Renderer Rotation</id>
-        <xaml>ArcGISSilverlightSDK.RendererRotation</xaml>
-        <source>Assets/Source/RendererRotation.xaml</source>
-        <code>Assets/Source/RendererRotation.xaml.cs.txt</code>
-        <codevb>Assets/Source/RendererRotation.xaml.vb.txt</codevb>
-        <desc>Assets/Description/RendererRotation.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords>Renderer,Rotation,Angle</keywords>
-      </item>
-      <item>
-        <id>Marker Symbol Angle</id>
-        <xaml>ArcGISSilverlightSDK.MarkerSymbolAngle</xaml>
-        <source>Assets/Source/MarkerSymbolAngle.xaml</source>
-        <code>Assets/Source/MarkerSymbolAngle.xaml.cs.txt</code>
-        <codevb>Assets/Source/MarkerSymbolAngle.xaml.vb.txt</codevb>
-        <desc>Assets/Description/MarkerSymbolAngle.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords>MarkerSymbol,Angle</keywords>
-      </item>
-      <item>
-        <id>Web Request Filtering</id>
-        <xaml>ArcGISSilverlightSDK.WebRequestFiltering</xaml>
-        <source>Assets/Source/WebRequestFiltering.xaml</source>
-        <code>Assets/Source/WebRequestFiltering.xaml.cs.txt</code>
-        <codevb>Assets/Source/WebRequestFiltering.xaml.vb.txt</codevb>
-        <desc>Assets/Description/WebRequestFiltering.txt</desc>
-        <icon>Assets/images/small_bullet.png</icon>
-        <keywords>WebRequest,RegisterPrefix</keywords>
-      </item>
-    </items>
-  </Category>
-  <Category>
     <name>Mapping</name>
     <icon>Assets/images/globe-16x16.png</icon>
     <items>
