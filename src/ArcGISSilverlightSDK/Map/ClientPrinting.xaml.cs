@@ -530,16 +530,17 @@ namespace ArcGISSilverlightSDK
                     Object value = propertyInfo.GetValue(source, null);
                     if (value != null)
                     {
-                        if (propertyInfo.PropertyType.GetInterface("IList", true) != null && !propertyInfo.PropertyType.IsArray)
+                        var cloneValue = propertyInfo.GetValue(clone, null);
+                        if (propertyInfo.PropertyType.GetInterface("IList", true) != null && !propertyInfo.PropertyType.IsArray && cloneValue != null)
                         {
                             // Collection ==> loop on items and clone them (we suppose the collection itself is already initialized!)
                             var count = (int)propertyInfo.PropertyType.InvokeMember("get_Count", BindingFlags.InvokeMethod, null, value, null);
-                            propertyInfo.PropertyType.InvokeMember("Clear", BindingFlags.InvokeMethod, null, propertyInfo.GetValue(clone, null), null); // without this line, text can be duplicated due to inlines objects added after text is set
+                            propertyInfo.PropertyType.InvokeMember("Clear", BindingFlags.InvokeMethod, null, cloneValue, null); // without this line, text can be duplicated due to inlines objects added after text is set
 
                             for (int index = 0; index < count; index++)
                             {
                                 object itemValue = propertyInfo.PropertyType.InvokeMember("get_Item", BindingFlags.InvokeMethod, null, propertyInfo.GetValue(source, null), new object[] { index });
-                                propertyInfo.PropertyType.InvokeMember("Add", BindingFlags.InvokeMethod, null, propertyInfo.GetValue(clone, null), new[] { CloneDependencyObject(itemValue) });
+                                propertyInfo.PropertyType.InvokeMember("Add", BindingFlags.InvokeMethod, null, cloneValue, new[] { CloneDependencyObject(itemValue) });
                             }
                         }
                         else if (propertyInfo.CanWrite && propertyInfo.GetSetMethod() != null)
