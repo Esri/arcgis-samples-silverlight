@@ -563,7 +563,7 @@ namespace ArcGISSilverlightSDK
 
         static private object CloneDependencyObject(object source)
         {
-            return source is DependencyObject && !(source is ControlTemplate) ? (source as DependencyObject).Clone() : source;
+            return source is DependencyObject && !(source is ControlTemplate || source is IRenderer) ? (source as DependencyObject).Clone() : source;
         }
 
         static private void SetDependencyProperty(DependencyProperty dp, DependencyObject source, DependencyObject clone)
